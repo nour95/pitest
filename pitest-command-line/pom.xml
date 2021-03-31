@@ -81,8 +81,14 @@
 			<artifactId>jopt-simple</artifactId>
 			<version>4.9</version>
 		</dependency>
+        <dependency>
+            <groupId>com.google.jimfs</groupId>
+            <artifactId>jimfs</artifactId>
+            <version>1.1</version>
+            <scope>compile</scope>
+        </dependency>
 
-	</dependencies>
+    </dependencies>
 
 
 </project>
