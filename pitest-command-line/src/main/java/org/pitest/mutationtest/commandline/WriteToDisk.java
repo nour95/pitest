@@ -18,6 +18,7 @@ import java.net.URL;
 import java.net.URLClassLoader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.FileSystem;
+import java.nio.file.FileSystems;
 import java.util.Collection;
 
 public class WriteToDisk {
@@ -38,6 +39,7 @@ public class WriteToDisk {
         this.source = new ClassloaderByteArraySource(classLoader);
         final Collection<MethodMutatorFactory> mutators = Mutator.newDefaults();
         this.mutator = new GregorMutater(this.source, m -> true, mutators);
+        this.fileSystem = FileSystems.getDefault();
         this.testee = new MutantExportInterceptor(this.fileSystem, this.source, target);
     }
 
@@ -50,7 +52,9 @@ public class WriteToDisk {
                 ClassName.fromClass(clazz)
         );
 
-        this.testee.begin(ClassTree.fromBytes(this.source.getBytes(clazz.getName()).get()));
+        String name = clazz.getName();
+        byte[] bytes = this.source.getBytes(name).get();
+        this.testee.begin(ClassTree.fromBytes(bytes));
         this.testee.intercept(mutations, this.mutator);
         this.testee.end();
     }
@@ -74,5 +78,7 @@ public class WriteToDisk {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         WriteToDisk wtd = new WriteToDisk(args[0], args[1]);
         wtd.mutateAllIn(args[3]);
+//        WriteToDisk wtd = new WriteToDisk("classes-to-mutate", "target-to-save-mutants");
+//        wtd.mutateAllIn("classes-to-mutate.txt");
     }
 }
