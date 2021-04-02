@@ -28,6 +28,11 @@ public class WriteToDisk {
     FileSystem fileSystem;
     GregorMutater mutator;
 
+    /**
+     * @param source folder containing all classes to choose the classes to mutate from.
+     * @param target folder containing all mutated classes.
+     * @throws MalformedURLException
+     */
     public WriteToDisk(String source, String target) throws MalformedURLException {
         this.classLoader = new URLClassLoader(new URL[]{new File(source).toURI().toURL()});
         this.source = new ClassloaderByteArraySource(classLoader);
@@ -50,6 +55,12 @@ public class WriteToDisk {
         this.testee.end();
     }
 
+    /**
+     * File containing class names to mutate on every line.
+     * @param fileName name of file containing class names
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     public void mutateAllIn(String fileName) throws IOException, ClassNotFoundException {
         BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(fileName),
                 StandardCharsets.UTF_8));
