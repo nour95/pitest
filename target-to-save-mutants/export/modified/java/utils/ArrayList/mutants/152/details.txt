@@ -1,0 +1,1 @@
+MutationDetails [id=MutationIdentifier [location=Location [clazz=modified.java.utils.ArrayList, method=removeRange, methodDesc=(II)V], indexes=[50], mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator], filename=ArrayList.java, block=3, lineNumber=602, description=Replaced integer subtraction with addition, testsInOrder=[], isInFinallyBlock=false, poison=NORMAL]

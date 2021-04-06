@@ -1,1 +1,6 @@
 to.mutate.pack.MutateExample
+modified.java.utils.ArrayList
+modified.java.utils.ArrayList$SubList
+modified.java.utils.ArrayList$SubList$1
+modified.java.utils.ArrayList$ListItr
+modified.java.utils.ArrayList$Itr

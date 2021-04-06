@@ -1,0 +1,2035 @@
+// class version 55.0 (55)
+// access flags 0x21
+// signature <E:Ljava/lang/Object;>Lmodified/java/utils/AbstractList<TE;>;Ljava/util/List<TE;>;Ljava/util/RandomAccess;Ljava/lang/Cloneable;Ljava/io/Serializable;
+// declaration: modified/java/utils/ArrayList<E> extends modified.java.utils.AbstractList<E> implements java.util.List<E>, java.util.RandomAccess, java.lang.Cloneable, java.io.Serializable
+public class modified/java/utils/ArrayList extends modified/java/utils/AbstractList implements java/util/List java/util/RandomAccess java/lang/Cloneable java/io/Serializable {
+
+  // compiled from: ArrayList.java
+  NESTMEMBER modified/java/utils/ArrayList$SubList
+  NESTMEMBER modified/java/utils/ArrayList$SubList$1
+  NESTMEMBER modified/java/utils/ArrayList$ListItr
+  NESTMEMBER modified/java/utils/ArrayList$Itr
+  // access flags 0x2
+  private INNERCLASS modified/java/utils/ArrayList$SubList modified/java/utils/ArrayList SubList
+  // access flags 0x2
+  private INNERCLASS modified/java/utils/ArrayList$ListItr modified/java/utils/ArrayList ListItr
+  // access flags 0x2
+  private INNERCLASS modified/java/utils/ArrayList$Itr modified/java/utils/ArrayList Itr
+  // access flags 0x0
+  INNERCLASS modified/java/utils/ArrayList$SubList$1 null null
+  // access flags 0x19
+  public final static INNERCLASS java/lang/invoke/MethodHandles$Lookup java/lang/invoke/MethodHandles Lookup
+
+  // access flags 0x1A
+  private final static J serialVersionUID = 8683452581122892189
+
+  // access flags 0x82
+  private transient [Ljava/lang/Object; elementData
+
+  // access flags 0x2
+  private I size
+
+  // access flags 0x1A
+  private final static I MAX_ARRAY_SIZE = 2147483639
+
+  // access flags 0x1
+  public <init>(I)V
+   L0
+    LINENUMBER 137 L0
+    ALOAD 0
+    INVOKESPECIAL modified/java/utils/AbstractList.<init> ()V
+   L1
+    LINENUMBER 138 L1
+    ILOAD 1
+    IFGE L2
+   L3
+    LINENUMBER 139 L3
+    NEW java/lang/IllegalArgumentException
+    DUP
+    ILOAD 1
+    INVOKEDYNAMIC makeConcatWithConstants(I)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "Illegal Capacity: \u0001"
+    ]
+    INVOKESPECIAL java/lang/IllegalArgumentException.<init> (Ljava/lang/String;)V
+    ATHROW
+   L2
+    LINENUMBER 141 L2
+   FRAME FULL [modified/java/utils/ArrayList I] []
+    ALOAD 0
+    ILOAD 1
+    ANEWARRAY java/lang/Object
+    PUTFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+   L4
+    LINENUMBER 142 L4
+    RETURN
+   L5
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList; L0 L5 0
+    // signature Lmodified/java/utils/ArrayList<TE;>;
+    // declaration: this extends modified.java.utils.ArrayList<E>
+    LOCALVARIABLE initialCapacity I L0 L5 1
+    MAXSTACK = 3
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public <init>()V
+   L0
+    LINENUMBER 148 L0
+    ALOAD 0
+    BIPUSH 10
+    INVOKESPECIAL modified/java/utils/ArrayList.<init> (I)V
+   L1
+    LINENUMBER 149 L1
+    RETURN
+   L2
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList; L0 L2 0
+    // signature Lmodified/java/utils/ArrayList<TE;>;
+    // declaration: this extends modified.java.utils.ArrayList<E>
+    MAXSTACK = 2
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  // signature (Ljava/util/Collection<+TE;>;)V
+  // declaration: void <init>(java.util.Collection<? extends E>)
+  public <init>(Ljava/util/Collection;)V
+   L0
+    LINENUMBER 159 L0
+    ALOAD 0
+    INVOKESPECIAL modified/java/utils/AbstractList.<init> ()V
+   L1
+    LINENUMBER 160 L1
+    ALOAD 0
+    ALOAD 1
+    INVOKEINTERFACE java/util/Collection.toArray ()[Ljava/lang/Object; (itf)
+    PUTFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+   L2
+    LINENUMBER 161 L2
+    ALOAD 0
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    ARRAYLENGTH
+    PUTFIELD modified/java/utils/ArrayList.size : I
+   L3
+    LINENUMBER 163 L3
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    INVOKEVIRTUAL java/lang/Object.getClass ()Ljava/lang/Class;
+    LDC [Ljava/lang/Object;.class
+    IF_ACMPNE L4
+   L5
+    LINENUMBER 164 L5
+    ALOAD 0
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    LDC [Ljava/lang/Object;.class
+    INVOKESTATIC java/util/Arrays.copyOf ([Ljava/lang/Object;ILjava/lang/Class;)[Ljava/lang/Object;
+    PUTFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+   L4
+    LINENUMBER 165 L4
+   FRAME FULL [modified/java/utils/ArrayList java/util/Collection] []
+    RETURN
+   L6
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList; L0 L6 0
+    // signature Lmodified/java/utils/ArrayList<TE;>;
+    // declaration: this extends modified.java.utils.ArrayList<E>
+    LOCALVARIABLE c Ljava/util/Collection; L0 L6 1
+    // signature Ljava/util/Collection<+TE;>;
+    // declaration: c extends java.util.Collection<? extends E>
+    MAXSTACK = 4
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public trimToSize()V
+   L0
+    LINENUMBER 173 L0
+    ALOAD 0
+    DUP
+    GETFIELD modified/java/utils/ArrayList.modCount : I
+    ICONST_1
+    IADD
+    PUTFIELD modified/java/utils/ArrayList.modCount : I
+   L1
+    LINENUMBER 174 L1
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    ARRAYLENGTH
+    ISTORE 1
+   L2
+    LINENUMBER 175 L2
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    ILOAD 1
+    IF_ICMPGE L3
+   L4
+    LINENUMBER 176 L4
+    ALOAD 0
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    INVOKESTATIC java/util/Arrays.copyOf ([Ljava/lang/Object;I)[Ljava/lang/Object;
+    PUTFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+   L3
+    LINENUMBER 178 L3
+   FRAME FULL [modified/java/utils/ArrayList I] []
+    RETURN
+   L5
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList; L0 L5 0
+    // signature Lmodified/java/utils/ArrayList<TE;>;
+    // declaration: this extends modified.java.utils.ArrayList<E>
+    LOCALVARIABLE oldCapacity I L2 L5 1
+    MAXSTACK = 3
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public ensureCapacity(I)V
+   L0
+    LINENUMBER 188 L0
+    ILOAD 1
+    IFLE L1
+   L2
+    LINENUMBER 189 L2
+    ALOAD 0
+    ILOAD 1
+    INVOKEVIRTUAL modified/java/utils/ArrayList.ensureCapacityInternal (I)V
+   L1
+    LINENUMBER 190 L1
+   FRAME FULL [modified/java/utils/ArrayList I] []
+    RETURN
+   L3
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList; L0 L3 0
+    // signature Lmodified/java/utils/ArrayList<TE;>;
+    // declaration: this extends modified.java.utils.ArrayList<E>
+    LOCALVARIABLE minCapacity I L0 L3 1
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x2
+  private ensureCapacityInternal(I)V
+   L0
+    LINENUMBER 193 L0
+    ALOAD 0
+    DUP
+    GETFIELD modified/java/utils/ArrayList.modCount : I
+    ICONST_1
+    IADD
+    PUTFIELD modified/java/utils/ArrayList.modCount : I
+   L1
+    LINENUMBER 195 L1
+    ILOAD 1
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    ARRAYLENGTH
+    ISUB
+    IFLE L2
+   L3
+    LINENUMBER 196 L3
+    ALOAD 0
+    ILOAD 1
+    INVOKEVIRTUAL modified/java/utils/ArrayList.grow (I)V
+   L2
+    LINENUMBER 197 L2
+   FRAME FULL [modified/java/utils/ArrayList I] []
+    RETURN
+   L4
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList; L0 L4 0
+    // signature Lmodified/java/utils/ArrayList<TE;>;
+    // declaration: this extends modified.java.utils.ArrayList<E>
+    LOCALVARIABLE minCapacity I L0 L4 1
+    MAXSTACK = 3
+    MAXLOCALS = 2
+
+  // access flags 0x2
+  private grow(I)V
+   L0
+    LINENUMBER 215 L0
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    ARRAYLENGTH
+    ISTORE 2
+   L1
+    LINENUMBER 216 L1
+    ILOAD 2
+    ILOAD 2
+    ICONST_1
+    ISHR
+    IADD
+    ISTORE 3
+   L2
+    LINENUMBER 217 L2
+    ILOAD 3
+    ILOAD 1
+    ISUB
+    IFGE L3
+   L4
+    LINENUMBER 218 L4
+    ILOAD 1
+    ISTORE 3
+   L3
+    LINENUMBER 219 L3
+   FRAME FULL [modified/java/utils/ArrayList I I I] []
+    ILOAD 3
+    LDC 2147483639
+    ISUB
+    IFLE L5
+   L6
+    LINENUMBER 220 L6
+    ILOAD 1
+    INVOKESTATIC modified/java/utils/ArrayList.hugeCapacity (I)I
+    ISTORE 3
+   L5
+    LINENUMBER 222 L5
+   FRAME FULL [modified/java/utils/ArrayList I I I] []
+    ALOAD 0
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 3
+    INVOKESTATIC java/util/Arrays.copyOf ([Ljava/lang/Object;I)[Ljava/lang/Object;
+    PUTFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+   L7
+    LINENUMBER 223 L7
+    RETURN
+   L8
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList; L0 L8 0
+    // signature Lmodified/java/utils/ArrayList<TE;>;
+    // declaration: this extends modified.java.utils.ArrayList<E>
+    LOCALVARIABLE minCapacity I L0 L8 1
+    LOCALVARIABLE oldCapacity I L1 L8 2
+    LOCALVARIABLE newCapacity I L2 L8 3
+    MAXSTACK = 3
+    MAXLOCALS = 4
+
+  // access flags 0xA
+  private static hugeCapacity(I)I
+   L0
+    LINENUMBER 226 L0
+    ILOAD 0
+    IFGE L1
+   L2
+    LINENUMBER 227 L2
+    NEW java/lang/OutOfMemoryError
+    DUP
+    INVOKESPECIAL java/lang/OutOfMemoryError.<init> ()V
+    ATHROW
+   L1
+    LINENUMBER 228 L1
+   FRAME FULL [I] []
+    ILOAD 0
+    LDC 2147483639
+    IF_ICMPLE L3
+   L4
+    LINENUMBER 229 L4
+    LDC 2147483647
+    GOTO L5
+   L3
+    LINENUMBER 230 L3
+   FRAME FULL [I] []
+    LDC 2147483639
+   L5
+    LINENUMBER 228 L5
+   FRAME FULL [I] [I]
+    IRETURN
+   L6
+    LOCALVARIABLE minCapacity I L0 L6 0
+    MAXSTACK = 2
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public size()I
+   L0
+    LINENUMBER 239 L0
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    IRETURN
+   L1
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList; L0 L1 0
+    // signature Lmodified/java/utils/ArrayList<TE;>;
+    // declaration: this extends modified.java.utils.ArrayList<E>
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public isEmpty()Z
+   L0
+    LINENUMBER 248 L0
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    IFNE L1
+    ICONST_1
+    GOTO L2
+   L1
+   FRAME FULL [modified/java/utils/ArrayList] []
+    ICONST_0
+   L2
+   FRAME FULL [modified/java/utils/ArrayList] [I]
+    IRETURN
+   L3
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList; L0 L3 0
+    // signature Lmodified/java/utils/ArrayList<TE;>;
+    // declaration: this extends modified.java.utils.ArrayList<E>
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public contains(Ljava/lang/Object;)Z
+   L0
+    LINENUMBER 261 L0
+    ALOAD 0
+    ALOAD 1
+    INVOKEVIRTUAL modified/java/utils/ArrayList.indexOf (Ljava/lang/Object;)I
+    IFLT L1
+    ICONST_1
+    GOTO L2
+   L1
+   FRAME FULL [modified/java/utils/ArrayList java/lang/Object] []
+    ICONST_0
+   L2
+   FRAME FULL [modified/java/utils/ArrayList java/lang/Object] [I]
+    IRETURN
+   L3
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList; L0 L3 0
+    // signature Lmodified/java/utils/ArrayList<TE;>;
+    // declaration: this extends modified.java.utils.ArrayList<E>
+    LOCALVARIABLE o Ljava/lang/Object; L0 L3 1
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public indexOf(Ljava/lang/Object;)I
+   L0
+    LINENUMBER 272 L0
+    ALOAD 1
+    IFNONNULL L1
+   L2
+    LINENUMBER 273 L2
+    ICONST_0
+    ISTORE 2
+   L3
+   FRAME FULL [modified/java/utils/ArrayList java/lang/Object I] []
+    ILOAD 2
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    IF_ICMPGE L4
+   L5
+    LINENUMBER 274 L5
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 2
+    AALOAD
+    IFNONNULL L6
+   L7
+    LINENUMBER 275 L7
+    ILOAD 2
+    IRETURN
+   L6
+    LINENUMBER 273 L6
+   FRAME FULL [modified/java/utils/ArrayList java/lang/Object I] []
+    IINC 2 1
+    GOTO L3
+   L4
+   FRAME FULL [modified/java/utils/ArrayList java/lang/Object I] []
+    GOTO L8
+   L1
+    LINENUMBER 277 L1
+   FRAME FULL [modified/java/utils/ArrayList java/lang/Object] []
+    ICONST_0
+    ISTORE 2
+   L9
+   FRAME FULL [modified/java/utils/ArrayList java/lang/Object I] []
+    ILOAD 2
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    IF_ICMPGE L8
+   L10
+    LINENUMBER 278 L10
+    ALOAD 1
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 2
+    AALOAD
+    INVOKEVIRTUAL java/lang/Object.equals (Ljava/lang/Object;)Z
+    IFEQ L11
+   L12
+    LINENUMBER 279 L12
+    ILOAD 2
+    IRETURN
+   L11
+    LINENUMBER 277 L11
+   FRAME FULL [modified/java/utils/ArrayList java/lang/Object I] []
+    IINC 2 1
+    GOTO L9
+   L8
+    LINENUMBER 281 L8
+   FRAME FULL [modified/java/utils/ArrayList java/lang/Object I] []
+    ICONST_M1
+    IRETURN
+   L13
+    LOCALVARIABLE i I L3 L4 2
+    LOCALVARIABLE i I L9 L8 2
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList; L0 L13 0
+    // signature Lmodified/java/utils/ArrayList<TE;>;
+    // declaration: this extends modified.java.utils.ArrayList<E>
+    LOCALVARIABLE o Ljava/lang/Object; L0 L13 1
+    MAXSTACK = 3
+    MAXLOCALS = 3
+
+  // access flags 0x1
+  public lastIndexOf(Ljava/lang/Object;)I
+   L0
+    LINENUMBER 292 L0
+    ALOAD 1
+    IFNONNULL L1
+   L2
+    LINENUMBER 293 L2
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    ICONST_1
+    ISUB
+    ISTORE 2
+   L3
+   FRAME FULL [modified/java/utils/ArrayList java/lang/Object I] []
+    ILOAD 2
+    IFLT L4
+   L5
+    LINENUMBER 294 L5
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 2
+    AALOAD
+    IFNONNULL L6
+   L7
+    LINENUMBER 295 L7
+    ILOAD 2
+    IRETURN
+   L6
+    LINENUMBER 293 L6
+   FRAME FULL [modified/java/utils/ArrayList java/lang/Object I] []
+    IINC 2 -1
+    GOTO L3
+   L4
+   FRAME FULL [modified/java/utils/ArrayList java/lang/Object I] []
+    GOTO L8
+   L1
+    LINENUMBER 297 L1
+   FRAME FULL [modified/java/utils/ArrayList java/lang/Object] []
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    ICONST_1
+    ISUB
+    ISTORE 2
+   L9
+   FRAME FULL [modified/java/utils/ArrayList java/lang/Object I] []
+    ILOAD 2
+    IFLT L8
+   L10
+    LINENUMBER 298 L10
+    ALOAD 1
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 2
+    AALOAD
+    INVOKEVIRTUAL java/lang/Object.equals (Ljava/lang/Object;)Z
+    IFEQ L11
+   L12
+    LINENUMBER 299 L12
+    ILOAD 2
+    IRETURN
+   L11
+    LINENUMBER 297 L11
+   FRAME FULL [modified/java/utils/ArrayList java/lang/Object I] []
+    IINC 2 -1
+    GOTO L9
+   L8
+    LINENUMBER 301 L8
+   FRAME FULL [modified/java/utils/ArrayList java/lang/Object I] []
+    ICONST_M1
+    IRETURN
+   L13
+    LOCALVARIABLE i I L3 L4 2
+    LOCALVARIABLE i I L9 L8 2
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList; L0 L13 0
+    // signature Lmodified/java/utils/ArrayList<TE;>;
+    // declaration: this extends modified.java.utils.ArrayList<E>
+    LOCALVARIABLE o Ljava/lang/Object; L0 L13 1
+    MAXSTACK = 3
+    MAXLOCALS = 3
+
+  // access flags 0x1
+  public clone()Ljava/lang/Object;
+    TRYCATCHBLOCK L0 L1 L2 java/lang/CloneNotSupportedException
+   L0
+    LINENUMBER 313 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.clone ()Ljava/lang/Object;
+    CHECKCAST modified/java/utils/ArrayList
+    ASTORE 1
+   L3
+    LINENUMBER 314 L3
+    ALOAD 1
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    INVOKESTATIC java/util/Arrays.copyOf ([Ljava/lang/Object;I)[Ljava/lang/Object;
+    PUTFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+   L4
+    LINENUMBER 315 L4
+    ALOAD 1
+    ICONST_0
+    PUTFIELD modified/java/utils/ArrayList.modCount : I
+   L5
+    LINENUMBER 316 L5
+    ALOAD 1
+   L1
+    ARETURN
+   L2
+    LINENUMBER 317 L2
+   FRAME FULL [modified/java/utils/ArrayList] [java/lang/CloneNotSupportedException]
+    ASTORE 1
+   L6
+    LINENUMBER 319 L6
+    NEW java/lang/InternalError
+    DUP
+    INVOKESPECIAL java/lang/InternalError.<init> ()V
+    ATHROW
+   L7
+    LOCALVARIABLE v Lmodified/java/utils/ArrayList; L3 L2 1
+    // signature Lmodified/java/utils/ArrayList<TE;>;
+    // declaration: v extends modified.java.utils.ArrayList<E>
+    LOCALVARIABLE e Ljava/lang/CloneNotSupportedException; L6 L7 1
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList; L0 L7 0
+    // signature Lmodified/java/utils/ArrayList<TE;>;
+    // declaration: this extends modified.java.utils.ArrayList<E>
+    MAXSTACK = 3
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public toArray()[Ljava/lang/Object;
+   L0
+    LINENUMBER 338 L0
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    INVOKESTATIC java/util/Arrays.copyOf ([Ljava/lang/Object;I)[Ljava/lang/Object;
+    ARETURN
+   L1
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList; L0 L1 0
+    // signature Lmodified/java/utils/ArrayList<TE;>;
+    // declaration: this extends modified.java.utils.ArrayList<E>
+    MAXSTACK = 2
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  // signature <T:Ljava/lang/Object;>([TT;)[TT;
+  // declaration: T[] toArray<T>(T[])
+  public toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+   L0
+    LINENUMBER 367 L0
+    ALOAD 1
+    ARRAYLENGTH
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    IF_ICMPGE L1
+   L2
+    LINENUMBER 369 L2
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    ALOAD 1
+    INVOKEVIRTUAL java/lang/Object.getClass ()Ljava/lang/Class;
+    INVOKESTATIC java/util/Arrays.copyOf ([Ljava/lang/Object;ILjava/lang/Class;)[Ljava/lang/Object;
+    ARETURN
+   L1
+    LINENUMBER 370 L1
+   FRAME FULL [modified/java/utils/ArrayList [Ljava/lang/Object;] []
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    ICONST_0
+    ALOAD 1
+    ICONST_0
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    INVOKESTATIC java/lang/System.arraycopy (Ljava/lang/Object;ILjava/lang/Object;II)V
+   L3
+    LINENUMBER 371 L3
+    ALOAD 1
+    ARRAYLENGTH
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    IF_ICMPLE L4
+   L5
+    LINENUMBER 372 L5
+    ALOAD 1
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    ACONST_NULL
+    AASTORE
+   L4
+    LINENUMBER 373 L4
+   FRAME FULL [modified/java/utils/ArrayList [Ljava/lang/Object;] []
+    ALOAD 1
+    ARETURN
+   L6
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList; L0 L6 0
+    // signature Lmodified/java/utils/ArrayList<TE;>;
+    // declaration: this extends modified.java.utils.ArrayList<E>
+    LOCALVARIABLE a [Ljava/lang/Object; L0 L6 1
+    // signature [TT;
+    // declaration: a extends T[]
+    MAXSTACK = 5
+    MAXLOCALS = 2
+
+  // access flags 0x0
+  // signature (I)TE;
+  // declaration: E elementData(int)
+  elementData(I)Ljava/lang/Object;
+   L0
+    LINENUMBER 380 L0
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 1
+    AALOAD
+    ARETURN
+   L1
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList; L0 L1 0
+    // signature Lmodified/java/utils/ArrayList<TE;>;
+    // declaration: this extends modified.java.utils.ArrayList<E>
+    LOCALVARIABLE index I L0 L1 1
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  // signature (I)TE;
+  // declaration: E get(int)
+  public get(I)Ljava/lang/Object;
+   L0
+    LINENUMBER 391 L0
+    ALOAD 0
+    ILOAD 1
+    INVOKEVIRTUAL modified/java/utils/ArrayList.rangeCheck (I)V
+   L1
+    LINENUMBER 393 L1
+    ALOAD 0
+    ILOAD 1
+    INVOKEVIRTUAL modified/java/utils/ArrayList.elementData (I)Ljava/lang/Object;
+    ARETURN
+   L2
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList; L0 L2 0
+    // signature Lmodified/java/utils/ArrayList<TE;>;
+    // declaration: this extends modified.java.utils.ArrayList<E>
+    LOCALVARIABLE index I L0 L2 1
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  // signature (ITE;)TE;
+  // declaration: E set(int, E)
+  public set(ILjava/lang/Object;)Ljava/lang/Object;
+   L0
+    LINENUMBER 406 L0
+    ALOAD 0
+    ILOAD 1
+    INVOKEVIRTUAL modified/java/utils/ArrayList.rangeCheck (I)V
+   L1
+    LINENUMBER 408 L1
+    ALOAD 0
+    ILOAD 1
+    INVOKEVIRTUAL modified/java/utils/ArrayList.elementData (I)Ljava/lang/Object;
+    ASTORE 3
+   L2
+    LINENUMBER 409 L2
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 1
+    ALOAD 2
+    AASTORE
+   L3
+    LINENUMBER 410 L3
+    ALOAD 3
+    ARETURN
+   L4
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList; L0 L4 0
+    // signature Lmodified/java/utils/ArrayList<TE;>;
+    // declaration: this extends modified.java.utils.ArrayList<E>
+    LOCALVARIABLE index I L0 L4 1
+    LOCALVARIABLE element Ljava/lang/Object; L0 L4 2
+    // signature TE;
+    // declaration: element extends E
+    LOCALVARIABLE oldValue Ljava/lang/Object; L2 L4 3
+    // signature TE;
+    // declaration: oldValue extends E
+    MAXSTACK = 3
+    MAXLOCALS = 4
+
+  // access flags 0x1
+  // signature (TE;)Z
+  // declaration: boolean add(E)
+  public add(Ljava/lang/Object;)Z
+   L0
+    LINENUMBER 420 L0
+    ALOAD 0
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    ICONST_1
+    IADD
+    INVOKEVIRTUAL modified/java/utils/ArrayList.ensureCapacityInternal (I)V
+   L1
+    LINENUMBER 421 L1
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    ALOAD 0
+    DUP
+    GETFIELD modified/java/utils/ArrayList.size : I
+    DUP_X1
+    ICONST_1
+    IADD
+    PUTFIELD modified/java/utils/ArrayList.size : I
+    ALOAD 1
+    AASTORE
+   L2
+    LINENUMBER 422 L2
+    ICONST_1
+    IRETURN
+   L3
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList; L0 L3 0
+    // signature Lmodified/java/utils/ArrayList<TE;>;
+    // declaration: this extends modified.java.utils.ArrayList<E>
+    LOCALVARIABLE e Ljava/lang/Object; L0 L3 1
+    // signature TE;
+    // declaration: e extends E
+    MAXSTACK = 5
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  // signature (ITE;)V
+  // declaration: void add(int, E)
+  public add(ILjava/lang/Object;)V
+   L0
+    LINENUMBER 435 L0
+    ALOAD 0
+    ILOAD 1
+    INVOKEVIRTUAL modified/java/utils/ArrayList.rangeCheckForAdd (I)V
+   L1
+    LINENUMBER 437 L1
+    ALOAD 0
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    ICONST_1
+    IADD
+    INVOKEVIRTUAL modified/java/utils/ArrayList.ensureCapacityInternal (I)V
+   L2
+    LINENUMBER 438 L2
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 1
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 1
+    ICONST_1
+    IADD
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    ILOAD 1
+    ISUB
+    INVOKESTATIC java/lang/System.arraycopy (Ljava/lang/Object;ILjava/lang/Object;II)V
+   L3
+    LINENUMBER 440 L3
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 1
+    ALOAD 2
+    AASTORE
+   L4
+    LINENUMBER 441 L4
+    ALOAD 0
+    DUP
+    GETFIELD modified/java/utils/ArrayList.size : I
+    ICONST_1
+    IADD
+    PUTFIELD modified/java/utils/ArrayList.size : I
+   L5
+    LINENUMBER 442 L5
+    RETURN
+   L6
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList; L0 L6 0
+    // signature Lmodified/java/utils/ArrayList<TE;>;
+    // declaration: this extends modified.java.utils.ArrayList<E>
+    LOCALVARIABLE index I L0 L6 1
+    LOCALVARIABLE element Ljava/lang/Object; L0 L6 2
+    // signature TE;
+    // declaration: element extends E
+    MAXSTACK = 6
+    MAXLOCALS = 3
+
+  // access flags 0x1
+  // signature (I)TE;
+  // declaration: E remove(int)
+  public remove(I)Ljava/lang/Object;
+   L0
+    LINENUMBER 454 L0
+    ALOAD 0
+    ILOAD 1
+    INVOKEVIRTUAL modified/java/utils/ArrayList.rangeCheck (I)V
+   L1
+    LINENUMBER 456 L1
+    ALOAD 0
+    DUP
+    GETFIELD modified/java/utils/ArrayList.modCount : I
+    ICONST_1
+    IADD
+    PUTFIELD modified/java/utils/ArrayList.modCount : I
+   L2
+    LINENUMBER 457 L2
+    ALOAD 0
+    ILOAD 1
+    INVOKEVIRTUAL modified/java/utils/ArrayList.elementData (I)Ljava/lang/Object;
+    ASTORE 2
+   L3
+    LINENUMBER 459 L3
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    ILOAD 1
+    ISUB
+    ICONST_1
+    ISUB
+    ISTORE 3
+   L4
+    LINENUMBER 460 L4
+    ILOAD 3
+    IFLE L5
+   L6
+    LINENUMBER 461 L6
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 1
+    ICONST_1
+    IADD
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 1
+    ILOAD 3
+    INVOKESTATIC java/lang/System.arraycopy (Ljava/lang/Object;ILjava/lang/Object;II)V
+   L5
+    LINENUMBER 463 L5
+   FRAME FULL [modified/java/utils/ArrayList I java/lang/Object I] []
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    ALOAD 0
+    DUP
+    GETFIELD modified/java/utils/ArrayList.size : I
+    ICONST_1
+    ISUB
+    DUP_X1
+    PUTFIELD modified/java/utils/ArrayList.size : I
+    ACONST_NULL
+    AASTORE
+   L7
+    LINENUMBER 465 L7
+    ALOAD 2
+    ARETURN
+   L8
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList; L0 L8 0
+    // signature Lmodified/java/utils/ArrayList<TE;>;
+    // declaration: this extends modified.java.utils.ArrayList<E>
+    LOCALVARIABLE index I L0 L8 1
+    LOCALVARIABLE oldValue Ljava/lang/Object; L3 L8 2
+    // signature TE;
+    // declaration: oldValue extends E
+    LOCALVARIABLE numMoved I L4 L8 3
+    MAXSTACK = 5
+    MAXLOCALS = 4
+
+  // access flags 0x1
+  public remove(Ljava/lang/Object;)Z
+   L0
+    LINENUMBER 482 L0
+    ALOAD 1
+    IFNONNULL L1
+   L2
+    LINENUMBER 483 L2
+    ICONST_0
+    ISTORE 2
+   L3
+   FRAME FULL [modified/java/utils/ArrayList java/lang/Object I] []
+    ILOAD 2
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    IF_ICMPGE L4
+   L5
+    LINENUMBER 484 L5
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 2
+    AALOAD
+    IFNONNULL L6
+   L7
+    LINENUMBER 485 L7
+    ALOAD 0
+    ILOAD 2
+    INVOKEVIRTUAL modified/java/utils/ArrayList.fastRemove (I)V
+   L8
+    LINENUMBER 486 L8
+    ICONST_1
+    IRETURN
+   L6
+    LINENUMBER 483 L6
+   FRAME FULL [modified/java/utils/ArrayList java/lang/Object I] []
+    IINC 2 1
+    GOTO L3
+   L4
+   FRAME FULL [modified/java/utils/ArrayList java/lang/Object I] []
+    GOTO L9
+   L1
+    LINENUMBER 489 L1
+   FRAME FULL [modified/java/utils/ArrayList java/lang/Object] []
+    ICONST_0
+    ISTORE 2
+   L10
+   FRAME FULL [modified/java/utils/ArrayList java/lang/Object I] []
+    ILOAD 2
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    IF_ICMPGE L9
+   L11
+    LINENUMBER 490 L11
+    ALOAD 1
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 2
+    AALOAD
+    INVOKEVIRTUAL java/lang/Object.equals (Ljava/lang/Object;)Z
+    IFEQ L12
+   L13
+    LINENUMBER 491 L13
+    ALOAD 0
+    ILOAD 2
+    INVOKEVIRTUAL modified/java/utils/ArrayList.fastRemove (I)V
+   L14
+    LINENUMBER 492 L14
+    ICONST_1
+    IRETURN
+   L12
+    LINENUMBER 489 L12
+   FRAME FULL [modified/java/utils/ArrayList java/lang/Object I] []
+    IINC 2 1
+    GOTO L10
+   L9
+    LINENUMBER 495 L9
+   FRAME FULL [modified/java/utils/ArrayList java/lang/Object I] []
+    ICONST_0
+    IRETURN
+   L15
+    LOCALVARIABLE index I L3 L4 2
+    LOCALVARIABLE index I L10 L9 2
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList; L0 L15 0
+    // signature Lmodified/java/utils/ArrayList<TE;>;
+    // declaration: this extends modified.java.utils.ArrayList<E>
+    LOCALVARIABLE o Ljava/lang/Object; L0 L15 1
+    MAXSTACK = 3
+    MAXLOCALS = 3
+
+  // access flags 0x2
+  private fastRemove(I)V
+   L0
+    LINENUMBER 503 L0
+    ALOAD 0
+    DUP
+    GETFIELD modified/java/utils/ArrayList.modCount : I
+    ICONST_1
+    IADD
+    PUTFIELD modified/java/utils/ArrayList.modCount : I
+   L1
+    LINENUMBER 504 L1
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    ILOAD 1
+    ISUB
+    ICONST_1
+    ISUB
+    ISTORE 2
+   L2
+    LINENUMBER 505 L2
+    ILOAD 2
+    IFLE L3
+   L4
+    LINENUMBER 506 L4
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 1
+    ICONST_1
+    IADD
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 1
+    ILOAD 2
+    INVOKESTATIC java/lang/System.arraycopy (Ljava/lang/Object;ILjava/lang/Object;II)V
+   L3
+    LINENUMBER 508 L3
+   FRAME FULL [modified/java/utils/ArrayList I I] []
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    ALOAD 0
+    DUP
+    GETFIELD modified/java/utils/ArrayList.size : I
+    ICONST_1
+    ISUB
+    DUP_X1
+    PUTFIELD modified/java/utils/ArrayList.size : I
+    ACONST_NULL
+    AASTORE
+   L5
+    LINENUMBER 509 L5
+    RETURN
+   L6
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList; L0 L6 0
+    // signature Lmodified/java/utils/ArrayList<TE;>;
+    // declaration: this extends modified.java.utils.ArrayList<E>
+    LOCALVARIABLE index I L0 L6 1
+    LOCALVARIABLE numMoved I L2 L6 2
+    MAXSTACK = 5
+    MAXLOCALS = 3
+
+  // access flags 0x1
+  public clear()V
+   L0
+    LINENUMBER 516 L0
+    ALOAD 0
+    DUP
+    GETFIELD modified/java/utils/ArrayList.modCount : I
+    ICONST_1
+    IADD
+    PUTFIELD modified/java/utils/ArrayList.modCount : I
+   L1
+    LINENUMBER 519 L1
+    ICONST_0
+    ISTORE 1
+   L2
+   FRAME FULL [modified/java/utils/ArrayList I] []
+    ILOAD 1
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    IF_ICMPGE L3
+   L4
+    LINENUMBER 520 L4
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 1
+    ACONST_NULL
+    AASTORE
+   L5
+    LINENUMBER 519 L5
+    IINC 1 1
+    GOTO L2
+   L3
+    LINENUMBER 522 L3
+   FRAME FULL [modified/java/utils/ArrayList I] []
+    ALOAD 0
+    ICONST_0
+    PUTFIELD modified/java/utils/ArrayList.size : I
+   L6
+    LINENUMBER 523 L6
+    RETURN
+   L7
+    LOCALVARIABLE i I L2 L3 1
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList; L0 L7 0
+    // signature Lmodified/java/utils/ArrayList<TE;>;
+    // declaration: this extends modified.java.utils.ArrayList<E>
+    MAXSTACK = 3
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  // signature (Ljava/util/Collection<+TE;>;)Z
+  // declaration: boolean addAll(java.util.Collection<? extends E>)
+  public addAll(Ljava/util/Collection;)Z
+   L0
+    LINENUMBER 539 L0
+    ALOAD 1
+    INVOKEINTERFACE java/util/Collection.toArray ()[Ljava/lang/Object; (itf)
+    ASTORE 2
+   L1
+    LINENUMBER 540 L1
+    ALOAD 2
+    ARRAYLENGTH
+    ISTORE 3
+   L2
+    LINENUMBER 541 L2
+    ALOAD 0
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    ILOAD 3
+    IADD
+    INVOKEVIRTUAL modified/java/utils/ArrayList.ensureCapacityInternal (I)V
+   L3
+    LINENUMBER 542 L3
+    ALOAD 2
+    ICONST_0
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    ILOAD 3
+    INVOKESTATIC java/lang/System.arraycopy (Ljava/lang/Object;ILjava/lang/Object;II)V
+   L4
+    LINENUMBER 543 L4
+    ALOAD 0
+    DUP
+    GETFIELD modified/java/utils/ArrayList.size : I
+    ILOAD 3
+    IADD
+    PUTFIELD modified/java/utils/ArrayList.size : I
+   L5
+    LINENUMBER 544 L5
+    ILOAD 3
+    IFEQ L6
+    ICONST_1
+    GOTO L7
+   L6
+   FRAME FULL [modified/java/utils/ArrayList java/util/Collection [Ljava/lang/Object; I] []
+    ICONST_0
+   L7
+   FRAME FULL [modified/java/utils/ArrayList java/util/Collection [Ljava/lang/Object; I] [I]
+    IRETURN
+   L8
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList; L0 L8 0
+    // signature Lmodified/java/utils/ArrayList<TE;>;
+    // declaration: this extends modified.java.utils.ArrayList<E>
+    LOCALVARIABLE c Ljava/util/Collection; L0 L8 1
+    // signature Ljava/util/Collection<+TE;>;
+    // declaration: c extends java.util.Collection<? extends E>
+    LOCALVARIABLE a [Ljava/lang/Object; L1 L8 2
+    LOCALVARIABLE numNew I L2 L8 3
+    MAXSTACK = 5
+    MAXLOCALS = 4
+
+  // access flags 0x1
+  // signature (ILjava/util/Collection<+TE;>;)Z
+  // declaration: boolean addAll(int, java.util.Collection<? extends E>)
+  public addAll(ILjava/util/Collection;)Z
+   L0
+    LINENUMBER 563 L0
+    ALOAD 0
+    ILOAD 1
+    INVOKEVIRTUAL modified/java/utils/ArrayList.rangeCheckForAdd (I)V
+   L1
+    LINENUMBER 565 L1
+    ALOAD 2
+    INVOKEINTERFACE java/util/Collection.toArray ()[Ljava/lang/Object; (itf)
+    ASTORE 3
+   L2
+    LINENUMBER 566 L2
+    ALOAD 3
+    ARRAYLENGTH
+    ISTORE 4
+   L3
+    LINENUMBER 567 L3
+    ALOAD 0
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    ILOAD 4
+    IADD
+    INVOKEVIRTUAL modified/java/utils/ArrayList.ensureCapacityInternal (I)V
+   L4
+    LINENUMBER 569 L4
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    ILOAD 1
+    ISUB
+    ISTORE 5
+   L5
+    LINENUMBER 570 L5
+    ILOAD 5
+    IFLE L6
+   L7
+    LINENUMBER 571 L7
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 1
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 1
+    ILOAD 4
+    IADD
+    ILOAD 5
+    INVOKESTATIC java/lang/System.arraycopy (Ljava/lang/Object;ILjava/lang/Object;II)V
+   L6
+    LINENUMBER 574 L6
+   FRAME FULL [modified/java/utils/ArrayList I java/util/Collection [Ljava/lang/Object; I I] []
+    ALOAD 3
+    ICONST_0
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 1
+    ILOAD 4
+    INVOKESTATIC java/lang/System.arraycopy (Ljava/lang/Object;ILjava/lang/Object;II)V
+   L8
+    LINENUMBER 575 L8
+    ALOAD 0
+    DUP
+    GETFIELD modified/java/utils/ArrayList.size : I
+    ILOAD 4
+    IADD
+    PUTFIELD modified/java/utils/ArrayList.size : I
+   L9
+    LINENUMBER 576 L9
+    ILOAD 4
+    IFEQ L10
+    ICONST_1
+    GOTO L11
+   L10
+   FRAME FULL [modified/java/utils/ArrayList I java/util/Collection [Ljava/lang/Object; I I] []
+    ICONST_0
+   L11
+   FRAME FULL [modified/java/utils/ArrayList I java/util/Collection [Ljava/lang/Object; I I] [I]
+    IRETURN
+   L12
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList; L0 L12 0
+    // signature Lmodified/java/utils/ArrayList<TE;>;
+    // declaration: this extends modified.java.utils.ArrayList<E>
+    LOCALVARIABLE index I L0 L12 1
+    LOCALVARIABLE c Ljava/util/Collection; L0 L12 2
+    // signature Ljava/util/Collection<+TE;>;
+    // declaration: c extends java.util.Collection<? extends E>
+    LOCALVARIABLE a [Ljava/lang/Object; L2 L12 3
+    LOCALVARIABLE numNew I L3 L12 4
+    LOCALVARIABLE numMoved I L5 L12 5
+    MAXSTACK = 5
+    MAXLOCALS = 6
+
+  // access flags 0x4
+  protected removeRange(II)V
+   L0
+    LINENUMBER 594 L0
+    ALOAD 0
+    DUP
+    GETFIELD modified/java/utils/ArrayList.modCount : I
+    ICONST_1
+    IADD
+    PUTFIELD modified/java/utils/ArrayList.modCount : I
+   L1
+    LINENUMBER 595 L1
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    ILOAD 2
+    ISUB
+    ISTORE 3
+   L2
+    LINENUMBER 596 L2
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 2
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 1
+    ILOAD 3
+    INVOKESTATIC java/lang/System.arraycopy (Ljava/lang/Object;ILjava/lang/Object;II)V
+   L3
+    LINENUMBER 600 L3
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    ILOAD 2
+    ILOAD 1
+    ISUB
+    ISUB
+    ISTORE 4
+   L4
+    LINENUMBER 601 L4
+   FRAME FULL [modified/java/utils/ArrayList I I I I] []
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    ILOAD 4
+    IF_ICMPEQ L5
+   L6
+    LINENUMBER 602 L6
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    ALOAD 0
+    DUP
+    GETFIELD modified/java/utils/ArrayList.size : I
+    ICONST_1
+    ISUB
+    DUP_X1
+    PUTFIELD modified/java/utils/ArrayList.size : I
+    ACONST_NULL
+    AASTORE
+    GOTO L4
+   L5
+    LINENUMBER 603 L5
+   FRAME FULL [modified/java/utils/ArrayList I I I I] []
+    RETURN
+   L7
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList; L0 L7 0
+    // signature Lmodified/java/utils/ArrayList<TE;>;
+    // declaration: this extends modified.java.utils.ArrayList<E>
+    LOCALVARIABLE fromIndex I L0 L7 1
+    LOCALVARIABLE toIndex I L0 L7 2
+    LOCALVARIABLE numMoved I L2 L7 3
+    LOCALVARIABLE newSize I L4 L7 4
+    MAXSTACK = 5
+    MAXLOCALS = 5
+
+  // access flags 0x2
+  private rangeCheck(I)V
+   L0
+    LINENUMBER 612 L0
+    ILOAD 1
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    IF_ICMPLT L1
+   L2
+    LINENUMBER 613 L2
+    NEW java/lang/IndexOutOfBoundsException
+    DUP
+    ALOAD 0
+    ILOAD 1
+    INVOKEVIRTUAL modified/java/utils/ArrayList.outOfBoundsMsg (I)Ljava/lang/String;
+    INVOKESPECIAL java/lang/IndexOutOfBoundsException.<init> (Ljava/lang/String;)V
+    ATHROW
+   L1
+    LINENUMBER 614 L1
+   FRAME FULL [modified/java/utils/ArrayList I] []
+    RETURN
+   L3
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList; L0 L3 0
+    // signature Lmodified/java/utils/ArrayList<TE;>;
+    // declaration: this extends modified.java.utils.ArrayList<E>
+    LOCALVARIABLE index I L0 L3 1
+    MAXSTACK = 4
+    MAXLOCALS = 2
+
+  // access flags 0x2
+  private rangeCheckForAdd(I)V
+   L0
+    LINENUMBER 620 L0
+    ILOAD 1
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    IF_ICMPGT L1
+    ILOAD 1
+    IFGE L2
+   L1
+    LINENUMBER 621 L1
+   FRAME FULL [modified/java/utils/ArrayList I] []
+    NEW java/lang/IndexOutOfBoundsException
+    DUP
+    ALOAD 0
+    ILOAD 1
+    INVOKEVIRTUAL modified/java/utils/ArrayList.outOfBoundsMsg (I)Ljava/lang/String;
+    INVOKESPECIAL java/lang/IndexOutOfBoundsException.<init> (Ljava/lang/String;)V
+    ATHROW
+   L2
+    LINENUMBER 622 L2
+   FRAME FULL [modified/java/utils/ArrayList I] []
+    RETURN
+   L3
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList; L0 L3 0
+    // signature Lmodified/java/utils/ArrayList<TE;>;
+    // declaration: this extends modified.java.utils.ArrayList<E>
+    LOCALVARIABLE index I L0 L3 1
+    MAXSTACK = 4
+    MAXLOCALS = 2
+
+  // access flags 0x2
+  private outOfBoundsMsg(I)Ljava/lang/String;
+   L0
+    LINENUMBER 630 L0
+    ILOAD 1
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    INVOKEDYNAMIC makeConcatWithConstants(II)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "Index: \u0001, Size: \u0001"
+    ]
+    ARETURN
+   L1
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList; L0 L1 0
+    // signature Lmodified/java/utils/ArrayList<TE;>;
+    // declaration: this extends modified.java.utils.ArrayList<E>
+    LOCALVARIABLE index I L0 L1 1
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  // signature (Ljava/util/Collection<*>;)Z
+  // declaration: boolean removeAll(java.util.Collection<?>)
+  public removeAll(Ljava/util/Collection;)Z
+   L0
+    LINENUMBER 649 L0
+    ALOAD 0
+    ALOAD 1
+    ICONST_0
+    INVOKEVIRTUAL modified/java/utils/ArrayList.batchRemove (Ljava/util/Collection;Z)Z
+    IRETURN
+   L1
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList; L0 L1 0
+    // signature Lmodified/java/utils/ArrayList<TE;>;
+    // declaration: this extends modified.java.utils.ArrayList<E>
+    LOCALVARIABLE c Ljava/util/Collection; L0 L1 1
+    // signature Ljava/util/Collection<*>;
+    // declaration: c extends java.util.Collection<?>
+    MAXSTACK = 3
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  // signature (Ljava/util/Collection<*>;)Z
+  // declaration: boolean retainAll(java.util.Collection<?>)
+  public retainAll(Ljava/util/Collection;)Z
+   L0
+    LINENUMBER 669 L0
+    ALOAD 0
+    ALOAD 1
+    ICONST_1
+    INVOKEVIRTUAL modified/java/utils/ArrayList.batchRemove (Ljava/util/Collection;Z)Z
+    IRETURN
+   L1
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList; L0 L1 0
+    // signature Lmodified/java/utils/ArrayList<TE;>;
+    // declaration: this extends modified.java.utils.ArrayList<E>
+    LOCALVARIABLE c Ljava/util/Collection; L0 L1 1
+    // signature Ljava/util/Collection<*>;
+    // declaration: c extends java.util.Collection<?>
+    MAXSTACK = 3
+    MAXLOCALS = 2
+
+  // access flags 0x2
+  // signature (Ljava/util/Collection<*>;Z)Z
+  // declaration: boolean batchRemove(java.util.Collection<?>, boolean)
+  private batchRemove(Ljava/util/Collection;Z)Z
+    TRYCATCHBLOCK L0 L1 L2 null
+    TRYCATCHBLOCK L2 L3 L2 null
+   L4
+    LINENUMBER 673 L4
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    ASTORE 3
+   L5
+    LINENUMBER 674 L5
+    ICONST_0
+    ISTORE 4
+   L6
+    ICONST_0
+    ISTORE 5
+   L7
+    LINENUMBER 675 L7
+    ICONST_0
+    ISTORE 6
+   L0
+    LINENUMBER 677 L0
+   FRAME FULL [modified/java/utils/ArrayList java/util/Collection I [Ljava/lang/Object; I I I] []
+    ILOAD 4
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    IF_ICMPGE L1
+   L8
+    LINENUMBER 678 L8
+    ALOAD 1
+    ALOAD 3
+    ILOAD 4
+    AALOAD
+    INVOKEINTERFACE java/util/Collection.contains (Ljava/lang/Object;)Z (itf)
+    ILOAD 2
+    IF_ICMPNE L9
+   L10
+    LINENUMBER 679 L10
+    ALOAD 3
+    ILOAD 5
+    IINC 5 1
+    ALOAD 3
+    ILOAD 4
+    AALOAD
+    AASTORE
+   L9
+    LINENUMBER 677 L9
+   FRAME FULL [modified/java/utils/ArrayList java/util/Collection I [Ljava/lang/Object; I I I] []
+    IINC 4 1
+    GOTO L0
+   L1
+    LINENUMBER 683 L1
+   FRAME FULL [modified/java/utils/ArrayList java/util/Collection I [Ljava/lang/Object; I I I] []
+    ILOAD 4
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    IF_ICMPEQ L11
+   L12
+    LINENUMBER 684 L12
+    ALOAD 3
+    ILOAD 4
+    ALOAD 3
+    ILOAD 5
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    ILOAD 4
+    ISUB
+    INVOKESTATIC java/lang/System.arraycopy (Ljava/lang/Object;ILjava/lang/Object;II)V
+   L13
+    LINENUMBER 687 L13
+    ILOAD 5
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    ILOAD 4
+    ISUB
+    IADD
+    ISTORE 5
+   L11
+    LINENUMBER 689 L11
+   FRAME FULL [modified/java/utils/ArrayList java/util/Collection I [Ljava/lang/Object; I I I] []
+    ILOAD 5
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    IF_ICMPEQ L14
+   L15
+    LINENUMBER 690 L15
+    ILOAD 5
+    ISTORE 7
+   L16
+   FRAME FULL [modified/java/utils/ArrayList java/util/Collection I [Ljava/lang/Object; I I I I] []
+    ILOAD 7
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    IF_ICMPGE L17
+   L18
+    LINENUMBER 691 L18
+    ALOAD 3
+    ILOAD 7
+    ACONST_NULL
+    AASTORE
+   L19
+    LINENUMBER 690 L19
+    IINC 7 1
+    GOTO L16
+   L17
+    LINENUMBER 692 L17
+   FRAME FULL [modified/java/utils/ArrayList java/util/Collection I [Ljava/lang/Object; I I I I] []
+    ALOAD 0
+    DUP
+    GETFIELD modified/java/utils/ArrayList.modCount : I
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    ILOAD 5
+    ISUB
+    IADD
+    PUTFIELD modified/java/utils/ArrayList.modCount : I
+   L20
+    LINENUMBER 693 L20
+    ALOAD 0
+    ILOAD 5
+    PUTFIELD modified/java/utils/ArrayList.size : I
+   L21
+    LINENUMBER 694 L21
+    ICONST_1
+    ISTORE 6
+    GOTO L14
+   L2
+    LINENUMBER 683 L2
+   FRAME FULL [modified/java/utils/ArrayList java/util/Collection I [Ljava/lang/Object; I I I] [java/lang/Throwable]
+    ASTORE 8
+   L3
+    ILOAD 4
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    IF_ICMPEQ L22
+   L23
+    LINENUMBER 684 L23
+    ALOAD 3
+    ILOAD 4
+    ALOAD 3
+    ILOAD 5
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    ILOAD 4
+    ISUB
+    INVOKESTATIC java/lang/System.arraycopy (Ljava/lang/Object;ILjava/lang/Object;II)V
+   L24
+    LINENUMBER 687 L24
+    ILOAD 5
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    ILOAD 4
+    ISUB
+    IADD
+    ISTORE 5
+   L22
+    LINENUMBER 689 L22
+   FRAME FULL [modified/java/utils/ArrayList java/util/Collection I [Ljava/lang/Object; I I I T java/lang/Throwable] []
+    ILOAD 5
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    IF_ICMPEQ L25
+   L26
+    LINENUMBER 690 L26
+    ILOAD 5
+    ISTORE 9
+   L27
+   FRAME FULL [modified/java/utils/ArrayList java/util/Collection I [Ljava/lang/Object; I I I T java/lang/Throwable I] []
+    ILOAD 9
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    IF_ICMPGE L28
+   L29
+    LINENUMBER 691 L29
+    ALOAD 3
+    ILOAD 9
+    ACONST_NULL
+    AASTORE
+   L30
+    LINENUMBER 690 L30
+    IINC 9 1
+    GOTO L27
+   L28
+    LINENUMBER 692 L28
+   FRAME FULL [modified/java/utils/ArrayList java/util/Collection I [Ljava/lang/Object; I I I T java/lang/Throwable I] []
+    ALOAD 0
+    DUP
+    GETFIELD modified/java/utils/ArrayList.modCount : I
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    ILOAD 5
+    ISUB
+    IADD
+    PUTFIELD modified/java/utils/ArrayList.modCount : I
+   L31
+    LINENUMBER 693 L31
+    ALOAD 0
+    ILOAD 5
+    PUTFIELD modified/java/utils/ArrayList.size : I
+   L32
+    LINENUMBER 694 L32
+    ICONST_1
+    ISTORE 6
+   L25
+    LINENUMBER 696 L25
+   FRAME FULL [modified/java/utils/ArrayList java/util/Collection I [Ljava/lang/Object; I I I T java/lang/Throwable] []
+    ALOAD 8
+    ATHROW
+   L14
+    LINENUMBER 697 L14
+   FRAME FULL [modified/java/utils/ArrayList java/util/Collection I [Ljava/lang/Object; I I I] []
+    ILOAD 6
+    IRETURN
+   L33
+    LOCALVARIABLE i I L16 L17 7
+    LOCALVARIABLE i I L27 L28 9
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList; L4 L33 0
+    // signature Lmodified/java/utils/ArrayList<TE;>;
+    // declaration: this extends modified.java.utils.ArrayList<E>
+    LOCALVARIABLE c Ljava/util/Collection; L4 L33 1
+    // signature Ljava/util/Collection<*>;
+    // declaration: c extends java.util.Collection<?>
+    LOCALVARIABLE complement Z L4 L33 2
+    LOCALVARIABLE elementData [Ljava/lang/Object; L5 L33 3
+    LOCALVARIABLE r I L6 L33 4
+    LOCALVARIABLE w I L7 L33 5
+    LOCALVARIABLE modified Z L0 L33 6
+    MAXSTACK = 6
+    MAXLOCALS = 10
+
+  // access flags 0x2
+  private writeObject(Ljava/io/ObjectOutputStream;)V throws java/io/IOException 
+   L0
+    LINENUMBER 711 L0
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.modCount : I
+    ISTORE 2
+   L1
+    LINENUMBER 712 L1
+    ALOAD 1
+    INVOKEVIRTUAL java/io/ObjectOutputStream.defaultWriteObject ()V
+   L2
+    LINENUMBER 715 L2
+    ALOAD 1
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    ARRAYLENGTH
+    INVOKEVIRTUAL java/io/ObjectOutputStream.writeInt (I)V
+   L3
+    LINENUMBER 718 L3
+    ICONST_0
+    ISTORE 3
+   L4
+   FRAME FULL [modified/java/utils/ArrayList java/io/ObjectOutputStream I I] []
+    ILOAD 3
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    IF_ICMPGE L5
+   L6
+    LINENUMBER 719 L6
+    ALOAD 1
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 3
+    AALOAD
+    INVOKEVIRTUAL java/io/ObjectOutputStream.writeObject (Ljava/lang/Object;)V
+   L7
+    LINENUMBER 718 L7
+    IINC 3 1
+    GOTO L4
+   L5
+    LINENUMBER 721 L5
+   FRAME FULL [modified/java/utils/ArrayList java/io/ObjectOutputStream I I] []
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.modCount : I
+    ILOAD 2
+    IF_ICMPEQ L8
+   L9
+    LINENUMBER 722 L9
+    NEW java/util/ConcurrentModificationException
+    DUP
+    INVOKESPECIAL java/util/ConcurrentModificationException.<init> ()V
+    ATHROW
+   L8
+    LINENUMBER 725 L8
+   FRAME FULL [modified/java/utils/ArrayList java/io/ObjectOutputStream I I] []
+    RETURN
+   L10
+    LOCALVARIABLE i I L4 L5 3
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList; L0 L10 0
+    // signature Lmodified/java/utils/ArrayList<TE;>;
+    // declaration: this extends modified.java.utils.ArrayList<E>
+    LOCALVARIABLE s Ljava/io/ObjectOutputStream; L0 L10 1
+    LOCALVARIABLE expectedModCount I L1 L10 2
+    MAXSTACK = 3
+    MAXLOCALS = 4
+
+  // access flags 0x2
+  private readObject(Ljava/io/ObjectInputStream;)V throws java/io/IOException java/lang/ClassNotFoundException 
+   L0
+    LINENUMBER 734 L0
+    ALOAD 1
+    INVOKEVIRTUAL java/io/ObjectInputStream.defaultReadObject ()V
+   L1
+    LINENUMBER 737 L1
+    ALOAD 1
+    INVOKEVIRTUAL java/io/ObjectInputStream.readInt ()I
+    ISTORE 2
+   L2
+    LINENUMBER 738 L2
+    ALOAD 0
+    ILOAD 2
+    ANEWARRAY java/lang/Object
+    DUP_X1
+    PUTFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    ASTORE 3
+   L3
+    LINENUMBER 741 L3
+    ICONST_0
+    ISTORE 4
+   L4
+   FRAME FULL [modified/java/utils/ArrayList java/io/ObjectInputStream I [Ljava/lang/Object; I] []
+    ILOAD 4
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    IF_ICMPGE L5
+   L6
+    LINENUMBER 742 L6
+    ALOAD 3
+    ILOAD 4
+    ALOAD 1
+    INVOKEVIRTUAL java/io/ObjectInputStream.readObject ()Ljava/lang/Object;
+    AASTORE
+   L7
+    LINENUMBER 741 L7
+    IINC 4 1
+    GOTO L4
+   L5
+    LINENUMBER 743 L5
+   FRAME FULL [modified/java/utils/ArrayList java/io/ObjectInputStream I [Ljava/lang/Object; I] []
+    RETURN
+   L8
+    LOCALVARIABLE i I L4 L5 4
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList; L0 L8 0
+    // signature Lmodified/java/utils/ArrayList<TE;>;
+    // declaration: this extends modified.java.utils.ArrayList<E>
+    LOCALVARIABLE s Ljava/io/ObjectInputStream; L0 L8 1
+    LOCALVARIABLE arrayLength I L2 L8 2
+    LOCALVARIABLE a [Ljava/lang/Object; L3 L8 3
+    MAXSTACK = 3
+    MAXLOCALS = 5
+
+  // access flags 0x1
+  // signature (I)Ljava/util/ListIterator<TE;>;
+  // declaration: java.util.ListIterator<E> listIterator(int)
+  public listIterator(I)Ljava/util/ListIterator;
+   L0
+    LINENUMBER 758 L0
+    ILOAD 1
+    IFLT L1
+    ILOAD 1
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    IF_ICMPLE L2
+   L1
+    LINENUMBER 759 L1
+   FRAME FULL [modified/java/utils/ArrayList I] []
+    NEW java/lang/IndexOutOfBoundsException
+    DUP
+    ILOAD 1
+    INVOKEDYNAMIC makeConcatWithConstants(I)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "Index: \u0001"
+    ]
+    INVOKESPECIAL java/lang/IndexOutOfBoundsException.<init> (Ljava/lang/String;)V
+    ATHROW
+   L2
+    LINENUMBER 760 L2
+   FRAME FULL [modified/java/utils/ArrayList I] []
+    NEW modified/java/utils/ArrayList$ListItr
+    DUP
+    ALOAD 0
+    ILOAD 1
+    INVOKESPECIAL modified/java/utils/ArrayList$ListItr.<init> (Lmodified/java/utils/ArrayList;I)V
+    ARETURN
+   L3
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList; L0 L3 0
+    // signature Lmodified/java/utils/ArrayList<TE;>;
+    // declaration: this extends modified.java.utils.ArrayList<E>
+    LOCALVARIABLE index I L0 L3 1
+    MAXSTACK = 4
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  // signature ()Ljava/util/ListIterator<TE;>;
+  // declaration: java.util.ListIterator<E> listIterator()
+  public listIterator()Ljava/util/ListIterator;
+   L0
+    LINENUMBER 772 L0
+    NEW modified/java/utils/ArrayList$ListItr
+    DUP
+    ALOAD 0
+    ICONST_0
+    INVOKESPECIAL modified/java/utils/ArrayList$ListItr.<init> (Lmodified/java/utils/ArrayList;I)V
+    ARETURN
+   L1
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList; L0 L1 0
+    // signature Lmodified/java/utils/ArrayList<TE;>;
+    // declaration: this extends modified.java.utils.ArrayList<E>
+    MAXSTACK = 4
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  // signature ()Ljava/util/Iterator<TE;>;
+  // declaration: java.util.Iterator<E> iterator()
+  public iterator()Ljava/util/Iterator;
+   L0
+    LINENUMBER 783 L0
+    NEW modified/java/utils/ArrayList$Itr
+    DUP
+    ALOAD 0
+    INVOKESPECIAL modified/java/utils/ArrayList$Itr.<init> (Lmodified/java/utils/ArrayList;)V
+    ARETURN
+   L1
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList; L0 L1 0
+    // signature Lmodified/java/utils/ArrayList<TE;>;
+    // declaration: this extends modified.java.utils.ArrayList<E>
+    MAXSTACK = 3
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  // signature (II)Ljava/util/List<TE;>;
+  // declaration: java.util.List<E> subList(int, int)
+  public subList(II)Ljava/util/List;
+   L0
+    LINENUMBER 923 L0
+    ILOAD 1
+    ILOAD 2
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList.size : I
+    INVOKESTATIC modified/java/utils/ArrayList.subListRangeCheck (III)V
+   L1
+    LINENUMBER 924 L1
+    NEW modified/java/utils/ArrayList$SubList
+    DUP
+    ALOAD 0
+    ALOAD 0
+    ICONST_0
+    ILOAD 1
+    ILOAD 2
+    INVOKESPECIAL modified/java/utils/ArrayList$SubList.<init> (Lmodified/java/utils/ArrayList;Lmodified/java/utils/AbstractList;III)V
+    ARETURN
+   L2
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList; L0 L2 0
+    // signature Lmodified/java/utils/ArrayList<TE;>;
+    // declaration: this extends modified.java.utils.ArrayList<E>
+    LOCALVARIABLE fromIndex I L0 L2 1
+    LOCALVARIABLE toIndex I L0 L2 2
+    MAXSTACK = 7
+    MAXLOCALS = 3
+
+  // access flags 0x8
+  static subListRangeCheck(III)V
+   L0
+    LINENUMBER 928 L0
+    ILOAD 0
+    IFGE L1
+   L2
+    LINENUMBER 929 L2
+    NEW java/lang/IndexOutOfBoundsException
+    DUP
+    ILOAD 0
+    INVOKEDYNAMIC makeConcatWithConstants(I)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "fromIndex = \u0001"
+    ]
+    INVOKESPECIAL java/lang/IndexOutOfBoundsException.<init> (Ljava/lang/String;)V
+    ATHROW
+   L1
+    LINENUMBER 930 L1
+   FRAME FULL [I I I] []
+    ILOAD 1
+    ILOAD 2
+    IF_ICMPLE L3
+   L4
+    LINENUMBER 931 L4
+    NEW java/lang/IndexOutOfBoundsException
+    DUP
+    ILOAD 1
+    INVOKEDYNAMIC makeConcatWithConstants(I)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "toIndex = \u0001"
+    ]
+    INVOKESPECIAL java/lang/IndexOutOfBoundsException.<init> (Ljava/lang/String;)V
+    ATHROW
+   L3
+    LINENUMBER 932 L3
+   FRAME FULL [I I I] []
+    ILOAD 0
+    ILOAD 1
+    IF_ICMPLE L5
+   L6
+    LINENUMBER 933 L6
+    NEW java/lang/IllegalArgumentException
+    DUP
+    ILOAD 0
+    ILOAD 1
+    INVOKEDYNAMIC makeConcatWithConstants(II)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "fromIndex(\u0001) > toIndex(\u0001)"
+    ]
+    INVOKESPECIAL java/lang/IllegalArgumentException.<init> (Ljava/lang/String;)V
+    ATHROW
+   L5
+    LINENUMBER 935 L5
+   FRAME FULL [I I I] []
+    RETURN
+   L7
+    LOCALVARIABLE fromIndex I L0 L7 0
+    LOCALVARIABLE toIndex I L0 L7 1
+    LOCALVARIABLE size I L0 L7 2
+    MAXSTACK = 4
+    MAXLOCALS = 3
+}
+

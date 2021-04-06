@@ -1,0 +1,1 @@
+MutationDetails [id=MutationIdentifier [location=Location [clazz=modified.java.utils.ArrayList, method=grow, methodDesc=(I)V], indexes=[12], mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator], filename=ArrayList.java, block=0, lineNumber=216, description=Replaced Shift Right with Shift Left, testsInOrder=[], isInFinallyBlock=false, poison=NORMAL]

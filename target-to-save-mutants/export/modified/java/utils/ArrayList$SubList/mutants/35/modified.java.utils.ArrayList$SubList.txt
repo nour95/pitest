@@ -1,0 +1,633 @@
+// class version 55.0 (55)
+// access flags 0x20
+// signature Lmodified/java/utils/AbstractList<TE;>;Ljava/util/RandomAccess;
+// declaration: modified/java/utils/ArrayList$SubList extends modified.java.utils.AbstractList<E> implements java.util.RandomAccess
+class modified/java/utils/ArrayList$SubList extends modified/java/utils/AbstractList implements java/util/RandomAccess {
+
+  // compiled from: ArrayList.java
+  NESTHOST modified/java/utils/ArrayList
+  // access flags 0x2
+  private INNERCLASS modified/java/utils/ArrayList$SubList modified/java/utils/ArrayList SubList
+  // access flags 0x0
+  INNERCLASS modified/java/utils/ArrayList$SubList$1 null null
+  // access flags 0x19
+  public final static INNERCLASS java/lang/invoke/MethodHandles$Lookup java/lang/invoke/MethodHandles Lookup
+
+  // access flags 0x12
+  // signature Lmodified/java/utils/AbstractList<TE;>;
+  // declaration: parent extends modified.java.utils.AbstractList<E>
+  private final Lmodified/java/utils/AbstractList; parent
+
+  // access flags 0x12
+  private final I parentOffset
+
+  // access flags 0x12
+  private final I offset
+
+  // access flags 0x0
+  I size
+
+  // access flags 0x1010
+  final synthetic Lmodified/java/utils/ArrayList; this$0
+
+  // access flags 0x0
+  // signature (Lmodified/java/utils/AbstractList<TE;>;III)V
+  // declaration: void <init>(modified.java.utils.AbstractList<E>, int, int, int)
+  <init>(Lmodified/java/utils/ArrayList;Lmodified/java/utils/AbstractList;III)V
+   L0
+    LINENUMBER 944 L0
+    ALOAD 0
+    ALOAD 1
+    PUTFIELD modified/java/utils/ArrayList$SubList.this$0 : Lmodified/java/utils/ArrayList;
+    ALOAD 0
+    INVOKESPECIAL modified/java/utils/AbstractList.<init> ()V
+   L1
+    LINENUMBER 945 L1
+    ALOAD 0
+    ALOAD 2
+    PUTFIELD modified/java/utils/ArrayList$SubList.parent : Lmodified/java/utils/AbstractList;
+   L2
+    LINENUMBER 946 L2
+    ALOAD 0
+    ILOAD 4
+    PUTFIELD modified/java/utils/ArrayList$SubList.parentOffset : I
+   L3
+    LINENUMBER 947 L3
+    ALOAD 0
+    ILOAD 3
+    ILOAD 4
+    IADD
+    PUTFIELD modified/java/utils/ArrayList$SubList.offset : I
+   L4
+    LINENUMBER 948 L4
+    ALOAD 0
+    ILOAD 5
+    ILOAD 4
+    ISUB
+    PUTFIELD modified/java/utils/ArrayList$SubList.size : I
+   L5
+    LINENUMBER 949 L5
+    ALOAD 0
+    ALOAD 1
+    GETFIELD modified/java/utils/ArrayList.modCount : I
+    PUTFIELD modified/java/utils/ArrayList$SubList.modCount : I
+   L6
+    LINENUMBER 950 L6
+    RETURN
+   L7
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList$SubList; L0 L7 0
+    // signature Lmodified/java/utils/ArrayList<TE;>.SubList;
+    // declaration: this extends modified.java.utils.ArrayList<E>.SubList
+    LOCALVARIABLE parent Lmodified/java/utils/AbstractList; L0 L7 2
+    // signature Lmodified/java/utils/AbstractList<TE;>;
+    // declaration: parent extends modified.java.utils.AbstractList<E>
+    LOCALVARIABLE offset I L0 L7 3
+    LOCALVARIABLE fromIndex I L0 L7 4
+    LOCALVARIABLE toIndex I L0 L7 5
+    MAXSTACK = 3
+    MAXLOCALS = 6
+
+  // access flags 0x1
+  // signature (ITE;)TE;
+  // declaration: E set(int, E)
+  public set(ILjava/lang/Object;)Ljava/lang/Object;
+   L0
+    LINENUMBER 953 L0
+    ALOAD 0
+    ILOAD 1
+    INVOKEVIRTUAL modified/java/utils/ArrayList$SubList.rangeCheck (I)V
+   L1
+    LINENUMBER 954 L1
+    ALOAD 0
+    INVOKEVIRTUAL modified/java/utils/ArrayList$SubList.checkForComodification ()V
+   L2
+    LINENUMBER 955 L2
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList$SubList.this$0 : Lmodified/java/utils/ArrayList;
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList$SubList.offset : I
+    ILOAD 1
+    IADD
+    INVOKEVIRTUAL modified/java/utils/ArrayList.elementData (I)Ljava/lang/Object;
+    ASTORE 3
+   L3
+    LINENUMBER 956 L3
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList$SubList.this$0 : Lmodified/java/utils/ArrayList;
+    GETFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList$SubList.offset : I
+    ILOAD 1
+    IADD
+    ALOAD 2
+    AASTORE
+   L4
+    LINENUMBER 957 L4
+    ALOAD 3
+    ARETURN
+   L5
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList$SubList; L0 L5 0
+    // signature Lmodified/java/utils/ArrayList<TE;>.SubList;
+    // declaration: this extends modified.java.utils.ArrayList<E>.SubList
+    LOCALVARIABLE index I L0 L5 1
+    LOCALVARIABLE e Ljava/lang/Object; L0 L5 2
+    // signature TE;
+    // declaration: e extends E
+    LOCALVARIABLE oldValue Ljava/lang/Object; L3 L5 3
+    // signature TE;
+    // declaration: oldValue extends E
+    MAXSTACK = 3
+    MAXLOCALS = 4
+
+  // access flags 0x1
+  // signature (I)TE;
+  // declaration: E get(int)
+  public get(I)Ljava/lang/Object;
+   L0
+    LINENUMBER 961 L0
+    ALOAD 0
+    ILOAD 1
+    INVOKEVIRTUAL modified/java/utils/ArrayList$SubList.rangeCheck (I)V
+   L1
+    LINENUMBER 962 L1
+    ALOAD 0
+    INVOKEVIRTUAL modified/java/utils/ArrayList$SubList.checkForComodification ()V
+   L2
+    LINENUMBER 963 L2
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList$SubList.this$0 : Lmodified/java/utils/ArrayList;
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList$SubList.offset : I
+    ILOAD 1
+    IADD
+    INVOKEVIRTUAL modified/java/utils/ArrayList.elementData (I)Ljava/lang/Object;
+    ARETURN
+   L3
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList$SubList; L0 L3 0
+    // signature Lmodified/java/utils/ArrayList<TE;>.SubList;
+    // declaration: this extends modified.java.utils.ArrayList<E>.SubList
+    LOCALVARIABLE index I L0 L3 1
+    MAXSTACK = 3
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public size()I
+   L0
+    LINENUMBER 967 L0
+    ALOAD 0
+    INVOKEVIRTUAL modified/java/utils/ArrayList$SubList.checkForComodification ()V
+   L1
+    LINENUMBER 968 L1
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList$SubList.size : I
+    IRETURN
+   L2
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList$SubList; L0 L2 0
+    // signature Lmodified/java/utils/ArrayList<TE;>.SubList;
+    // declaration: this extends modified.java.utils.ArrayList<E>.SubList
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  // signature (ITE;)V
+  // declaration: void add(int, E)
+  public add(ILjava/lang/Object;)V
+   L0
+    LINENUMBER 972 L0
+    ALOAD 0
+    ILOAD 1
+    INVOKEVIRTUAL modified/java/utils/ArrayList$SubList.rangeCheckForAdd (I)V
+   L1
+    LINENUMBER 973 L1
+    ALOAD 0
+    INVOKEVIRTUAL modified/java/utils/ArrayList$SubList.checkForComodification ()V
+   L2
+    LINENUMBER 974 L2
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList$SubList.parent : Lmodified/java/utils/AbstractList;
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList$SubList.parentOffset : I
+    ILOAD 1
+    IADD
+    ALOAD 2
+    INVOKEVIRTUAL modified/java/utils/AbstractList.add (ILjava/lang/Object;)V
+   L3
+    LINENUMBER 975 L3
+    ALOAD 0
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList$SubList.parent : Lmodified/java/utils/AbstractList;
+    GETFIELD modified/java/utils/AbstractList.modCount : I
+    PUTFIELD modified/java/utils/ArrayList$SubList.modCount : I
+   L4
+    LINENUMBER 976 L4
+    ALOAD 0
+    DUP
+    GETFIELD modified/java/utils/ArrayList$SubList.size : I
+    ICONST_1
+    IADD
+    PUTFIELD modified/java/utils/ArrayList$SubList.size : I
+   L5
+    LINENUMBER 977 L5
+    RETURN
+   L6
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList$SubList; L0 L6 0
+    // signature Lmodified/java/utils/ArrayList<TE;>.SubList;
+    // declaration: this extends modified.java.utils.ArrayList<E>.SubList
+    LOCALVARIABLE index I L0 L6 1
+    LOCALVARIABLE e Ljava/lang/Object; L0 L6 2
+    // signature TE;
+    // declaration: e extends E
+    MAXSTACK = 3
+    MAXLOCALS = 3
+
+  // access flags 0x1
+  // signature (I)TE;
+  // declaration: E remove(int)
+  public remove(I)Ljava/lang/Object;
+   L0
+    LINENUMBER 980 L0
+    ALOAD 0
+    ILOAD 1
+    INVOKEVIRTUAL modified/java/utils/ArrayList$SubList.rangeCheck (I)V
+   L1
+    LINENUMBER 981 L1
+    ALOAD 0
+    INVOKEVIRTUAL modified/java/utils/ArrayList$SubList.checkForComodification ()V
+   L2
+    LINENUMBER 982 L2
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList$SubList.parent : Lmodified/java/utils/AbstractList;
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList$SubList.parentOffset : I
+    ILOAD 1
+    IADD
+    INVOKEVIRTUAL modified/java/utils/AbstractList.remove (I)Ljava/lang/Object;
+    ASTORE 2
+   L3
+    LINENUMBER 983 L3
+    ALOAD 0
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList$SubList.parent : Lmodified/java/utils/AbstractList;
+    GETFIELD modified/java/utils/AbstractList.modCount : I
+    PUTFIELD modified/java/utils/ArrayList$SubList.modCount : I
+   L4
+    LINENUMBER 984 L4
+    ALOAD 0
+    DUP
+    GETFIELD modified/java/utils/ArrayList$SubList.size : I
+    ICONST_1
+    ISUB
+    PUTFIELD modified/java/utils/ArrayList$SubList.size : I
+   L5
+    LINENUMBER 985 L5
+    ALOAD 2
+    ARETURN
+   L6
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList$SubList; L0 L6 0
+    // signature Lmodified/java/utils/ArrayList<TE;>.SubList;
+    // declaration: this extends modified.java.utils.ArrayList<E>.SubList
+    LOCALVARIABLE index I L0 L6 1
+    LOCALVARIABLE result Ljava/lang/Object; L3 L6 2
+    // signature TE;
+    // declaration: result extends E
+    MAXSTACK = 3
+    MAXLOCALS = 3
+
+  // access flags 0x4
+  protected removeRange(II)V
+   L0
+    LINENUMBER 989 L0
+    ALOAD 0
+    INVOKEVIRTUAL modified/java/utils/ArrayList$SubList.checkForComodification ()V
+   L1
+    LINENUMBER 990 L1
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList$SubList.parent : Lmodified/java/utils/AbstractList;
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList$SubList.parentOffset : I
+    ILOAD 1
+    IADD
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList$SubList.parentOffset : I
+    ILOAD 2
+    IADD
+    INVOKEVIRTUAL modified/java/utils/AbstractList.removeRange (II)V
+   L2
+    LINENUMBER 992 L2
+    ALOAD 0
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList$SubList.parent : Lmodified/java/utils/AbstractList;
+    GETFIELD modified/java/utils/AbstractList.modCount : I
+    PUTFIELD modified/java/utils/ArrayList$SubList.modCount : I
+   L3
+    LINENUMBER 993 L3
+    ALOAD 0
+    DUP
+    GETFIELD modified/java/utils/ArrayList$SubList.size : I
+    ILOAD 2
+    ILOAD 1
+    ISUB
+    ISUB
+    PUTFIELD modified/java/utils/ArrayList$SubList.size : I
+   L4
+    LINENUMBER 994 L4
+    RETURN
+   L5
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList$SubList; L0 L5 0
+    // signature Lmodified/java/utils/ArrayList<TE;>.SubList;
+    // declaration: this extends modified.java.utils.ArrayList<E>.SubList
+    LOCALVARIABLE fromIndex I L0 L5 1
+    LOCALVARIABLE toIndex I L0 L5 2
+    MAXSTACK = 4
+    MAXLOCALS = 3
+
+  // access flags 0x1
+  // signature (Ljava/util/Collection<+TE;>;)Z
+  // declaration: boolean addAll(java.util.Collection<? extends E>)
+  public addAll(Ljava/util/Collection;)Z
+   L0
+    LINENUMBER 997 L0
+    ALOAD 0
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList$SubList.size : I
+    ALOAD 1
+    INVOKEVIRTUAL modified/java/utils/ArrayList$SubList.addAll (ILjava/util/Collection;)Z
+    IRETURN
+   L1
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList$SubList; L0 L1 0
+    // signature Lmodified/java/utils/ArrayList<TE;>.SubList;
+    // declaration: this extends modified.java.utils.ArrayList<E>.SubList
+    LOCALVARIABLE c Ljava/util/Collection; L0 L1 1
+    // signature Ljava/util/Collection<+TE;>;
+    // declaration: c extends java.util.Collection<? extends E>
+    MAXSTACK = 3
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  // signature (ILjava/util/Collection<+TE;>;)Z
+  // declaration: boolean addAll(int, java.util.Collection<? extends E>)
+  public addAll(ILjava/util/Collection;)Z
+   L0
+    LINENUMBER 1001 L0
+    ALOAD 0
+    ILOAD 1
+    INVOKEVIRTUAL modified/java/utils/ArrayList$SubList.rangeCheckForAdd (I)V
+   L1
+    LINENUMBER 1002 L1
+    ALOAD 2
+    INVOKEINTERFACE java/util/Collection.size ()I (itf)
+    ISTORE 3
+   L2
+    LINENUMBER 1003 L2
+    ILOAD 3
+    IFNE L3
+   L4
+    LINENUMBER 1004 L4
+    ICONST_0
+    IRETURN
+   L3
+    LINENUMBER 1006 L3
+   FRAME FULL [modified/java/utils/ArrayList$SubList I java/util/Collection I] []
+    ALOAD 0
+    POP
+   L5
+    LINENUMBER 1007 L5
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList$SubList.parent : Lmodified/java/utils/AbstractList;
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList$SubList.parentOffset : I
+    ILOAD 1
+    IADD
+    ALOAD 2
+    INVOKEVIRTUAL modified/java/utils/AbstractList.addAll (ILjava/util/Collection;)Z
+    POP
+   L6
+    LINENUMBER 1008 L6
+    ALOAD 0
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList$SubList.parent : Lmodified/java/utils/AbstractList;
+    GETFIELD modified/java/utils/AbstractList.modCount : I
+    PUTFIELD modified/java/utils/ArrayList$SubList.modCount : I
+   L7
+    LINENUMBER 1009 L7
+    ALOAD 0
+    DUP
+    GETFIELD modified/java/utils/ArrayList$SubList.size : I
+    ILOAD 3
+    IADD
+    PUTFIELD modified/java/utils/ArrayList$SubList.size : I
+   L8
+    LINENUMBER 1010 L8
+    ICONST_1
+    IRETURN
+   L9
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList$SubList; L0 L9 0
+    // signature Lmodified/java/utils/ArrayList<TE;>.SubList;
+    // declaration: this extends modified.java.utils.ArrayList<E>.SubList
+    LOCALVARIABLE index I L0 L9 1
+    LOCALVARIABLE c Ljava/util/Collection; L0 L9 2
+    // signature Ljava/util/Collection<+TE;>;
+    // declaration: c extends java.util.Collection<? extends E>
+    LOCALVARIABLE cSize I L2 L9 3
+    MAXSTACK = 3
+    MAXLOCALS = 4
+
+  // access flags 0x1
+  // signature ()Ljava/util/Iterator<TE;>;
+  // declaration: java.util.Iterator<E> iterator()
+  public iterator()Ljava/util/Iterator;
+   L0
+    LINENUMBER 1014 L0
+    ALOAD 0
+    INVOKEVIRTUAL modified/java/utils/ArrayList$SubList.listIterator ()Ljava/util/ListIterator;
+    ARETURN
+   L1
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList$SubList; L0 L1 0
+    // signature Lmodified/java/utils/ArrayList<TE;>.SubList;
+    // declaration: this extends modified.java.utils.ArrayList<E>.SubList
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  // signature (I)Ljava/util/ListIterator<TE;>;
+  // declaration: java.util.ListIterator<E> listIterator(int)
+  public listIterator(I)Ljava/util/ListIterator;
+   L0
+    LINENUMBER 1018 L0
+    ALOAD 0
+    INVOKEVIRTUAL modified/java/utils/ArrayList$SubList.checkForComodification ()V
+   L1
+    LINENUMBER 1019 L1
+    ALOAD 0
+    ILOAD 1
+    INVOKEVIRTUAL modified/java/utils/ArrayList$SubList.rangeCheckForAdd (I)V
+   L2
+    LINENUMBER 1020 L2
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList$SubList.offset : I
+    ISTORE 2
+   L3
+    LINENUMBER 1022 L3
+    NEW modified/java/utils/ArrayList$SubList$1
+    DUP
+    ALOAD 0
+    ILOAD 1
+    ILOAD 2
+    INVOKESPECIAL modified/java/utils/ArrayList$SubList$1.<init> (Lmodified/java/utils/ArrayList$SubList;II)V
+    ARETURN
+   L4
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList$SubList; L0 L4 0
+    // signature Lmodified/java/utils/ArrayList<TE;>.SubList;
+    // declaration: this extends modified.java.utils.ArrayList<E>.SubList
+    LOCALVARIABLE index I L0 L4 1
+    LOCALVARIABLE offset I L3 L4 2
+    MAXSTACK = 5
+    MAXLOCALS = 3
+
+  // access flags 0x1
+  // signature (II)Ljava/util/List<TE;>;
+  // declaration: java.util.List<E> subList(int, int)
+  public subList(II)Ljava/util/List;
+   L0
+    LINENUMBER 1118 L0
+    ILOAD 1
+    ILOAD 2
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList$SubList.size : I
+    INVOKESTATIC modified/java/utils/ArrayList.subListRangeCheck (III)V
+   L1
+    LINENUMBER 1119 L1
+    NEW modified/java/utils/ArrayList$SubList
+    DUP
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList$SubList.this$0 : Lmodified/java/utils/ArrayList;
+    ALOAD 0
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList$SubList.offset : I
+    ILOAD 1
+    ILOAD 2
+    INVOKESPECIAL modified/java/utils/ArrayList$SubList.<init> (Lmodified/java/utils/ArrayList;Lmodified/java/utils/AbstractList;III)V
+    ARETURN
+   L2
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList$SubList; L0 L2 0
+    // signature Lmodified/java/utils/ArrayList<TE;>.SubList;
+    // declaration: this extends modified.java.utils.ArrayList<E>.SubList
+    LOCALVARIABLE fromIndex I L0 L2 1
+    LOCALVARIABLE toIndex I L0 L2 2
+    MAXSTACK = 7
+    MAXLOCALS = 3
+
+  // access flags 0x2
+  private rangeCheck(I)V
+   L0
+    LINENUMBER 1123 L0
+    ILOAD 1
+    IFLT L1
+    ILOAD 1
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList$SubList.size : I
+    IF_ICMPLT L2
+   L1
+    LINENUMBER 1124 L1
+   FRAME FULL [modified/java/utils/ArrayList$SubList I] []
+    NEW java/lang/IndexOutOfBoundsException
+    DUP
+    ALOAD 0
+    ILOAD 1
+    INVOKEVIRTUAL modified/java/utils/ArrayList$SubList.outOfBoundsMsg (I)Ljava/lang/String;
+    INVOKESPECIAL java/lang/IndexOutOfBoundsException.<init> (Ljava/lang/String;)V
+    ATHROW
+   L2
+    LINENUMBER 1125 L2
+   FRAME FULL [modified/java/utils/ArrayList$SubList I] []
+    RETURN
+   L3
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList$SubList; L0 L3 0
+    // signature Lmodified/java/utils/ArrayList<TE;>.SubList;
+    // declaration: this extends modified.java.utils.ArrayList<E>.SubList
+    LOCALVARIABLE index I L0 L3 1
+    MAXSTACK = 4
+    MAXLOCALS = 2
+
+  // access flags 0x2
+  private rangeCheckForAdd(I)V
+   L0
+    LINENUMBER 1128 L0
+    ILOAD 1
+    IFLT L1
+    ILOAD 1
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList$SubList.size : I
+    IF_ICMPLE L2
+   L1
+    LINENUMBER 1129 L1
+   FRAME FULL [modified/java/utils/ArrayList$SubList I] []
+    NEW java/lang/IndexOutOfBoundsException
+    DUP
+    ALOAD 0
+    ILOAD 1
+    INVOKEVIRTUAL modified/java/utils/ArrayList$SubList.outOfBoundsMsg (I)Ljava/lang/String;
+    INVOKESPECIAL java/lang/IndexOutOfBoundsException.<init> (Ljava/lang/String;)V
+    ATHROW
+   L2
+    LINENUMBER 1130 L2
+   FRAME FULL [modified/java/utils/ArrayList$SubList I] []
+    RETURN
+   L3
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList$SubList; L0 L3 0
+    // signature Lmodified/java/utils/ArrayList<TE;>.SubList;
+    // declaration: this extends modified.java.utils.ArrayList<E>.SubList
+    LOCALVARIABLE index I L0 L3 1
+    MAXSTACK = 4
+    MAXLOCALS = 2
+
+  // access flags 0x2
+  private outOfBoundsMsg(I)Ljava/lang/String;
+   L0
+    LINENUMBER 1133 L0
+    ILOAD 1
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList$SubList.size : I
+    INVOKEDYNAMIC makeConcatWithConstants(II)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "Index: \u0001, Size: \u0001"
+    ]
+    ARETURN
+   L1
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList$SubList; L0 L1 0
+    // signature Lmodified/java/utils/ArrayList<TE;>.SubList;
+    // declaration: this extends modified.java.utils.ArrayList<E>.SubList
+    LOCALVARIABLE index I L0 L1 1
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x2
+  private checkForComodification()V
+   L0
+    LINENUMBER 1137 L0
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList$SubList.this$0 : Lmodified/java/utils/ArrayList;
+    GETFIELD modified/java/utils/ArrayList.modCount : I
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList$SubList.modCount : I
+    IF_ICMPEQ L1
+   L2
+    LINENUMBER 1138 L2
+    NEW java/util/ConcurrentModificationException
+    DUP
+    INVOKESPECIAL java/util/ConcurrentModificationException.<init> ()V
+    ATHROW
+   L1
+    LINENUMBER 1139 L1
+   FRAME FULL [modified/java/utils/ArrayList$SubList] []
+    RETURN
+   L3
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList$SubList; L0 L3 0
+    // signature Lmodified/java/utils/ArrayList<TE;>.SubList;
+    // declaration: this extends modified.java.utils.ArrayList<E>.SubList
+    MAXSTACK = 2
+    MAXLOCALS = 1
+}
+

@@ -1,0 +1,246 @@
+// class version 55.0 (55)
+// access flags 0x20
+// signature Ljava/lang/Object;Ljava/util/Iterator<TE;>;
+// declaration: modified/java/utils/ArrayList$Itr implements java.util.Iterator<E>
+class modified/java/utils/ArrayList$Itr implements java/util/Iterator {
+
+  // compiled from: ArrayList.java
+  NESTHOST modified/java/utils/ArrayList
+  // access flags 0x2
+  private INNERCLASS modified/java/utils/ArrayList$Itr modified/java/utils/ArrayList Itr
+
+  // access flags 0x0
+  I cursor
+
+  // access flags 0x0
+  I lastRet
+
+  // access flags 0x0
+  I expectedModCount
+
+  // access flags 0x1010
+  final synthetic Lmodified/java/utils/ArrayList; this$0
+
+  // access flags 0x2
+  private <init>(Lmodified/java/utils/ArrayList;)V
+   L0
+    LINENUMBER 789 L0
+    ALOAD 0
+    ALOAD 1
+    PUTFIELD modified/java/utils/ArrayList$Itr.this$0 : Lmodified/java/utils/ArrayList;
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+   L1
+    LINENUMBER 791 L1
+    ALOAD 0
+    ICONST_M1
+    PUTFIELD modified/java/utils/ArrayList$Itr.lastRet : I
+   L2
+    LINENUMBER 792 L2
+    ALOAD 0
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList$Itr.this$0 : Lmodified/java/utils/ArrayList;
+    GETFIELD modified/java/utils/ArrayList.modCount : I
+    PUTFIELD modified/java/utils/ArrayList$Itr.expectedModCount : I
+    RETURN
+   L3
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList$Itr; L0 L3 0
+    // signature Lmodified/java/utils/ArrayList<TE;>.Itr;
+    // declaration: this extends modified.java.utils.ArrayList<E>.Itr
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public hasNext()Z
+   L0
+    LINENUMBER 795 L0
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList$Itr.cursor : I
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList$Itr.this$0 : Lmodified/java/utils/ArrayList;
+    GETFIELD modified/java/utils/ArrayList.size : I
+    IF_ICMPNE L1
+    ICONST_1
+    GOTO L2
+   L1
+   FRAME FULL [modified/java/utils/ArrayList$Itr] []
+    ICONST_0
+   L2
+   FRAME FULL [modified/java/utils/ArrayList$Itr] [I]
+    IRETURN
+   L3
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList$Itr; L0 L3 0
+    // signature Lmodified/java/utils/ArrayList<TE;>.Itr;
+    // declaration: this extends modified.java.utils.ArrayList<E>.Itr
+    MAXSTACK = 2
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  // signature ()TE;
+  // declaration: E next()
+  public next()Ljava/lang/Object;
+   L0
+    LINENUMBER 800 L0
+    ALOAD 0
+    INVOKEVIRTUAL modified/java/utils/ArrayList$Itr.checkForComodification ()V
+   L1
+    LINENUMBER 801 L1
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList$Itr.cursor : I
+    ISTORE 1
+   L2
+    LINENUMBER 802 L2
+    ILOAD 1
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList$Itr.this$0 : Lmodified/java/utils/ArrayList;
+    GETFIELD modified/java/utils/ArrayList.size : I
+    IF_ICMPLT L3
+   L4
+    LINENUMBER 803 L4
+    NEW java/util/NoSuchElementException
+    DUP
+    INVOKESPECIAL java/util/NoSuchElementException.<init> ()V
+    ATHROW
+   L3
+    LINENUMBER 804 L3
+   FRAME FULL [modified/java/utils/ArrayList$Itr I] []
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList$Itr.this$0 : Lmodified/java/utils/ArrayList;
+    GETFIELD modified/java/utils/ArrayList.elementData : [Ljava/lang/Object;
+    ASTORE 2
+   L5
+    LINENUMBER 805 L5
+    ILOAD 1
+    ALOAD 2
+    ARRAYLENGTH
+    IF_ICMPLT L6
+   L7
+    LINENUMBER 806 L7
+    NEW java/util/ConcurrentModificationException
+    DUP
+    INVOKESPECIAL java/util/ConcurrentModificationException.<init> ()V
+    ATHROW
+   L6
+    LINENUMBER 807 L6
+   FRAME FULL [modified/java/utils/ArrayList$Itr I [Ljava/lang/Object;] []
+    ALOAD 0
+    ILOAD 1
+    ICONST_1
+    IADD
+    PUTFIELD modified/java/utils/ArrayList$Itr.cursor : I
+   L8
+    LINENUMBER 808 L8
+    ALOAD 2
+    ALOAD 0
+    ILOAD 1
+    DUP_X1
+    PUTFIELD modified/java/utils/ArrayList$Itr.lastRet : I
+    AALOAD
+    ARETURN
+   L9
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList$Itr; L0 L9 0
+    // signature Lmodified/java/utils/ArrayList<TE;>.Itr;
+    // declaration: this extends modified.java.utils.ArrayList<E>.Itr
+    LOCALVARIABLE i I L2 L9 1
+    LOCALVARIABLE elementData [Ljava/lang/Object; L5 L9 2
+    MAXSTACK = 4
+    MAXLOCALS = 3
+
+  // access flags 0x1
+  public remove()V
+    TRYCATCHBLOCK L0 L1 L2 java/lang/IndexOutOfBoundsException
+   L3
+    LINENUMBER 812 L3
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList$Itr.lastRet : I
+    IFGE L4
+   L5
+    LINENUMBER 813 L5
+    NEW java/lang/IllegalStateException
+    DUP
+    INVOKESPECIAL java/lang/IllegalStateException.<init> ()V
+    ATHROW
+   L4
+    LINENUMBER 814 L4
+   FRAME FULL [modified/java/utils/ArrayList$Itr] []
+    ALOAD 0
+    INVOKEVIRTUAL modified/java/utils/ArrayList$Itr.checkForComodification ()V
+   L0
+    LINENUMBER 817 L0
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList$Itr.this$0 : Lmodified/java/utils/ArrayList;
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList$Itr.lastRet : I
+    INVOKEVIRTUAL modified/java/utils/ArrayList.remove (I)Ljava/lang/Object;
+    POP
+   L6
+    LINENUMBER 818 L6
+    ALOAD 0
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList$Itr.lastRet : I
+    PUTFIELD modified/java/utils/ArrayList$Itr.cursor : I
+   L7
+    LINENUMBER 819 L7
+    ALOAD 0
+    ICONST_M1
+    PUTFIELD modified/java/utils/ArrayList$Itr.lastRet : I
+   L8
+    LINENUMBER 820 L8
+    ALOAD 0
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList$Itr.this$0 : Lmodified/java/utils/ArrayList;
+    GETFIELD modified/java/utils/ArrayList.modCount : I
+    PUTFIELD modified/java/utils/ArrayList$Itr.expectedModCount : I
+   L1
+    LINENUMBER 823 L1
+    GOTO L9
+   L2
+    LINENUMBER 821 L2
+   FRAME FULL [modified/java/utils/ArrayList$Itr] [java/lang/IndexOutOfBoundsException]
+    ASTORE 1
+   L10
+    LINENUMBER 822 L10
+    NEW java/util/ConcurrentModificationException
+    DUP
+    INVOKESPECIAL java/util/ConcurrentModificationException.<init> ()V
+    ATHROW
+   L9
+    LINENUMBER 824 L9
+   FRAME FULL [modified/java/utils/ArrayList$Itr] []
+    RETURN
+   L11
+    LOCALVARIABLE ex Ljava/lang/IndexOutOfBoundsException; L10 L9 1
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList$Itr; L3 L11 0
+    // signature Lmodified/java/utils/ArrayList<TE;>.Itr;
+    // declaration: this extends modified.java.utils.ArrayList<E>.Itr
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x10
+  final checkForComodification()V
+   L0
+    LINENUMBER 827 L0
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList$Itr.this$0 : Lmodified/java/utils/ArrayList;
+    GETFIELD modified/java/utils/ArrayList.modCount : I
+    ALOAD 0
+    GETFIELD modified/java/utils/ArrayList$Itr.expectedModCount : I
+    IF_ICMPEQ L1
+   L2
+    LINENUMBER 828 L2
+    NEW java/util/ConcurrentModificationException
+    DUP
+    INVOKESPECIAL java/util/ConcurrentModificationException.<init> ()V
+    ATHROW
+   L1
+    LINENUMBER 829 L1
+   FRAME FULL [modified/java/utils/ArrayList$Itr] []
+    RETURN
+   L3
+    LOCALVARIABLE this Lmodified/java/utils/ArrayList$Itr; L0 L3 0
+    // signature Lmodified/java/utils/ArrayList<TE;>.Itr;
+    // declaration: this extends modified.java.utils.ArrayList<E>.Itr
+    MAXSTACK = 2
+    MAXLOCALS = 1
+}
+

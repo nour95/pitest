@@ -1,0 +1,1 @@
+MutationDetails [id=MutationIdentifier [location=Location [clazz=modified.java.utils.ArrayList, method=clear, methodDesc=()V], indexes=[28], mutator=org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator], filename=ArrayList.java, block=2, lineNumber=519, description=Changed increment from 1 to -1, testsInOrder=[], isInFinallyBlock=false, poison=NORMAL]
