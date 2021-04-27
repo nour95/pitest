@@ -37,8 +37,8 @@ public class WriteToDisk {
     public WriteToDisk(String source, String target) throws MalformedURLException {
         this.classLoader = new URLClassLoader(new URL[]{new File(source).toURI().toURL()});
         this.source = new ClassloaderByteArraySource(classLoader);
-//        final Collection<MethodMutatorFactory> mutators = Mutator.newDefaults();
-        final Collection<MethodMutatorFactory> mutators = Mutator.stronger();
+        final Collection<MethodMutatorFactory> mutators = Mutator.newDefaults();
+//        final Collection<MethodMutatorFactory> mutators = Mutator.stronger();
         this.mutator = new GregorMutater(this.source, m -> true, mutators);
         this.fileSystem = FileSystems.getDefault();
         this.testee = new MutantExportInterceptor(this.fileSystem, this.source, target);

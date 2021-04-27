@@ -1,0 +1,1 @@
+MutationDetails [id=MutationIdentifier [location=Location [clazz=modbat.bes.arraylist.ArrayList$Itr, method=remove, methodDesc=()V], indexes=[5], mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator], filename=ArrayList.java, block=0, lineNumber=813, description=changed conditional boundary, testsInOrder=[], isInFinallyBlock=false, poison=NORMAL]

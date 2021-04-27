@@ -1,0 +1,493 @@
+// class version 55.0 (55)
+// access flags 0x20
+// signature Ljava/lang/Object;Ljava/util/ListIterator<TE;>;
+// declaration: modbat/bes/linkedlist/LinkedList$ListItr implements java.util.ListIterator<E>
+class modbat/bes/linkedlist/LinkedList$ListItr implements java/util/ListIterator {
+
+  // compiled from: LinkedList.java
+  NESTHOST modbat/bes/linkedlist/LinkedList
+  // access flags 0xA
+  private static INNERCLASS modbat/bes/linkedlist/LinkedList$Node modbat/bes/linkedlist/LinkedList Node
+  // access flags 0x2
+  private INNERCLASS modbat/bes/linkedlist/LinkedList$ListItr modbat/bes/linkedlist/LinkedList ListItr
+
+  // access flags 0x2
+  // signature Lmodbat/bes/linkedlist/LinkedList$Node<TE;>;
+  // declaration: lastReturned extends modbat.bes.linkedlist.LinkedList$Node<E>
+  private Lmodbat/bes/linkedlist/LinkedList$Node; lastReturned
+
+  // access flags 0x2
+  // signature Lmodbat/bes/linkedlist/LinkedList$Node<TE;>;
+  // declaration: next extends modbat.bes.linkedlist.LinkedList$Node<E>
+  private Lmodbat/bes/linkedlist/LinkedList$Node; next
+
+  // access flags 0x2
+  private I nextIndex
+
+  // access flags 0x2
+  private I expectedModCount
+
+  // access flags 0x1010
+  final synthetic Lmodbat/bes/linkedlist/LinkedList; this$0
+
+  // access flags 0x0
+  <init>(Lmodbat/bes/linkedlist/LinkedList;I)V
+   L0
+    LINENUMBER 886 L0
+    ALOAD 0
+    ALOAD 1
+    PUTFIELD modbat/bes/linkedlist/LinkedList$ListItr.this$0 : Lmodbat/bes/linkedlist/LinkedList;
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.<init> ()V
+   L1
+    LINENUMBER 881 L1
+    ALOAD 0
+    ACONST_NULL
+    PUTFIELD modbat/bes/linkedlist/LinkedList$ListItr.lastReturned : Lmodbat/bes/linkedlist/LinkedList$Node;
+   L2
+    LINENUMBER 884 L2
+    ALOAD 0
+    ALOAD 0
+    GETFIELD modbat/bes/linkedlist/LinkedList$ListItr.this$0 : Lmodbat/bes/linkedlist/LinkedList;
+    INVOKESTATIC modbat/bes/linkedlist/LinkedList.access$000 (Lmodbat/bes/linkedlist/LinkedList;)I
+    PUTFIELD modbat/bes/linkedlist/LinkedList$ListItr.expectedModCount : I
+   L3
+    LINENUMBER 888 L3
+    ALOAD 0
+    ILOAD 2
+    ALOAD 1
+    GETFIELD modbat/bes/linkedlist/LinkedList.size : I
+    IF_ICMPNE L4
+    ACONST_NULL
+    GOTO L5
+   L4
+   FRAME FULL [modbat/bes/linkedlist/LinkedList$ListItr modbat/bes/linkedlist/LinkedList I] [modbat/bes/linkedlist/LinkedList$ListItr]
+    ALOAD 1
+    ILOAD 2
+    INVOKEVIRTUAL modbat/bes/linkedlist/LinkedList.node (I)Lmodbat/bes/linkedlist/LinkedList$Node;
+   L5
+   FRAME FULL [modbat/bes/linkedlist/LinkedList$ListItr modbat/bes/linkedlist/LinkedList I] [modbat/bes/linkedlist/LinkedList$ListItr modbat/bes/linkedlist/LinkedList$Node]
+    PUTFIELD modbat/bes/linkedlist/LinkedList$ListItr.next : Lmodbat/bes/linkedlist/LinkedList$Node;
+   L6
+    LINENUMBER 889 L6
+    ALOAD 0
+    ILOAD 2
+    PUTFIELD modbat/bes/linkedlist/LinkedList$ListItr.nextIndex : I
+   L7
+    LINENUMBER 890 L7
+    RETURN
+   L8
+    LOCALVARIABLE this Lmodbat/bes/linkedlist/LinkedList$ListItr; L0 L8 0
+    // signature Lmodbat/bes/linkedlist/LinkedList<TE;>.ListItr;
+    // declaration: this extends modbat.bes.linkedlist.LinkedList<E>.ListItr
+    LOCALVARIABLE index I L0 L8 2
+    MAXSTACK = 3
+    MAXLOCALS = 3
+
+  // access flags 0x1
+  public hasNext()Z
+   L0
+    LINENUMBER 893 L0
+    ALOAD 0
+    GETFIELD modbat/bes/linkedlist/LinkedList$ListItr.nextIndex : I
+    ALOAD 0
+    GETFIELD modbat/bes/linkedlist/LinkedList$ListItr.this$0 : Lmodbat/bes/linkedlist/LinkedList;
+    GETFIELD modbat/bes/linkedlist/LinkedList.size : I
+    IF_ICMPGE L1
+    ICONST_1
+    GOTO L2
+   L1
+   FRAME FULL [modbat/bes/linkedlist/LinkedList$ListItr] []
+    ICONST_0
+   L2
+   FRAME FULL [modbat/bes/linkedlist/LinkedList$ListItr] [I]
+    POP
+    ICONST_1
+    IRETURN
+   L3
+    LOCALVARIABLE this Lmodbat/bes/linkedlist/LinkedList$ListItr; L0 L3 0
+    // signature Lmodbat/bes/linkedlist/LinkedList<TE;>.ListItr;
+    // declaration: this extends modbat.bes.linkedlist.LinkedList<E>.ListItr
+    MAXSTACK = 2
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  // signature ()TE;
+  // declaration: E next()
+  public next()Ljava/lang/Object;
+   L0
+    LINENUMBER 897 L0
+    ALOAD 0
+    INVOKEVIRTUAL modbat/bes/linkedlist/LinkedList$ListItr.checkForComodification ()V
+   L1
+    LINENUMBER 898 L1
+    ALOAD 0
+    INVOKEVIRTUAL modbat/bes/linkedlist/LinkedList$ListItr.hasNext ()Z
+    IFNE L2
+   L3
+    LINENUMBER 899 L3
+    NEW java/util/NoSuchElementException
+    DUP
+    INVOKESPECIAL java/util/NoSuchElementException.<init> ()V
+    ATHROW
+   L2
+    LINENUMBER 901 L2
+   FRAME FULL [modbat/bes/linkedlist/LinkedList$ListItr] []
+    ALOAD 0
+    ALOAD 0
+    GETFIELD modbat/bes/linkedlist/LinkedList$ListItr.next : Lmodbat/bes/linkedlist/LinkedList$Node;
+    PUTFIELD modbat/bes/linkedlist/LinkedList$ListItr.lastReturned : Lmodbat/bes/linkedlist/LinkedList$Node;
+   L4
+    LINENUMBER 902 L4
+    ALOAD 0
+    ALOAD 0
+    GETFIELD modbat/bes/linkedlist/LinkedList$ListItr.next : Lmodbat/bes/linkedlist/LinkedList$Node;
+    GETFIELD modbat/bes/linkedlist/LinkedList$Node.next : Lmodbat/bes/linkedlist/LinkedList$Node;
+    PUTFIELD modbat/bes/linkedlist/LinkedList$ListItr.next : Lmodbat/bes/linkedlist/LinkedList$Node;
+   L5
+    LINENUMBER 903 L5
+    ALOAD 0
+    DUP
+    GETFIELD modbat/bes/linkedlist/LinkedList$ListItr.nextIndex : I
+    ICONST_1
+    IADD
+    PUTFIELD modbat/bes/linkedlist/LinkedList$ListItr.nextIndex : I
+   L6
+    LINENUMBER 904 L6
+    ALOAD 0
+    GETFIELD modbat/bes/linkedlist/LinkedList$ListItr.lastReturned : Lmodbat/bes/linkedlist/LinkedList$Node;
+    GETFIELD modbat/bes/linkedlist/LinkedList$Node.item : Ljava/lang/Object;
+    ARETURN
+   L7
+    LOCALVARIABLE this Lmodbat/bes/linkedlist/LinkedList$ListItr; L0 L7 0
+    // signature Lmodbat/bes/linkedlist/LinkedList<TE;>.ListItr;
+    // declaration: this extends modbat.bes.linkedlist.LinkedList<E>.ListItr
+    MAXSTACK = 3
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public hasPrevious()Z
+   L0
+    LINENUMBER 908 L0
+    ALOAD 0
+    GETFIELD modbat/bes/linkedlist/LinkedList$ListItr.nextIndex : I
+    IFLE L1
+    ICONST_1
+    GOTO L2
+   L1
+   FRAME FULL [modbat/bes/linkedlist/LinkedList$ListItr] []
+    ICONST_0
+   L2
+   FRAME FULL [modbat/bes/linkedlist/LinkedList$ListItr] [I]
+    IRETURN
+   L3
+    LOCALVARIABLE this Lmodbat/bes/linkedlist/LinkedList$ListItr; L0 L3 0
+    // signature Lmodbat/bes/linkedlist/LinkedList<TE;>.ListItr;
+    // declaration: this extends modbat.bes.linkedlist.LinkedList<E>.ListItr
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  // signature ()TE;
+  // declaration: E previous()
+  public previous()Ljava/lang/Object;
+   L0
+    LINENUMBER 912 L0
+    ALOAD 0
+    INVOKEVIRTUAL modbat/bes/linkedlist/LinkedList$ListItr.checkForComodification ()V
+   L1
+    LINENUMBER 913 L1
+    ALOAD 0
+    INVOKEVIRTUAL modbat/bes/linkedlist/LinkedList$ListItr.hasPrevious ()Z
+    IFNE L2
+   L3
+    LINENUMBER 914 L3
+    NEW java/util/NoSuchElementException
+    DUP
+    INVOKESPECIAL java/util/NoSuchElementException.<init> ()V
+    ATHROW
+   L2
+    LINENUMBER 916 L2
+   FRAME FULL [modbat/bes/linkedlist/LinkedList$ListItr] []
+    ALOAD 0
+    ALOAD 0
+    ALOAD 0
+    GETFIELD modbat/bes/linkedlist/LinkedList$ListItr.next : Lmodbat/bes/linkedlist/LinkedList$Node;
+    IFNONNULL L4
+    ALOAD 0
+    GETFIELD modbat/bes/linkedlist/LinkedList$ListItr.this$0 : Lmodbat/bes/linkedlist/LinkedList;
+    GETFIELD modbat/bes/linkedlist/LinkedList.last : Lmodbat/bes/linkedlist/LinkedList$Node;
+    GOTO L5
+   L4
+   FRAME FULL [modbat/bes/linkedlist/LinkedList$ListItr] [modbat/bes/linkedlist/LinkedList$ListItr modbat/bes/linkedlist/LinkedList$ListItr]
+    ALOAD 0
+    GETFIELD modbat/bes/linkedlist/LinkedList$ListItr.next : Lmodbat/bes/linkedlist/LinkedList$Node;
+    GETFIELD modbat/bes/linkedlist/LinkedList$Node.prev : Lmodbat/bes/linkedlist/LinkedList$Node;
+   L5
+   FRAME FULL [modbat/bes/linkedlist/LinkedList$ListItr] [modbat/bes/linkedlist/LinkedList$ListItr modbat/bes/linkedlist/LinkedList$ListItr modbat/bes/linkedlist/LinkedList$Node]
+    DUP_X1
+    PUTFIELD modbat/bes/linkedlist/LinkedList$ListItr.next : Lmodbat/bes/linkedlist/LinkedList$Node;
+    PUTFIELD modbat/bes/linkedlist/LinkedList$ListItr.lastReturned : Lmodbat/bes/linkedlist/LinkedList$Node;
+   L6
+    LINENUMBER 917 L6
+    ALOAD 0
+    DUP
+    GETFIELD modbat/bes/linkedlist/LinkedList$ListItr.nextIndex : I
+    ICONST_1
+    ISUB
+    PUTFIELD modbat/bes/linkedlist/LinkedList$ListItr.nextIndex : I
+   L7
+    LINENUMBER 918 L7
+    ALOAD 0
+    GETFIELD modbat/bes/linkedlist/LinkedList$ListItr.lastReturned : Lmodbat/bes/linkedlist/LinkedList$Node;
+    GETFIELD modbat/bes/linkedlist/LinkedList$Node.item : Ljava/lang/Object;
+    ARETURN
+   L8
+    LOCALVARIABLE this Lmodbat/bes/linkedlist/LinkedList$ListItr; L0 L8 0
+    // signature Lmodbat/bes/linkedlist/LinkedList<TE;>.ListItr;
+    // declaration: this extends modbat.bes.linkedlist.LinkedList<E>.ListItr
+    MAXSTACK = 4
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public nextIndex()I
+   L0
+    LINENUMBER 922 L0
+    ALOAD 0
+    GETFIELD modbat/bes/linkedlist/LinkedList$ListItr.nextIndex : I
+    IRETURN
+   L1
+    LOCALVARIABLE this Lmodbat/bes/linkedlist/LinkedList$ListItr; L0 L1 0
+    // signature Lmodbat/bes/linkedlist/LinkedList<TE;>.ListItr;
+    // declaration: this extends modbat.bes.linkedlist.LinkedList<E>.ListItr
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public previousIndex()I
+   L0
+    LINENUMBER 926 L0
+    ALOAD 0
+    GETFIELD modbat/bes/linkedlist/LinkedList$ListItr.nextIndex : I
+    ICONST_1
+    ISUB
+    IRETURN
+   L1
+    LOCALVARIABLE this Lmodbat/bes/linkedlist/LinkedList$ListItr; L0 L1 0
+    // signature Lmodbat/bes/linkedlist/LinkedList<TE;>.ListItr;
+    // declaration: this extends modbat.bes.linkedlist.LinkedList<E>.ListItr
+    MAXSTACK = 2
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public remove()V
+   L0
+    LINENUMBER 930 L0
+    ALOAD 0
+    INVOKEVIRTUAL modbat/bes/linkedlist/LinkedList$ListItr.checkForComodification ()V
+   L1
+    LINENUMBER 931 L1
+    ALOAD 0
+    GETFIELD modbat/bes/linkedlist/LinkedList$ListItr.lastReturned : Lmodbat/bes/linkedlist/LinkedList$Node;
+    IFNONNULL L2
+   L3
+    LINENUMBER 932 L3
+    NEW java/lang/IllegalStateException
+    DUP
+    INVOKESPECIAL java/lang/IllegalStateException.<init> ()V
+    ATHROW
+   L2
+    LINENUMBER 934 L2
+   FRAME FULL [modbat/bes/linkedlist/LinkedList$ListItr] []
+    ALOAD 0
+    GETFIELD modbat/bes/linkedlist/LinkedList$ListItr.lastReturned : Lmodbat/bes/linkedlist/LinkedList$Node;
+    GETFIELD modbat/bes/linkedlist/LinkedList$Node.next : Lmodbat/bes/linkedlist/LinkedList$Node;
+    ASTORE 1
+   L4
+    LINENUMBER 935 L4
+    ALOAD 0
+    GETFIELD modbat/bes/linkedlist/LinkedList$ListItr.this$0 : Lmodbat/bes/linkedlist/LinkedList;
+    ALOAD 0
+    GETFIELD modbat/bes/linkedlist/LinkedList$ListItr.lastReturned : Lmodbat/bes/linkedlist/LinkedList$Node;
+    INVOKEVIRTUAL modbat/bes/linkedlist/LinkedList.unlink (Lmodbat/bes/linkedlist/LinkedList$Node;)Ljava/lang/Object;
+    POP
+   L5
+    LINENUMBER 936 L5
+    ALOAD 0
+    GETFIELD modbat/bes/linkedlist/LinkedList$ListItr.next : Lmodbat/bes/linkedlist/LinkedList$Node;
+    ALOAD 0
+    GETFIELD modbat/bes/linkedlist/LinkedList$ListItr.lastReturned : Lmodbat/bes/linkedlist/LinkedList$Node;
+    IF_ACMPNE L6
+   L7
+    LINENUMBER 937 L7
+    ALOAD 0
+    ALOAD 1
+    PUTFIELD modbat/bes/linkedlist/LinkedList$ListItr.next : Lmodbat/bes/linkedlist/LinkedList$Node;
+    GOTO L8
+   L6
+    LINENUMBER 939 L6
+   FRAME FULL [modbat/bes/linkedlist/LinkedList$ListItr modbat/bes/linkedlist/LinkedList$Node] []
+    ALOAD 0
+    DUP
+    GETFIELD modbat/bes/linkedlist/LinkedList$ListItr.nextIndex : I
+    ICONST_1
+    ISUB
+    PUTFIELD modbat/bes/linkedlist/LinkedList$ListItr.nextIndex : I
+   L8
+    LINENUMBER 940 L8
+   FRAME FULL [modbat/bes/linkedlist/LinkedList$ListItr modbat/bes/linkedlist/LinkedList$Node] []
+    ALOAD 0
+    ACONST_NULL
+    PUTFIELD modbat/bes/linkedlist/LinkedList$ListItr.lastReturned : Lmodbat/bes/linkedlist/LinkedList$Node;
+   L9
+    LINENUMBER 941 L9
+    ALOAD 0
+    DUP
+    GETFIELD modbat/bes/linkedlist/LinkedList$ListItr.expectedModCount : I
+    ICONST_1
+    IADD
+    PUTFIELD modbat/bes/linkedlist/LinkedList$ListItr.expectedModCount : I
+   L10
+    LINENUMBER 942 L10
+    RETURN
+   L11
+    LOCALVARIABLE this Lmodbat/bes/linkedlist/LinkedList$ListItr; L0 L11 0
+    // signature Lmodbat/bes/linkedlist/LinkedList<TE;>.ListItr;
+    // declaration: this extends modbat.bes.linkedlist.LinkedList<E>.ListItr
+    LOCALVARIABLE lastNext Lmodbat/bes/linkedlist/LinkedList$Node; L4 L11 1
+    // signature Lmodbat/bes/linkedlist/LinkedList$Node<TE;>;
+    // declaration: lastNext extends modbat.bes.linkedlist.LinkedList$Node<E>
+    MAXSTACK = 3
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  // signature (TE;)V
+  // declaration: void set(E)
+  public set(Ljava/lang/Object;)V
+   L0
+    LINENUMBER 945 L0
+    ALOAD 0
+    GETFIELD modbat/bes/linkedlist/LinkedList$ListItr.lastReturned : Lmodbat/bes/linkedlist/LinkedList$Node;
+    IFNONNULL L1
+   L2
+    LINENUMBER 946 L2
+    NEW java/lang/IllegalStateException
+    DUP
+    INVOKESPECIAL java/lang/IllegalStateException.<init> ()V
+    ATHROW
+   L1
+    LINENUMBER 947 L1
+   FRAME FULL [modbat/bes/linkedlist/LinkedList$ListItr java/lang/Object] []
+    ALOAD 0
+    INVOKEVIRTUAL modbat/bes/linkedlist/LinkedList$ListItr.checkForComodification ()V
+   L3
+    LINENUMBER 948 L3
+    ALOAD 0
+    GETFIELD modbat/bes/linkedlist/LinkedList$ListItr.lastReturned : Lmodbat/bes/linkedlist/LinkedList$Node;
+    ALOAD 1
+    PUTFIELD modbat/bes/linkedlist/LinkedList$Node.item : Ljava/lang/Object;
+   L4
+    LINENUMBER 949 L4
+    RETURN
+   L5
+    LOCALVARIABLE this Lmodbat/bes/linkedlist/LinkedList$ListItr; L0 L5 0
+    // signature Lmodbat/bes/linkedlist/LinkedList<TE;>.ListItr;
+    // declaration: this extends modbat.bes.linkedlist.LinkedList<E>.ListItr
+    LOCALVARIABLE e Ljava/lang/Object; L0 L5 1
+    // signature TE;
+    // declaration: e extends E
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  // signature (TE;)V
+  // declaration: void add(E)
+  public add(Ljava/lang/Object;)V
+   L0
+    LINENUMBER 952 L0
+    ALOAD 0
+    INVOKEVIRTUAL modbat/bes/linkedlist/LinkedList$ListItr.checkForComodification ()V
+   L1
+    LINENUMBER 953 L1
+    ALOAD 0
+    ACONST_NULL
+    PUTFIELD modbat/bes/linkedlist/LinkedList$ListItr.lastReturned : Lmodbat/bes/linkedlist/LinkedList$Node;
+   L2
+    LINENUMBER 954 L2
+    ALOAD 0
+    GETFIELD modbat/bes/linkedlist/LinkedList$ListItr.next : Lmodbat/bes/linkedlist/LinkedList$Node;
+    IFNONNULL L3
+   L4
+    LINENUMBER 955 L4
+    ALOAD 0
+    GETFIELD modbat/bes/linkedlist/LinkedList$ListItr.this$0 : Lmodbat/bes/linkedlist/LinkedList;
+    ALOAD 1
+    INVOKEVIRTUAL modbat/bes/linkedlist/LinkedList.linkLast (Ljava/lang/Object;)V
+    GOTO L5
+   L3
+    LINENUMBER 957 L3
+   FRAME FULL [modbat/bes/linkedlist/LinkedList$ListItr java/lang/Object] []
+    ALOAD 0
+    GETFIELD modbat/bes/linkedlist/LinkedList$ListItr.this$0 : Lmodbat/bes/linkedlist/LinkedList;
+    ALOAD 1
+    ALOAD 0
+    GETFIELD modbat/bes/linkedlist/LinkedList$ListItr.next : Lmodbat/bes/linkedlist/LinkedList$Node;
+    INVOKEVIRTUAL modbat/bes/linkedlist/LinkedList.linkBefore (Ljava/lang/Object;Lmodbat/bes/linkedlist/LinkedList$Node;)V
+   L5
+    LINENUMBER 958 L5
+   FRAME FULL [modbat/bes/linkedlist/LinkedList$ListItr java/lang/Object] []
+    ALOAD 0
+    DUP
+    GETFIELD modbat/bes/linkedlist/LinkedList$ListItr.nextIndex : I
+    ICONST_1
+    IADD
+    PUTFIELD modbat/bes/linkedlist/LinkedList$ListItr.nextIndex : I
+   L6
+    LINENUMBER 959 L6
+    ALOAD 0
+    DUP
+    GETFIELD modbat/bes/linkedlist/LinkedList$ListItr.expectedModCount : I
+    ICONST_1
+    IADD
+    PUTFIELD modbat/bes/linkedlist/LinkedList$ListItr.expectedModCount : I
+   L7
+    LINENUMBER 960 L7
+    RETURN
+   L8
+    LOCALVARIABLE this Lmodbat/bes/linkedlist/LinkedList$ListItr; L0 L8 0
+    // signature Lmodbat/bes/linkedlist/LinkedList<TE;>.ListItr;
+    // declaration: this extends modbat.bes.linkedlist.LinkedList<E>.ListItr
+    LOCALVARIABLE e Ljava/lang/Object; L0 L8 1
+    // signature TE;
+    // declaration: e extends E
+    MAXSTACK = 3
+    MAXLOCALS = 2
+
+  // access flags 0x10
+  final checkForComodification()V
+   L0
+    LINENUMBER 963 L0
+    ALOAD 0
+    GETFIELD modbat/bes/linkedlist/LinkedList$ListItr.this$0 : Lmodbat/bes/linkedlist/LinkedList;
+    INVOKESTATIC modbat/bes/linkedlist/LinkedList.access$100 (Lmodbat/bes/linkedlist/LinkedList;)I
+    ALOAD 0
+    GETFIELD modbat/bes/linkedlist/LinkedList$ListItr.expectedModCount : I
+    IF_ICMPEQ L1
+   L2
+    LINENUMBER 964 L2
+    NEW java/util/ConcurrentModificationException
+    DUP
+    INVOKESPECIAL java/util/ConcurrentModificationException.<init> ()V
+    ATHROW
+   L1
+    LINENUMBER 965 L1
+   FRAME FULL [modbat/bes/linkedlist/LinkedList$ListItr] []
+    RETURN
+   L3
+    LOCALVARIABLE this Lmodbat/bes/linkedlist/LinkedList$ListItr; L0 L3 0
+    // signature Lmodbat/bes/linkedlist/LinkedList<TE;>.ListItr;
+    // declaration: this extends modbat.bes.linkedlist.LinkedList<E>.ListItr
+    MAXSTACK = 2
+    MAXLOCALS = 1
+}
+

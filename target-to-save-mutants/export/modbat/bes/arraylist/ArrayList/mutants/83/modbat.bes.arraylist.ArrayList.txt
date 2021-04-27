@@ -1,0 +1,2035 @@
+// class version 55.0 (55)
+// access flags 0x21
+// signature <E:Ljava/lang/Object;>Lmodbat/bes/arraylist/AbstractList<TE;>;Ljava/util/List<TE;>;Ljava/util/RandomAccess;Ljava/lang/Cloneable;Ljava/io/Serializable;
+// declaration: modbat/bes/arraylist/ArrayList<E> extends modbat.bes.arraylist.AbstractList<E> implements java.util.List<E>, java.util.RandomAccess, java.lang.Cloneable, java.io.Serializable
+public class modbat/bes/arraylist/ArrayList extends modbat/bes/arraylist/AbstractList implements java/util/List java/util/RandomAccess java/lang/Cloneable java/io/Serializable {
+
+  // compiled from: ArrayList.java
+  NESTMEMBER modbat/bes/arraylist/ArrayList$SubList
+  NESTMEMBER modbat/bes/arraylist/ArrayList$SubList$1
+  NESTMEMBER modbat/bes/arraylist/ArrayList$ListItr
+  NESTMEMBER modbat/bes/arraylist/ArrayList$Itr
+  // access flags 0x2
+  private INNERCLASS modbat/bes/arraylist/ArrayList$SubList modbat/bes/arraylist/ArrayList SubList
+  // access flags 0x2
+  private INNERCLASS modbat/bes/arraylist/ArrayList$ListItr modbat/bes/arraylist/ArrayList ListItr
+  // access flags 0x2
+  private INNERCLASS modbat/bes/arraylist/ArrayList$Itr modbat/bes/arraylist/ArrayList Itr
+  // access flags 0x0
+  INNERCLASS modbat/bes/arraylist/ArrayList$SubList$1 null null
+  // access flags 0x19
+  public final static INNERCLASS java/lang/invoke/MethodHandles$Lookup java/lang/invoke/MethodHandles Lookup
+
+  // access flags 0x1A
+  private final static J serialVersionUID = 8683452581122892189
+
+  // access flags 0x82
+  private transient [Ljava/lang/Object; elementData
+
+  // access flags 0x2
+  private I size
+
+  // access flags 0x1A
+  private final static I MAX_ARRAY_SIZE = 2147483639
+
+  // access flags 0x1
+  public <init>(I)V
+   L0
+    LINENUMBER 138 L0
+    ALOAD 0
+    INVOKESPECIAL modbat/bes/arraylist/AbstractList.<init> ()V
+   L1
+    LINENUMBER 139 L1
+    ILOAD 1
+    IFGE L2
+   L3
+    LINENUMBER 140 L3
+    NEW java/lang/IllegalArgumentException
+    DUP
+    ILOAD 1
+    INVOKEDYNAMIC makeConcatWithConstants(I)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "Illegal Capacity: \u0001"
+    ]
+    INVOKESPECIAL java/lang/IllegalArgumentException.<init> (Ljava/lang/String;)V
+    ATHROW
+   L2
+    LINENUMBER 142 L2
+   FRAME FULL [modbat/bes/arraylist/ArrayList I] []
+    ALOAD 0
+    ILOAD 1
+    ANEWARRAY java/lang/Object
+    PUTFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+   L4
+    LINENUMBER 143 L4
+    RETURN
+   L5
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList; L0 L5 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>
+    LOCALVARIABLE initialCapacity I L0 L5 1
+    MAXSTACK = 3
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public <init>()V
+   L0
+    LINENUMBER 149 L0
+    ALOAD 0
+    BIPUSH 10
+    INVOKESPECIAL modbat/bes/arraylist/ArrayList.<init> (I)V
+   L1
+    LINENUMBER 150 L1
+    RETURN
+   L2
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList; L0 L2 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>
+    MAXSTACK = 2
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  // signature (Ljava/util/Collection<+TE;>;)V
+  // declaration: void <init>(java.util.Collection<? extends E>)
+  public <init>(Ljava/util/Collection;)V
+   L0
+    LINENUMBER 160 L0
+    ALOAD 0
+    INVOKESPECIAL modbat/bes/arraylist/AbstractList.<init> ()V
+   L1
+    LINENUMBER 161 L1
+    ALOAD 0
+    ALOAD 1
+    INVOKEINTERFACE java/util/Collection.toArray ()[Ljava/lang/Object; (itf)
+    PUTFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+   L2
+    LINENUMBER 162 L2
+    ALOAD 0
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+    ARRAYLENGTH
+    PUTFIELD modbat/bes/arraylist/ArrayList.size : I
+   L3
+    LINENUMBER 164 L3
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+    INVOKEVIRTUAL java/lang/Object.getClass ()Ljava/lang/Class;
+    LDC [Ljava/lang/Object;.class
+    IF_ACMPEQ L4
+   L5
+    LINENUMBER 165 L5
+    ALOAD 0
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    LDC [Ljava/lang/Object;.class
+    INVOKESTATIC java/util/Arrays.copyOf ([Ljava/lang/Object;ILjava/lang/Class;)[Ljava/lang/Object;
+    PUTFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+   L4
+    LINENUMBER 166 L4
+   FRAME FULL [modbat/bes/arraylist/ArrayList java/util/Collection] []
+    RETURN
+   L6
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList; L0 L6 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>
+    LOCALVARIABLE c Ljava/util/Collection; L0 L6 1
+    // signature Ljava/util/Collection<+TE;>;
+    // declaration: c extends java.util.Collection<? extends E>
+    MAXSTACK = 4
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public trimToSize()V
+   L0
+    LINENUMBER 174 L0
+    ALOAD 0
+    DUP
+    GETFIELD modbat/bes/arraylist/ArrayList.modCount : I
+    ICONST_1
+    IADD
+    PUTFIELD modbat/bes/arraylist/ArrayList.modCount : I
+   L1
+    LINENUMBER 175 L1
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+    ARRAYLENGTH
+    ISTORE 1
+   L2
+    LINENUMBER 176 L2
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    ILOAD 1
+    IF_ICMPGE L3
+   L4
+    LINENUMBER 177 L4
+    ALOAD 0
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    INVOKESTATIC java/util/Arrays.copyOf ([Ljava/lang/Object;I)[Ljava/lang/Object;
+    PUTFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+   L3
+    LINENUMBER 179 L3
+   FRAME FULL [modbat/bes/arraylist/ArrayList I] []
+    RETURN
+   L5
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList; L0 L5 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>
+    LOCALVARIABLE oldCapacity I L2 L5 1
+    MAXSTACK = 3
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public ensureCapacity(I)V
+   L0
+    LINENUMBER 189 L0
+    ILOAD 1
+    IFLE L1
+   L2
+    LINENUMBER 190 L2
+    ALOAD 0
+    ILOAD 1
+    INVOKEVIRTUAL modbat/bes/arraylist/ArrayList.ensureCapacityInternal (I)V
+   L1
+    LINENUMBER 191 L1
+   FRAME FULL [modbat/bes/arraylist/ArrayList I] []
+    RETURN
+   L3
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList; L0 L3 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>
+    LOCALVARIABLE minCapacity I L0 L3 1
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x2
+  private ensureCapacityInternal(I)V
+   L0
+    LINENUMBER 194 L0
+    ALOAD 0
+    DUP
+    GETFIELD modbat/bes/arraylist/ArrayList.modCount : I
+    ICONST_1
+    IADD
+    PUTFIELD modbat/bes/arraylist/ArrayList.modCount : I
+   L1
+    LINENUMBER 196 L1
+    ILOAD 1
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+    ARRAYLENGTH
+    ISUB
+    IFLE L2
+   L3
+    LINENUMBER 197 L3
+    ALOAD 0
+    ILOAD 1
+    INVOKEVIRTUAL modbat/bes/arraylist/ArrayList.grow (I)V
+   L2
+    LINENUMBER 198 L2
+   FRAME FULL [modbat/bes/arraylist/ArrayList I] []
+    RETURN
+   L4
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList; L0 L4 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>
+    LOCALVARIABLE minCapacity I L0 L4 1
+    MAXSTACK = 3
+    MAXLOCALS = 2
+
+  // access flags 0x2
+  private grow(I)V
+   L0
+    LINENUMBER 216 L0
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+    ARRAYLENGTH
+    ISTORE 2
+   L1
+    LINENUMBER 217 L1
+    ILOAD 2
+    ILOAD 2
+    ICONST_1
+    ISHR
+    IADD
+    ISTORE 3
+   L2
+    LINENUMBER 218 L2
+    ILOAD 3
+    ILOAD 1
+    ISUB
+    IFGE L3
+   L4
+    LINENUMBER 219 L4
+    ILOAD 1
+    ISTORE 3
+   L3
+    LINENUMBER 220 L3
+   FRAME FULL [modbat/bes/arraylist/ArrayList I I I] []
+    ILOAD 3
+    LDC 2147483639
+    ISUB
+    IFLE L5
+   L6
+    LINENUMBER 221 L6
+    ILOAD 1
+    INVOKESTATIC modbat/bes/arraylist/ArrayList.hugeCapacity (I)I
+    ISTORE 3
+   L5
+    LINENUMBER 223 L5
+   FRAME FULL [modbat/bes/arraylist/ArrayList I I I] []
+    ALOAD 0
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 3
+    INVOKESTATIC java/util/Arrays.copyOf ([Ljava/lang/Object;I)[Ljava/lang/Object;
+    PUTFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+   L7
+    LINENUMBER 224 L7
+    RETURN
+   L8
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList; L0 L8 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>
+    LOCALVARIABLE minCapacity I L0 L8 1
+    LOCALVARIABLE oldCapacity I L1 L8 2
+    LOCALVARIABLE newCapacity I L2 L8 3
+    MAXSTACK = 3
+    MAXLOCALS = 4
+
+  // access flags 0xA
+  private static hugeCapacity(I)I
+   L0
+    LINENUMBER 227 L0
+    ILOAD 0
+    IFGE L1
+   L2
+    LINENUMBER 228 L2
+    NEW java/lang/OutOfMemoryError
+    DUP
+    INVOKESPECIAL java/lang/OutOfMemoryError.<init> ()V
+    ATHROW
+   L1
+    LINENUMBER 229 L1
+   FRAME FULL [I] []
+    ILOAD 0
+    LDC 2147483639
+    IF_ICMPLE L3
+   L4
+    LINENUMBER 230 L4
+    LDC 2147483647
+    GOTO L5
+   L3
+    LINENUMBER 231 L3
+   FRAME FULL [I] []
+    LDC 2147483639
+   L5
+    LINENUMBER 229 L5
+   FRAME FULL [I] [I]
+    IRETURN
+   L6
+    LOCALVARIABLE minCapacity I L0 L6 0
+    MAXSTACK = 2
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public size()I
+   L0
+    LINENUMBER 240 L0
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    IRETURN
+   L1
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList; L0 L1 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public isEmpty()Z
+   L0
+    LINENUMBER 249 L0
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    IFNE L1
+    ICONST_1
+    GOTO L2
+   L1
+   FRAME FULL [modbat/bes/arraylist/ArrayList] []
+    ICONST_0
+   L2
+   FRAME FULL [modbat/bes/arraylist/ArrayList] [I]
+    IRETURN
+   L3
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList; L0 L3 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public contains(Ljava/lang/Object;)Z
+   L0
+    LINENUMBER 262 L0
+    ALOAD 0
+    ALOAD 1
+    INVOKEVIRTUAL modbat/bes/arraylist/ArrayList.indexOf (Ljava/lang/Object;)I
+    IFLT L1
+    ICONST_1
+    GOTO L2
+   L1
+   FRAME FULL [modbat/bes/arraylist/ArrayList java/lang/Object] []
+    ICONST_0
+   L2
+   FRAME FULL [modbat/bes/arraylist/ArrayList java/lang/Object] [I]
+    IRETURN
+   L3
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList; L0 L3 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>
+    LOCALVARIABLE o Ljava/lang/Object; L0 L3 1
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public indexOf(Ljava/lang/Object;)I
+   L0
+    LINENUMBER 273 L0
+    ALOAD 1
+    IFNONNULL L1
+   L2
+    LINENUMBER 274 L2
+    ICONST_0
+    ISTORE 2
+   L3
+   FRAME FULL [modbat/bes/arraylist/ArrayList java/lang/Object I] []
+    ILOAD 2
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    IF_ICMPGE L4
+   L5
+    LINENUMBER 275 L5
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 2
+    AALOAD
+    IFNONNULL L6
+   L7
+    LINENUMBER 276 L7
+    ILOAD 2
+    IRETURN
+   L6
+    LINENUMBER 274 L6
+   FRAME FULL [modbat/bes/arraylist/ArrayList java/lang/Object I] []
+    IINC 2 1
+    GOTO L3
+   L4
+   FRAME FULL [modbat/bes/arraylist/ArrayList java/lang/Object I] []
+    GOTO L8
+   L1
+    LINENUMBER 278 L1
+   FRAME FULL [modbat/bes/arraylist/ArrayList java/lang/Object] []
+    ICONST_0
+    ISTORE 2
+   L9
+   FRAME FULL [modbat/bes/arraylist/ArrayList java/lang/Object I] []
+    ILOAD 2
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    IF_ICMPGE L8
+   L10
+    LINENUMBER 279 L10
+    ALOAD 1
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 2
+    AALOAD
+    INVOKEVIRTUAL java/lang/Object.equals (Ljava/lang/Object;)Z
+    IFEQ L11
+   L12
+    LINENUMBER 280 L12
+    ILOAD 2
+    IRETURN
+   L11
+    LINENUMBER 278 L11
+   FRAME FULL [modbat/bes/arraylist/ArrayList java/lang/Object I] []
+    IINC 2 1
+    GOTO L9
+   L8
+    LINENUMBER 282 L8
+   FRAME FULL [modbat/bes/arraylist/ArrayList java/lang/Object I] []
+    ICONST_M1
+    IRETURN
+   L13
+    LOCALVARIABLE i I L3 L4 2
+    LOCALVARIABLE i I L9 L8 2
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList; L0 L13 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>
+    LOCALVARIABLE o Ljava/lang/Object; L0 L13 1
+    MAXSTACK = 3
+    MAXLOCALS = 3
+
+  // access flags 0x1
+  public lastIndexOf(Ljava/lang/Object;)I
+   L0
+    LINENUMBER 293 L0
+    ALOAD 1
+    IFNONNULL L1
+   L2
+    LINENUMBER 294 L2
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    ICONST_1
+    ISUB
+    ISTORE 2
+   L3
+   FRAME FULL [modbat/bes/arraylist/ArrayList java/lang/Object I] []
+    ILOAD 2
+    IFLT L4
+   L5
+    LINENUMBER 295 L5
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 2
+    AALOAD
+    IFNONNULL L6
+   L7
+    LINENUMBER 296 L7
+    ILOAD 2
+    IRETURN
+   L6
+    LINENUMBER 294 L6
+   FRAME FULL [modbat/bes/arraylist/ArrayList java/lang/Object I] []
+    IINC 2 -1
+    GOTO L3
+   L4
+   FRAME FULL [modbat/bes/arraylist/ArrayList java/lang/Object I] []
+    GOTO L8
+   L1
+    LINENUMBER 298 L1
+   FRAME FULL [modbat/bes/arraylist/ArrayList java/lang/Object] []
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    ICONST_1
+    ISUB
+    ISTORE 2
+   L9
+   FRAME FULL [modbat/bes/arraylist/ArrayList java/lang/Object I] []
+    ILOAD 2
+    IFLT L8
+   L10
+    LINENUMBER 299 L10
+    ALOAD 1
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 2
+    AALOAD
+    INVOKEVIRTUAL java/lang/Object.equals (Ljava/lang/Object;)Z
+    IFEQ L11
+   L12
+    LINENUMBER 300 L12
+    ILOAD 2
+    IRETURN
+   L11
+    LINENUMBER 298 L11
+   FRAME FULL [modbat/bes/arraylist/ArrayList java/lang/Object I] []
+    IINC 2 -1
+    GOTO L9
+   L8
+    LINENUMBER 302 L8
+   FRAME FULL [modbat/bes/arraylist/ArrayList java/lang/Object I] []
+    ICONST_M1
+    IRETURN
+   L13
+    LOCALVARIABLE i I L3 L4 2
+    LOCALVARIABLE i I L9 L8 2
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList; L0 L13 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>
+    LOCALVARIABLE o Ljava/lang/Object; L0 L13 1
+    MAXSTACK = 3
+    MAXLOCALS = 3
+
+  // access flags 0x1
+  public clone()Ljava/lang/Object;
+    TRYCATCHBLOCK L0 L1 L2 java/lang/CloneNotSupportedException
+   L0
+    LINENUMBER 314 L0
+    ALOAD 0
+    INVOKESPECIAL java/lang/Object.clone ()Ljava/lang/Object;
+    CHECKCAST modbat/bes/arraylist/ArrayList
+    ASTORE 1
+   L3
+    LINENUMBER 315 L3
+    ALOAD 1
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    INVOKESTATIC java/util/Arrays.copyOf ([Ljava/lang/Object;I)[Ljava/lang/Object;
+    PUTFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+   L4
+    LINENUMBER 316 L4
+    ALOAD 1
+    ICONST_0
+    PUTFIELD modbat/bes/arraylist/ArrayList.modCount : I
+   L5
+    LINENUMBER 317 L5
+    ALOAD 1
+   L1
+    ARETURN
+   L2
+    LINENUMBER 318 L2
+   FRAME FULL [modbat/bes/arraylist/ArrayList] [java/lang/CloneNotSupportedException]
+    ASTORE 1
+   L6
+    LINENUMBER 320 L6
+    NEW java/lang/InternalError
+    DUP
+    INVOKESPECIAL java/lang/InternalError.<init> ()V
+    ATHROW
+   L7
+    LOCALVARIABLE v Lmodbat/bes/arraylist/ArrayList; L3 L2 1
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>;
+    // declaration: v extends modbat.bes.arraylist.ArrayList<E>
+    LOCALVARIABLE e Ljava/lang/CloneNotSupportedException; L6 L7 1
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList; L0 L7 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>
+    MAXSTACK = 3
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public toArray()[Ljava/lang/Object;
+   L0
+    LINENUMBER 339 L0
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    INVOKESTATIC java/util/Arrays.copyOf ([Ljava/lang/Object;I)[Ljava/lang/Object;
+    ARETURN
+   L1
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList; L0 L1 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>
+    MAXSTACK = 2
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  // signature <T:Ljava/lang/Object;>([TT;)[TT;
+  // declaration: T[] toArray<T>(T[])
+  public toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+   L0
+    LINENUMBER 368 L0
+    ALOAD 1
+    ARRAYLENGTH
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    IF_ICMPGE L1
+   L2
+    LINENUMBER 370 L2
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    ALOAD 1
+    INVOKEVIRTUAL java/lang/Object.getClass ()Ljava/lang/Class;
+    INVOKESTATIC java/util/Arrays.copyOf ([Ljava/lang/Object;ILjava/lang/Class;)[Ljava/lang/Object;
+    ARETURN
+   L1
+    LINENUMBER 371 L1
+   FRAME FULL [modbat/bes/arraylist/ArrayList [Ljava/lang/Object;] []
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+    ICONST_0
+    ALOAD 1
+    ICONST_0
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    INVOKESTATIC java/lang/System.arraycopy (Ljava/lang/Object;ILjava/lang/Object;II)V
+   L3
+    LINENUMBER 372 L3
+    ALOAD 1
+    ARRAYLENGTH
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    IF_ICMPLE L4
+   L5
+    LINENUMBER 373 L5
+    ALOAD 1
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    ACONST_NULL
+    AASTORE
+   L4
+    LINENUMBER 374 L4
+   FRAME FULL [modbat/bes/arraylist/ArrayList [Ljava/lang/Object;] []
+    ALOAD 1
+    ARETURN
+   L6
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList; L0 L6 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>
+    LOCALVARIABLE a [Ljava/lang/Object; L0 L6 1
+    // signature [TT;
+    // declaration: a extends T[]
+    MAXSTACK = 5
+    MAXLOCALS = 2
+
+  // access flags 0x0
+  // signature (I)TE;
+  // declaration: E elementData(int)
+  elementData(I)Ljava/lang/Object;
+   L0
+    LINENUMBER 381 L0
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 1
+    AALOAD
+    ARETURN
+   L1
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList; L0 L1 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>
+    LOCALVARIABLE index I L0 L1 1
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  // signature (I)TE;
+  // declaration: E get(int)
+  public get(I)Ljava/lang/Object;
+   L0
+    LINENUMBER 392 L0
+    ALOAD 0
+    ILOAD 1
+    INVOKEVIRTUAL modbat/bes/arraylist/ArrayList.rangeCheck (I)V
+   L1
+    LINENUMBER 394 L1
+    ALOAD 0
+    ILOAD 1
+    INVOKEVIRTUAL modbat/bes/arraylist/ArrayList.elementData (I)Ljava/lang/Object;
+    ARETURN
+   L2
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList; L0 L2 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>
+    LOCALVARIABLE index I L0 L2 1
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  // signature (ITE;)TE;
+  // declaration: E set(int, E)
+  public set(ILjava/lang/Object;)Ljava/lang/Object;
+   L0
+    LINENUMBER 407 L0
+    ALOAD 0
+    ILOAD 1
+    INVOKEVIRTUAL modbat/bes/arraylist/ArrayList.rangeCheck (I)V
+   L1
+    LINENUMBER 409 L1
+    ALOAD 0
+    ILOAD 1
+    INVOKEVIRTUAL modbat/bes/arraylist/ArrayList.elementData (I)Ljava/lang/Object;
+    ASTORE 3
+   L2
+    LINENUMBER 410 L2
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 1
+    ALOAD 2
+    AASTORE
+   L3
+    LINENUMBER 411 L3
+    ALOAD 3
+    ARETURN
+   L4
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList; L0 L4 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>
+    LOCALVARIABLE index I L0 L4 1
+    LOCALVARIABLE element Ljava/lang/Object; L0 L4 2
+    // signature TE;
+    // declaration: element extends E
+    LOCALVARIABLE oldValue Ljava/lang/Object; L2 L4 3
+    // signature TE;
+    // declaration: oldValue extends E
+    MAXSTACK = 3
+    MAXLOCALS = 4
+
+  // access flags 0x1
+  // signature (TE;)Z
+  // declaration: boolean add(E)
+  public add(Ljava/lang/Object;)Z
+   L0
+    LINENUMBER 421 L0
+    ALOAD 0
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    ICONST_1
+    IADD
+    INVOKEVIRTUAL modbat/bes/arraylist/ArrayList.ensureCapacityInternal (I)V
+   L1
+    LINENUMBER 422 L1
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+    ALOAD 0
+    DUP
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    DUP_X1
+    ICONST_1
+    IADD
+    PUTFIELD modbat/bes/arraylist/ArrayList.size : I
+    ALOAD 1
+    AASTORE
+   L2
+    LINENUMBER 423 L2
+    ICONST_1
+    IRETURN
+   L3
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList; L0 L3 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>
+    LOCALVARIABLE e Ljava/lang/Object; L0 L3 1
+    // signature TE;
+    // declaration: e extends E
+    MAXSTACK = 5
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  // signature (ITE;)V
+  // declaration: void add(int, E)
+  public add(ILjava/lang/Object;)V
+   L0
+    LINENUMBER 436 L0
+    ALOAD 0
+    ILOAD 1
+    INVOKEVIRTUAL modbat/bes/arraylist/ArrayList.rangeCheckForAdd (I)V
+   L1
+    LINENUMBER 438 L1
+    ALOAD 0
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    ICONST_1
+    IADD
+    INVOKEVIRTUAL modbat/bes/arraylist/ArrayList.ensureCapacityInternal (I)V
+   L2
+    LINENUMBER 439 L2
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 1
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 1
+    ICONST_1
+    ISUB
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    ILOAD 1
+    ISUB
+    INVOKESTATIC java/lang/System.arraycopy (Ljava/lang/Object;ILjava/lang/Object;II)V
+   L3
+    LINENUMBER 441 L3
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 1
+    ALOAD 2
+    AASTORE
+   L4
+    LINENUMBER 442 L4
+    ALOAD 0
+    DUP
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    ICONST_1
+    IADD
+    PUTFIELD modbat/bes/arraylist/ArrayList.size : I
+   L5
+    LINENUMBER 443 L5
+    RETURN
+   L6
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList; L0 L6 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>
+    LOCALVARIABLE index I L0 L6 1
+    LOCALVARIABLE element Ljava/lang/Object; L0 L6 2
+    // signature TE;
+    // declaration: element extends E
+    MAXSTACK = 6
+    MAXLOCALS = 3
+
+  // access flags 0x1
+  // signature (I)TE;
+  // declaration: E remove(int)
+  public remove(I)Ljava/lang/Object;
+   L0
+    LINENUMBER 455 L0
+    ALOAD 0
+    ILOAD 1
+    INVOKEVIRTUAL modbat/bes/arraylist/ArrayList.rangeCheck (I)V
+   L1
+    LINENUMBER 457 L1
+    ALOAD 0
+    DUP
+    GETFIELD modbat/bes/arraylist/ArrayList.modCount : I
+    ICONST_1
+    IADD
+    PUTFIELD modbat/bes/arraylist/ArrayList.modCount : I
+   L2
+    LINENUMBER 458 L2
+    ALOAD 0
+    ILOAD 1
+    INVOKEVIRTUAL modbat/bes/arraylist/ArrayList.elementData (I)Ljava/lang/Object;
+    ASTORE 2
+   L3
+    LINENUMBER 460 L3
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    ILOAD 1
+    ISUB
+    ICONST_1
+    ISUB
+    ISTORE 3
+   L4
+    LINENUMBER 461 L4
+    ILOAD 3
+    IFLE L5
+   L6
+    LINENUMBER 462 L6
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 1
+    ICONST_1
+    IADD
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 1
+    ILOAD 3
+    INVOKESTATIC java/lang/System.arraycopy (Ljava/lang/Object;ILjava/lang/Object;II)V
+   L5
+    LINENUMBER 464 L5
+   FRAME FULL [modbat/bes/arraylist/ArrayList I java/lang/Object I] []
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+    ALOAD 0
+    DUP
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    ICONST_1
+    ISUB
+    DUP_X1
+    PUTFIELD modbat/bes/arraylist/ArrayList.size : I
+    ACONST_NULL
+    AASTORE
+   L7
+    LINENUMBER 466 L7
+    ALOAD 2
+    ARETURN
+   L8
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList; L0 L8 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>
+    LOCALVARIABLE index I L0 L8 1
+    LOCALVARIABLE oldValue Ljava/lang/Object; L3 L8 2
+    // signature TE;
+    // declaration: oldValue extends E
+    LOCALVARIABLE numMoved I L4 L8 3
+    MAXSTACK = 5
+    MAXLOCALS = 4
+
+  // access flags 0x1
+  public remove(Ljava/lang/Object;)Z
+   L0
+    LINENUMBER 483 L0
+    ALOAD 1
+    IFNONNULL L1
+   L2
+    LINENUMBER 484 L2
+    ICONST_0
+    ISTORE 2
+   L3
+   FRAME FULL [modbat/bes/arraylist/ArrayList java/lang/Object I] []
+    ILOAD 2
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    IF_ICMPGE L4
+   L5
+    LINENUMBER 485 L5
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 2
+    AALOAD
+    IFNONNULL L6
+   L7
+    LINENUMBER 486 L7
+    ALOAD 0
+    ILOAD 2
+    INVOKEVIRTUAL modbat/bes/arraylist/ArrayList.fastRemove (I)V
+   L8
+    LINENUMBER 487 L8
+    ICONST_1
+    IRETURN
+   L6
+    LINENUMBER 484 L6
+   FRAME FULL [modbat/bes/arraylist/ArrayList java/lang/Object I] []
+    IINC 2 1
+    GOTO L3
+   L4
+   FRAME FULL [modbat/bes/arraylist/ArrayList java/lang/Object I] []
+    GOTO L9
+   L1
+    LINENUMBER 490 L1
+   FRAME FULL [modbat/bes/arraylist/ArrayList java/lang/Object] []
+    ICONST_0
+    ISTORE 2
+   L10
+   FRAME FULL [modbat/bes/arraylist/ArrayList java/lang/Object I] []
+    ILOAD 2
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    IF_ICMPGE L9
+   L11
+    LINENUMBER 491 L11
+    ALOAD 1
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 2
+    AALOAD
+    INVOKEVIRTUAL java/lang/Object.equals (Ljava/lang/Object;)Z
+    IFEQ L12
+   L13
+    LINENUMBER 492 L13
+    ALOAD 0
+    ILOAD 2
+    INVOKEVIRTUAL modbat/bes/arraylist/ArrayList.fastRemove (I)V
+   L14
+    LINENUMBER 493 L14
+    ICONST_1
+    IRETURN
+   L12
+    LINENUMBER 490 L12
+   FRAME FULL [modbat/bes/arraylist/ArrayList java/lang/Object I] []
+    IINC 2 1
+    GOTO L10
+   L9
+    LINENUMBER 496 L9
+   FRAME FULL [modbat/bes/arraylist/ArrayList java/lang/Object I] []
+    ICONST_0
+    IRETURN
+   L15
+    LOCALVARIABLE index I L3 L4 2
+    LOCALVARIABLE index I L10 L9 2
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList; L0 L15 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>
+    LOCALVARIABLE o Ljava/lang/Object; L0 L15 1
+    MAXSTACK = 3
+    MAXLOCALS = 3
+
+  // access flags 0x2
+  private fastRemove(I)V
+   L0
+    LINENUMBER 504 L0
+    ALOAD 0
+    DUP
+    GETFIELD modbat/bes/arraylist/ArrayList.modCount : I
+    ICONST_1
+    IADD
+    PUTFIELD modbat/bes/arraylist/ArrayList.modCount : I
+   L1
+    LINENUMBER 505 L1
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    ILOAD 1
+    ISUB
+    ICONST_1
+    ISUB
+    ISTORE 2
+   L2
+    LINENUMBER 506 L2
+    ILOAD 2
+    IFLE L3
+   L4
+    LINENUMBER 507 L4
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 1
+    ICONST_1
+    IADD
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 1
+    ILOAD 2
+    INVOKESTATIC java/lang/System.arraycopy (Ljava/lang/Object;ILjava/lang/Object;II)V
+   L3
+    LINENUMBER 509 L3
+   FRAME FULL [modbat/bes/arraylist/ArrayList I I] []
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+    ALOAD 0
+    DUP
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    ICONST_1
+    ISUB
+    DUP_X1
+    PUTFIELD modbat/bes/arraylist/ArrayList.size : I
+    ACONST_NULL
+    AASTORE
+   L5
+    LINENUMBER 510 L5
+    RETURN
+   L6
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList; L0 L6 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>
+    LOCALVARIABLE index I L0 L6 1
+    LOCALVARIABLE numMoved I L2 L6 2
+    MAXSTACK = 5
+    MAXLOCALS = 3
+
+  // access flags 0x1
+  public clear()V
+   L0
+    LINENUMBER 517 L0
+    ALOAD 0
+    DUP
+    GETFIELD modbat/bes/arraylist/ArrayList.modCount : I
+    ICONST_1
+    IADD
+    PUTFIELD modbat/bes/arraylist/ArrayList.modCount : I
+   L1
+    LINENUMBER 520 L1
+    ICONST_0
+    ISTORE 1
+   L2
+   FRAME FULL [modbat/bes/arraylist/ArrayList I] []
+    ILOAD 1
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    IF_ICMPGE L3
+   L4
+    LINENUMBER 521 L4
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 1
+    ACONST_NULL
+    AASTORE
+   L5
+    LINENUMBER 520 L5
+    IINC 1 1
+    GOTO L2
+   L3
+    LINENUMBER 523 L3
+   FRAME FULL [modbat/bes/arraylist/ArrayList I] []
+    ALOAD 0
+    ICONST_0
+    PUTFIELD modbat/bes/arraylist/ArrayList.size : I
+   L6
+    LINENUMBER 524 L6
+    RETURN
+   L7
+    LOCALVARIABLE i I L2 L3 1
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList; L0 L7 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>
+    MAXSTACK = 3
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  // signature (Ljava/util/Collection<+TE;>;)Z
+  // declaration: boolean addAll(java.util.Collection<? extends E>)
+  public addAll(Ljava/util/Collection;)Z
+   L0
+    LINENUMBER 540 L0
+    ALOAD 1
+    INVOKEINTERFACE java/util/Collection.toArray ()[Ljava/lang/Object; (itf)
+    ASTORE 2
+   L1
+    LINENUMBER 541 L1
+    ALOAD 2
+    ARRAYLENGTH
+    ISTORE 3
+   L2
+    LINENUMBER 542 L2
+    ALOAD 0
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    ILOAD 3
+    IADD
+    INVOKEVIRTUAL modbat/bes/arraylist/ArrayList.ensureCapacityInternal (I)V
+   L3
+    LINENUMBER 543 L3
+    ALOAD 2
+    ICONST_0
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    ILOAD 3
+    INVOKESTATIC java/lang/System.arraycopy (Ljava/lang/Object;ILjava/lang/Object;II)V
+   L4
+    LINENUMBER 544 L4
+    ALOAD 0
+    DUP
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    ILOAD 3
+    IADD
+    PUTFIELD modbat/bes/arraylist/ArrayList.size : I
+   L5
+    LINENUMBER 545 L5
+    ILOAD 3
+    IFEQ L6
+    ICONST_1
+    GOTO L7
+   L6
+   FRAME FULL [modbat/bes/arraylist/ArrayList java/util/Collection [Ljava/lang/Object; I] []
+    ICONST_0
+   L7
+   FRAME FULL [modbat/bes/arraylist/ArrayList java/util/Collection [Ljava/lang/Object; I] [I]
+    IRETURN
+   L8
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList; L0 L8 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>
+    LOCALVARIABLE c Ljava/util/Collection; L0 L8 1
+    // signature Ljava/util/Collection<+TE;>;
+    // declaration: c extends java.util.Collection<? extends E>
+    LOCALVARIABLE a [Ljava/lang/Object; L1 L8 2
+    LOCALVARIABLE numNew I L2 L8 3
+    MAXSTACK = 5
+    MAXLOCALS = 4
+
+  // access flags 0x1
+  // signature (ILjava/util/Collection<+TE;>;)Z
+  // declaration: boolean addAll(int, java.util.Collection<? extends E>)
+  public addAll(ILjava/util/Collection;)Z
+   L0
+    LINENUMBER 564 L0
+    ALOAD 0
+    ILOAD 1
+    INVOKEVIRTUAL modbat/bes/arraylist/ArrayList.rangeCheckForAdd (I)V
+   L1
+    LINENUMBER 566 L1
+    ALOAD 2
+    INVOKEINTERFACE java/util/Collection.toArray ()[Ljava/lang/Object; (itf)
+    ASTORE 3
+   L2
+    LINENUMBER 567 L2
+    ALOAD 3
+    ARRAYLENGTH
+    ISTORE 4
+   L3
+    LINENUMBER 568 L3
+    ALOAD 0
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    ILOAD 4
+    IADD
+    INVOKEVIRTUAL modbat/bes/arraylist/ArrayList.ensureCapacityInternal (I)V
+   L4
+    LINENUMBER 570 L4
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    ILOAD 1
+    ISUB
+    ISTORE 5
+   L5
+    LINENUMBER 571 L5
+    ILOAD 5
+    IFLE L6
+   L7
+    LINENUMBER 572 L7
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 1
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 1
+    ILOAD 4
+    IADD
+    ILOAD 5
+    INVOKESTATIC java/lang/System.arraycopy (Ljava/lang/Object;ILjava/lang/Object;II)V
+   L6
+    LINENUMBER 575 L6
+   FRAME FULL [modbat/bes/arraylist/ArrayList I java/util/Collection [Ljava/lang/Object; I I] []
+    ALOAD 3
+    ICONST_0
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 1
+    ILOAD 4
+    INVOKESTATIC java/lang/System.arraycopy (Ljava/lang/Object;ILjava/lang/Object;II)V
+   L8
+    LINENUMBER 576 L8
+    ALOAD 0
+    DUP
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    ILOAD 4
+    IADD
+    PUTFIELD modbat/bes/arraylist/ArrayList.size : I
+   L9
+    LINENUMBER 577 L9
+    ILOAD 4
+    IFEQ L10
+    ICONST_1
+    GOTO L11
+   L10
+   FRAME FULL [modbat/bes/arraylist/ArrayList I java/util/Collection [Ljava/lang/Object; I I] []
+    ICONST_0
+   L11
+   FRAME FULL [modbat/bes/arraylist/ArrayList I java/util/Collection [Ljava/lang/Object; I I] [I]
+    IRETURN
+   L12
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList; L0 L12 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>
+    LOCALVARIABLE index I L0 L12 1
+    LOCALVARIABLE c Ljava/util/Collection; L0 L12 2
+    // signature Ljava/util/Collection<+TE;>;
+    // declaration: c extends java.util.Collection<? extends E>
+    LOCALVARIABLE a [Ljava/lang/Object; L2 L12 3
+    LOCALVARIABLE numNew I L3 L12 4
+    LOCALVARIABLE numMoved I L5 L12 5
+    MAXSTACK = 5
+    MAXLOCALS = 6
+
+  // access flags 0x4
+  protected removeRange(II)V
+   L0
+    LINENUMBER 595 L0
+    ALOAD 0
+    DUP
+    GETFIELD modbat/bes/arraylist/ArrayList.modCount : I
+    ICONST_1
+    IADD
+    PUTFIELD modbat/bes/arraylist/ArrayList.modCount : I
+   L1
+    LINENUMBER 596 L1
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    ILOAD 2
+    ISUB
+    ISTORE 3
+   L2
+    LINENUMBER 597 L2
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 2
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 1
+    ILOAD 3
+    INVOKESTATIC java/lang/System.arraycopy (Ljava/lang/Object;ILjava/lang/Object;II)V
+   L3
+    LINENUMBER 601 L3
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    ILOAD 2
+    ILOAD 1
+    ISUB
+    ISUB
+    ISTORE 4
+   L4
+    LINENUMBER 602 L4
+   FRAME FULL [modbat/bes/arraylist/ArrayList I I I I] []
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    ILOAD 4
+    IF_ICMPEQ L5
+   L6
+    LINENUMBER 603 L6
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+    ALOAD 0
+    DUP
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    ICONST_1
+    ISUB
+    DUP_X1
+    PUTFIELD modbat/bes/arraylist/ArrayList.size : I
+    ACONST_NULL
+    AASTORE
+    GOTO L4
+   L5
+    LINENUMBER 604 L5
+   FRAME FULL [modbat/bes/arraylist/ArrayList I I I I] []
+    RETURN
+   L7
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList; L0 L7 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>
+    LOCALVARIABLE fromIndex I L0 L7 1
+    LOCALVARIABLE toIndex I L0 L7 2
+    LOCALVARIABLE numMoved I L2 L7 3
+    LOCALVARIABLE newSize I L4 L7 4
+    MAXSTACK = 5
+    MAXLOCALS = 5
+
+  // access flags 0x2
+  private rangeCheck(I)V
+   L0
+    LINENUMBER 613 L0
+    ILOAD 1
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    IF_ICMPLT L1
+   L2
+    LINENUMBER 614 L2
+    NEW java/lang/IndexOutOfBoundsException
+    DUP
+    ALOAD 0
+    ILOAD 1
+    INVOKEVIRTUAL modbat/bes/arraylist/ArrayList.outOfBoundsMsg (I)Ljava/lang/String;
+    INVOKESPECIAL java/lang/IndexOutOfBoundsException.<init> (Ljava/lang/String;)V
+    ATHROW
+   L1
+    LINENUMBER 615 L1
+   FRAME FULL [modbat/bes/arraylist/ArrayList I] []
+    RETURN
+   L3
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList; L0 L3 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>
+    LOCALVARIABLE index I L0 L3 1
+    MAXSTACK = 4
+    MAXLOCALS = 2
+
+  // access flags 0x2
+  private rangeCheckForAdd(I)V
+   L0
+    LINENUMBER 621 L0
+    ILOAD 1
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    IF_ICMPGT L1
+    ILOAD 1
+    IFGE L2
+   L1
+    LINENUMBER 622 L1
+   FRAME FULL [modbat/bes/arraylist/ArrayList I] []
+    NEW java/lang/IndexOutOfBoundsException
+    DUP
+    ALOAD 0
+    ILOAD 1
+    INVOKEVIRTUAL modbat/bes/arraylist/ArrayList.outOfBoundsMsg (I)Ljava/lang/String;
+    INVOKESPECIAL java/lang/IndexOutOfBoundsException.<init> (Ljava/lang/String;)V
+    ATHROW
+   L2
+    LINENUMBER 623 L2
+   FRAME FULL [modbat/bes/arraylist/ArrayList I] []
+    RETURN
+   L3
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList; L0 L3 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>
+    LOCALVARIABLE index I L0 L3 1
+    MAXSTACK = 4
+    MAXLOCALS = 2
+
+  // access flags 0x2
+  private outOfBoundsMsg(I)Ljava/lang/String;
+   L0
+    LINENUMBER 631 L0
+    ILOAD 1
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    INVOKEDYNAMIC makeConcatWithConstants(II)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "Index: \u0001, Size: \u0001"
+    ]
+    ARETURN
+   L1
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList; L0 L1 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>
+    LOCALVARIABLE index I L0 L1 1
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  // signature (Ljava/util/Collection<*>;)Z
+  // declaration: boolean removeAll(java.util.Collection<?>)
+  public removeAll(Ljava/util/Collection;)Z
+   L0
+    LINENUMBER 650 L0
+    ALOAD 0
+    ALOAD 1
+    ICONST_0
+    INVOKEVIRTUAL modbat/bes/arraylist/ArrayList.batchRemove (Ljava/util/Collection;Z)Z
+    IRETURN
+   L1
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList; L0 L1 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>
+    LOCALVARIABLE c Ljava/util/Collection; L0 L1 1
+    // signature Ljava/util/Collection<*>;
+    // declaration: c extends java.util.Collection<?>
+    MAXSTACK = 3
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  // signature (Ljava/util/Collection<*>;)Z
+  // declaration: boolean retainAll(java.util.Collection<?>)
+  public retainAll(Ljava/util/Collection;)Z
+   L0
+    LINENUMBER 670 L0
+    ALOAD 0
+    ALOAD 1
+    ICONST_1
+    INVOKEVIRTUAL modbat/bes/arraylist/ArrayList.batchRemove (Ljava/util/Collection;Z)Z
+    IRETURN
+   L1
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList; L0 L1 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>
+    LOCALVARIABLE c Ljava/util/Collection; L0 L1 1
+    // signature Ljava/util/Collection<*>;
+    // declaration: c extends java.util.Collection<?>
+    MAXSTACK = 3
+    MAXLOCALS = 2
+
+  // access flags 0x2
+  // signature (Ljava/util/Collection<*>;Z)Z
+  // declaration: boolean batchRemove(java.util.Collection<?>, boolean)
+  private batchRemove(Ljava/util/Collection;Z)Z
+    TRYCATCHBLOCK L0 L1 L2 null
+    TRYCATCHBLOCK L2 L3 L2 null
+   L4
+    LINENUMBER 674 L4
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+    ASTORE 3
+   L5
+    LINENUMBER 675 L5
+    ICONST_0
+    ISTORE 4
+   L6
+    ICONST_0
+    ISTORE 5
+   L7
+    LINENUMBER 676 L7
+    ICONST_0
+    ISTORE 6
+   L0
+    LINENUMBER 678 L0
+   FRAME FULL [modbat/bes/arraylist/ArrayList java/util/Collection I [Ljava/lang/Object; I I I] []
+    ILOAD 4
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    IF_ICMPGE L1
+   L8
+    LINENUMBER 679 L8
+    ALOAD 1
+    ALOAD 3
+    ILOAD 4
+    AALOAD
+    INVOKEINTERFACE java/util/Collection.contains (Ljava/lang/Object;)Z (itf)
+    ILOAD 2
+    IF_ICMPNE L9
+   L10
+    LINENUMBER 680 L10
+    ALOAD 3
+    ILOAD 5
+    IINC 5 1
+    ALOAD 3
+    ILOAD 4
+    AALOAD
+    AASTORE
+   L9
+    LINENUMBER 678 L9
+   FRAME FULL [modbat/bes/arraylist/ArrayList java/util/Collection I [Ljava/lang/Object; I I I] []
+    IINC 4 1
+    GOTO L0
+   L1
+    LINENUMBER 684 L1
+   FRAME FULL [modbat/bes/arraylist/ArrayList java/util/Collection I [Ljava/lang/Object; I I I] []
+    ILOAD 4
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    IF_ICMPEQ L11
+   L12
+    LINENUMBER 685 L12
+    ALOAD 3
+    ILOAD 4
+    ALOAD 3
+    ILOAD 5
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    ILOAD 4
+    ISUB
+    INVOKESTATIC java/lang/System.arraycopy (Ljava/lang/Object;ILjava/lang/Object;II)V
+   L13
+    LINENUMBER 688 L13
+    ILOAD 5
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    ILOAD 4
+    ISUB
+    IADD
+    ISTORE 5
+   L11
+    LINENUMBER 690 L11
+   FRAME FULL [modbat/bes/arraylist/ArrayList java/util/Collection I [Ljava/lang/Object; I I I] []
+    ILOAD 5
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    IF_ICMPEQ L14
+   L15
+    LINENUMBER 691 L15
+    ILOAD 5
+    ISTORE 7
+   L16
+   FRAME FULL [modbat/bes/arraylist/ArrayList java/util/Collection I [Ljava/lang/Object; I I I I] []
+    ILOAD 7
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    IF_ICMPGE L17
+   L18
+    LINENUMBER 692 L18
+    ALOAD 3
+    ILOAD 7
+    ACONST_NULL
+    AASTORE
+   L19
+    LINENUMBER 691 L19
+    IINC 7 1
+    GOTO L16
+   L17
+    LINENUMBER 693 L17
+   FRAME FULL [modbat/bes/arraylist/ArrayList java/util/Collection I [Ljava/lang/Object; I I I I] []
+    ALOAD 0
+    DUP
+    GETFIELD modbat/bes/arraylist/ArrayList.modCount : I
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    ILOAD 5
+    ISUB
+    IADD
+    PUTFIELD modbat/bes/arraylist/ArrayList.modCount : I
+   L20
+    LINENUMBER 694 L20
+    ALOAD 0
+    ILOAD 5
+    PUTFIELD modbat/bes/arraylist/ArrayList.size : I
+   L21
+    LINENUMBER 695 L21
+    ICONST_1
+    ISTORE 6
+    GOTO L14
+   L2
+    LINENUMBER 684 L2
+   FRAME FULL [modbat/bes/arraylist/ArrayList java/util/Collection I [Ljava/lang/Object; I I I] [java/lang/Throwable]
+    ASTORE 8
+   L3
+    ILOAD 4
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    IF_ICMPEQ L22
+   L23
+    LINENUMBER 685 L23
+    ALOAD 3
+    ILOAD 4
+    ALOAD 3
+    ILOAD 5
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    ILOAD 4
+    ISUB
+    INVOKESTATIC java/lang/System.arraycopy (Ljava/lang/Object;ILjava/lang/Object;II)V
+   L24
+    LINENUMBER 688 L24
+    ILOAD 5
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    ILOAD 4
+    ISUB
+    IADD
+    ISTORE 5
+   L22
+    LINENUMBER 690 L22
+   FRAME FULL [modbat/bes/arraylist/ArrayList java/util/Collection I [Ljava/lang/Object; I I I T java/lang/Throwable] []
+    ILOAD 5
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    IF_ICMPEQ L25
+   L26
+    LINENUMBER 691 L26
+    ILOAD 5
+    ISTORE 9
+   L27
+   FRAME FULL [modbat/bes/arraylist/ArrayList java/util/Collection I [Ljava/lang/Object; I I I T java/lang/Throwable I] []
+    ILOAD 9
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    IF_ICMPGE L28
+   L29
+    LINENUMBER 692 L29
+    ALOAD 3
+    ILOAD 9
+    ACONST_NULL
+    AASTORE
+   L30
+    LINENUMBER 691 L30
+    IINC 9 1
+    GOTO L27
+   L28
+    LINENUMBER 693 L28
+   FRAME FULL [modbat/bes/arraylist/ArrayList java/util/Collection I [Ljava/lang/Object; I I I T java/lang/Throwable I] []
+    ALOAD 0
+    DUP
+    GETFIELD modbat/bes/arraylist/ArrayList.modCount : I
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    ILOAD 5
+    ISUB
+    IADD
+    PUTFIELD modbat/bes/arraylist/ArrayList.modCount : I
+   L31
+    LINENUMBER 694 L31
+    ALOAD 0
+    ILOAD 5
+    PUTFIELD modbat/bes/arraylist/ArrayList.size : I
+   L32
+    LINENUMBER 695 L32
+    ICONST_1
+    ISTORE 6
+   L25
+    LINENUMBER 697 L25
+   FRAME FULL [modbat/bes/arraylist/ArrayList java/util/Collection I [Ljava/lang/Object; I I I T java/lang/Throwable] []
+    ALOAD 8
+    ATHROW
+   L14
+    LINENUMBER 698 L14
+   FRAME FULL [modbat/bes/arraylist/ArrayList java/util/Collection I [Ljava/lang/Object; I I I] []
+    ILOAD 6
+    IRETURN
+   L33
+    LOCALVARIABLE i I L16 L17 7
+    LOCALVARIABLE i I L27 L28 9
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList; L4 L33 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>
+    LOCALVARIABLE c Ljava/util/Collection; L4 L33 1
+    // signature Ljava/util/Collection<*>;
+    // declaration: c extends java.util.Collection<?>
+    LOCALVARIABLE complement Z L4 L33 2
+    LOCALVARIABLE elementData [Ljava/lang/Object; L5 L33 3
+    LOCALVARIABLE r I L6 L33 4
+    LOCALVARIABLE w I L7 L33 5
+    LOCALVARIABLE modified Z L0 L33 6
+    MAXSTACK = 6
+    MAXLOCALS = 10
+
+  // access flags 0x2
+  private writeObject(Ljava/io/ObjectOutputStream;)V throws java/io/IOException 
+   L0
+    LINENUMBER 712 L0
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.modCount : I
+    ISTORE 2
+   L1
+    LINENUMBER 713 L1
+    ALOAD 1
+    INVOKEVIRTUAL java/io/ObjectOutputStream.defaultWriteObject ()V
+   L2
+    LINENUMBER 716 L2
+    ALOAD 1
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+    ARRAYLENGTH
+    INVOKEVIRTUAL java/io/ObjectOutputStream.writeInt (I)V
+   L3
+    LINENUMBER 719 L3
+    ICONST_0
+    ISTORE 3
+   L4
+   FRAME FULL [modbat/bes/arraylist/ArrayList java/io/ObjectOutputStream I I] []
+    ILOAD 3
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    IF_ICMPGE L5
+   L6
+    LINENUMBER 720 L6
+    ALOAD 1
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+    ILOAD 3
+    AALOAD
+    INVOKEVIRTUAL java/io/ObjectOutputStream.writeObject (Ljava/lang/Object;)V
+   L7
+    LINENUMBER 719 L7
+    IINC 3 1
+    GOTO L4
+   L5
+    LINENUMBER 722 L5
+   FRAME FULL [modbat/bes/arraylist/ArrayList java/io/ObjectOutputStream I I] []
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.modCount : I
+    ILOAD 2
+    IF_ICMPEQ L8
+   L9
+    LINENUMBER 723 L9
+    NEW java/util/ConcurrentModificationException
+    DUP
+    INVOKESPECIAL java/util/ConcurrentModificationException.<init> ()V
+    ATHROW
+   L8
+    LINENUMBER 726 L8
+   FRAME FULL [modbat/bes/arraylist/ArrayList java/io/ObjectOutputStream I I] []
+    RETURN
+   L10
+    LOCALVARIABLE i I L4 L5 3
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList; L0 L10 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>
+    LOCALVARIABLE s Ljava/io/ObjectOutputStream; L0 L10 1
+    LOCALVARIABLE expectedModCount I L1 L10 2
+    MAXSTACK = 3
+    MAXLOCALS = 4
+
+  // access flags 0x2
+  private readObject(Ljava/io/ObjectInputStream;)V throws java/io/IOException java/lang/ClassNotFoundException 
+   L0
+    LINENUMBER 735 L0
+    ALOAD 1
+    INVOKEVIRTUAL java/io/ObjectInputStream.defaultReadObject ()V
+   L1
+    LINENUMBER 738 L1
+    ALOAD 1
+    INVOKEVIRTUAL java/io/ObjectInputStream.readInt ()I
+    ISTORE 2
+   L2
+    LINENUMBER 739 L2
+    ALOAD 0
+    ILOAD 2
+    ANEWARRAY java/lang/Object
+    DUP_X1
+    PUTFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+    ASTORE 3
+   L3
+    LINENUMBER 742 L3
+    ICONST_0
+    ISTORE 4
+   L4
+   FRAME FULL [modbat/bes/arraylist/ArrayList java/io/ObjectInputStream I [Ljava/lang/Object; I] []
+    ILOAD 4
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    IF_ICMPGE L5
+   L6
+    LINENUMBER 743 L6
+    ALOAD 3
+    ILOAD 4
+    ALOAD 1
+    INVOKEVIRTUAL java/io/ObjectInputStream.readObject ()Ljava/lang/Object;
+    AASTORE
+   L7
+    LINENUMBER 742 L7
+    IINC 4 1
+    GOTO L4
+   L5
+    LINENUMBER 744 L5
+   FRAME FULL [modbat/bes/arraylist/ArrayList java/io/ObjectInputStream I [Ljava/lang/Object; I] []
+    RETURN
+   L8
+    LOCALVARIABLE i I L4 L5 4
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList; L0 L8 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>
+    LOCALVARIABLE s Ljava/io/ObjectInputStream; L0 L8 1
+    LOCALVARIABLE arrayLength I L2 L8 2
+    LOCALVARIABLE a [Ljava/lang/Object; L3 L8 3
+    MAXSTACK = 3
+    MAXLOCALS = 5
+
+  // access flags 0x1
+  // signature (I)Ljava/util/ListIterator<TE;>;
+  // declaration: java.util.ListIterator<E> listIterator(int)
+  public listIterator(I)Ljava/util/ListIterator;
+   L0
+    LINENUMBER 759 L0
+    ILOAD 1
+    IFLT L1
+    ILOAD 1
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    IF_ICMPLE L2
+   L1
+    LINENUMBER 760 L1
+   FRAME FULL [modbat/bes/arraylist/ArrayList I] []
+    NEW java/lang/IndexOutOfBoundsException
+    DUP
+    ILOAD 1
+    INVOKEDYNAMIC makeConcatWithConstants(I)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "Index: \u0001"
+    ]
+    INVOKESPECIAL java/lang/IndexOutOfBoundsException.<init> (Ljava/lang/String;)V
+    ATHROW
+   L2
+    LINENUMBER 761 L2
+   FRAME FULL [modbat/bes/arraylist/ArrayList I] []
+    NEW modbat/bes/arraylist/ArrayList$ListItr
+    DUP
+    ALOAD 0
+    ILOAD 1
+    INVOKESPECIAL modbat/bes/arraylist/ArrayList$ListItr.<init> (Lmodbat/bes/arraylist/ArrayList;I)V
+    ARETURN
+   L3
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList; L0 L3 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>
+    LOCALVARIABLE index I L0 L3 1
+    MAXSTACK = 4
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  // signature ()Ljava/util/ListIterator<TE;>;
+  // declaration: java.util.ListIterator<E> listIterator()
+  public listIterator()Ljava/util/ListIterator;
+   L0
+    LINENUMBER 773 L0
+    NEW modbat/bes/arraylist/ArrayList$ListItr
+    DUP
+    ALOAD 0
+    ICONST_0
+    INVOKESPECIAL modbat/bes/arraylist/ArrayList$ListItr.<init> (Lmodbat/bes/arraylist/ArrayList;I)V
+    ARETURN
+   L1
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList; L0 L1 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>
+    MAXSTACK = 4
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  // signature ()Ljava/util/Iterator<TE;>;
+  // declaration: java.util.Iterator<E> iterator()
+  public iterator()Ljava/util/Iterator;
+   L0
+    LINENUMBER 784 L0
+    NEW modbat/bes/arraylist/ArrayList$Itr
+    DUP
+    ALOAD 0
+    INVOKESPECIAL modbat/bes/arraylist/ArrayList$Itr.<init> (Lmodbat/bes/arraylist/ArrayList;)V
+    ARETURN
+   L1
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList; L0 L1 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>
+    MAXSTACK = 3
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  // signature (II)Ljava/util/List<TE;>;
+  // declaration: java.util.List<E> subList(int, int)
+  public subList(II)Ljava/util/List;
+   L0
+    LINENUMBER 924 L0
+    ILOAD 1
+    ILOAD 2
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList.size : I
+    INVOKESTATIC modbat/bes/arraylist/ArrayList.subListRangeCheck (III)V
+   L1
+    LINENUMBER 925 L1
+    NEW modbat/bes/arraylist/ArrayList$SubList
+    DUP
+    ALOAD 0
+    ALOAD 0
+    ICONST_0
+    ILOAD 1
+    ILOAD 2
+    INVOKESPECIAL modbat/bes/arraylist/ArrayList$SubList.<init> (Lmodbat/bes/arraylist/ArrayList;Lmodbat/bes/arraylist/AbstractList;III)V
+    ARETURN
+   L2
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList; L0 L2 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>
+    LOCALVARIABLE fromIndex I L0 L2 1
+    LOCALVARIABLE toIndex I L0 L2 2
+    MAXSTACK = 7
+    MAXLOCALS = 3
+
+  // access flags 0x8
+  static subListRangeCheck(III)V
+   L0
+    LINENUMBER 929 L0
+    ILOAD 0
+    IFGE L1
+   L2
+    LINENUMBER 930 L2
+    NEW java/lang/IndexOutOfBoundsException
+    DUP
+    ILOAD 0
+    INVOKEDYNAMIC makeConcatWithConstants(I)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "fromIndex = \u0001"
+    ]
+    INVOKESPECIAL java/lang/IndexOutOfBoundsException.<init> (Ljava/lang/String;)V
+    ATHROW
+   L1
+    LINENUMBER 931 L1
+   FRAME FULL [I I I] []
+    ILOAD 1
+    ILOAD 2
+    IF_ICMPLE L3
+   L4
+    LINENUMBER 932 L4
+    NEW java/lang/IndexOutOfBoundsException
+    DUP
+    ILOAD 1
+    INVOKEDYNAMIC makeConcatWithConstants(I)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "toIndex = \u0001"
+    ]
+    INVOKESPECIAL java/lang/IndexOutOfBoundsException.<init> (Ljava/lang/String;)V
+    ATHROW
+   L3
+    LINENUMBER 933 L3
+   FRAME FULL [I I I] []
+    ILOAD 0
+    ILOAD 1
+    IF_ICMPLE L5
+   L6
+    LINENUMBER 934 L6
+    NEW java/lang/IllegalArgumentException
+    DUP
+    ILOAD 0
+    ILOAD 1
+    INVOKEDYNAMIC makeConcatWithConstants(II)Ljava/lang/String; [
+      // handle kind 0x6 : INVOKESTATIC
+      java/lang/invoke/StringConcatFactory.makeConcatWithConstants(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/invoke/CallSite;
+      // arguments:
+      "fromIndex(\u0001) > toIndex(\u0001)"
+    ]
+    INVOKESPECIAL java/lang/IllegalArgumentException.<init> (Ljava/lang/String;)V
+    ATHROW
+   L5
+    LINENUMBER 936 L5
+   FRAME FULL [I I I] []
+    RETURN
+   L7
+    LOCALVARIABLE fromIndex I L0 L7 0
+    LOCALVARIABLE toIndex I L0 L7 1
+    LOCALVARIABLE size I L0 L7 2
+    MAXSTACK = 4
+    MAXLOCALS = 3
+}
+

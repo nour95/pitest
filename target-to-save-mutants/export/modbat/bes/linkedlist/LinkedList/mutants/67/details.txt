@@ -1,0 +1,1 @@
+MutationDetails [id=MutationIdentifier [location=Location [clazz=modbat.bes.linkedlist.LinkedList, method=clear, methodDesc=()V], indexes=[57], mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator], filename=LinkedList.java, block=3, lineNumber=471, description=Replaced integer addition with subtraction, testsInOrder=[], isInFinallyBlock=false, poison=NORMAL]

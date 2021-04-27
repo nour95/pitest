@@ -1,0 +1,1 @@
+MutationDetails [id=MutationIdentifier [location=Location [clazz=modbat.bes.arraylist.ArrayList, method=removeRange, methodDesc=(II)V], indexes=[41], mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator], filename=ArrayList.java, block=2, lineNumber=602, description=negated conditional, testsInOrder=[], isInFinallyBlock=false, poison=NORMAL]

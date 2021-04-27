@@ -1,1 +1,0 @@
-MutationDetails [id=MutationIdentifier [location=Location [clazz=modbat.bes.SimpleCounterBES, method=inc, methodDesc=()V], indexes=[16], mutator=org.pitest.mutationtest.engine.gregor.mutators.MathMutator], filename=SimpleCounterBES.java, block=2, lineNumber=15, description=Replaced integer addition with subtraction, testsInOrder=[], isInFinallyBlock=false, poison=NORMAL]

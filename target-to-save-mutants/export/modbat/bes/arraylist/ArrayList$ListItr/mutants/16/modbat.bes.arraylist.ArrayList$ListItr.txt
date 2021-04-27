@@ -1,0 +1,292 @@
+// class version 55.0 (55)
+// access flags 0x20
+// signature Lmodbat/bes/arraylist/ArrayList<TE;>.Itr;Ljava/util/ListIterator<TE;>;
+// declaration: modbat/bes/arraylist/ArrayList$ListItr extends modbat.bes.arraylist.ArrayList<E>.Itr implements java.util.ListIterator<E>
+class modbat/bes/arraylist/ArrayList$ListItr extends modbat/bes/arraylist/ArrayList$Itr implements java/util/ListIterator {
+
+  // compiled from: ArrayList.java
+  NESTHOST modbat/bes/arraylist/ArrayList
+  // access flags 0x2
+  private INNERCLASS modbat/bes/arraylist/ArrayList$ListItr modbat/bes/arraylist/ArrayList ListItr
+  // access flags 0x2
+  private INNERCLASS modbat/bes/arraylist/ArrayList$Itr modbat/bes/arraylist/ArrayList Itr
+
+  // access flags 0x1010
+  final synthetic Lmodbat/bes/arraylist/ArrayList; this$0
+
+  // access flags 0x0
+  <init>(Lmodbat/bes/arraylist/ArrayList;I)V
+   L0
+    LINENUMBER 837 L0
+    ALOAD 0
+    ALOAD 1
+    PUTFIELD modbat/bes/arraylist/ArrayList$ListItr.this$0 : Lmodbat/bes/arraylist/ArrayList;
+   L1
+    LINENUMBER 838 L1
+    ALOAD 0
+    ALOAD 1
+    INVOKESPECIAL modbat/bes/arraylist/ArrayList$Itr.<init> (Lmodbat/bes/arraylist/ArrayList;)V
+   L2
+    LINENUMBER 839 L2
+    ALOAD 0
+    ILOAD 2
+    PUTFIELD modbat/bes/arraylist/ArrayList$ListItr.cursor : I
+   L3
+    LINENUMBER 840 L3
+    RETURN
+   L4
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList$ListItr; L0 L4 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>.ListItr;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>.ListItr
+    LOCALVARIABLE index I L0 L4 2
+    MAXSTACK = 2
+    MAXLOCALS = 3
+
+  // access flags 0x1
+  public hasPrevious()Z
+   L0
+    LINENUMBER 843 L0
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList$ListItr.cursor : I
+    IFEQ L1
+    ICONST_1
+    GOTO L2
+   L1
+   FRAME FULL [modbat/bes/arraylist/ArrayList$ListItr] []
+    ICONST_0
+   L2
+   FRAME FULL [modbat/bes/arraylist/ArrayList$ListItr] [I]
+    IRETURN
+   L3
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList$ListItr; L0 L3 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>.ListItr;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>.ListItr
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public nextIndex()I
+   L0
+    LINENUMBER 847 L0
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList$ListItr.cursor : I
+    IRETURN
+   L1
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList$ListItr; L0 L1 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>.ListItr;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>.ListItr
+    MAXSTACK = 1
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  public previousIndex()I
+   L0
+    LINENUMBER 851 L0
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList$ListItr.cursor : I
+    ICONST_1
+    ISUB
+    IRETURN
+   L1
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList$ListItr; L0 L1 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>.ListItr;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>.ListItr
+    MAXSTACK = 2
+    MAXLOCALS = 1
+
+  // access flags 0x1
+  // signature ()TE;
+  // declaration: E previous()
+  public previous()Ljava/lang/Object;
+   L0
+    LINENUMBER 856 L0
+    ALOAD 0
+    INVOKEVIRTUAL modbat/bes/arraylist/ArrayList$ListItr.checkForComodification ()V
+   L1
+    LINENUMBER 857 L1
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList$ListItr.cursor : I
+    ICONST_1
+    ISUB
+    ISTORE 1
+   L2
+    LINENUMBER 858 L2
+    ILOAD 1
+    IFGE L3
+   L4
+    LINENUMBER 859 L4
+    NEW java/util/NoSuchElementException
+    DUP
+    INVOKESPECIAL java/util/NoSuchElementException.<init> ()V
+    ATHROW
+   L3
+    LINENUMBER 860 L3
+   FRAME FULL [modbat/bes/arraylist/ArrayList$ListItr I] []
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList$ListItr.this$0 : Lmodbat/bes/arraylist/ArrayList;
+    GETFIELD modbat/bes/arraylist/ArrayList.elementData : [Ljava/lang/Object;
+    ASTORE 2
+   L5
+    LINENUMBER 861 L5
+    ILOAD 1
+    ALOAD 2
+    ARRAYLENGTH
+    IF_ICMPLT L6
+   L7
+    LINENUMBER 862 L7
+    NEW java/util/ConcurrentModificationException
+    DUP
+    INVOKESPECIAL java/util/ConcurrentModificationException.<init> ()V
+    ATHROW
+   L6
+    LINENUMBER 863 L6
+   FRAME FULL [modbat/bes/arraylist/ArrayList$ListItr I [Ljava/lang/Object;] []
+    ALOAD 0
+    ILOAD 1
+    PUTFIELD modbat/bes/arraylist/ArrayList$ListItr.cursor : I
+   L8
+    LINENUMBER 864 L8
+    ALOAD 2
+    ALOAD 0
+    ILOAD 1
+    DUP_X1
+    PUTFIELD modbat/bes/arraylist/ArrayList$ListItr.lastRet : I
+    AALOAD
+    ARETURN
+   L9
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList$ListItr; L0 L9 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>.ListItr;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>.ListItr
+    LOCALVARIABLE i I L2 L9 1
+    LOCALVARIABLE elementData [Ljava/lang/Object; L5 L9 2
+    MAXSTACK = 4
+    MAXLOCALS = 3
+
+  // access flags 0x1
+  // signature (TE;)V
+  // declaration: void set(E)
+  public set(Ljava/lang/Object;)V
+    TRYCATCHBLOCK L0 L1 L2 java/lang/IndexOutOfBoundsException
+   L3
+    LINENUMBER 868 L3
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList$ListItr.lastRet : I
+    IFGE L4
+   L5
+    LINENUMBER 869 L5
+    NEW java/lang/IllegalStateException
+    DUP
+    INVOKESPECIAL java/lang/IllegalStateException.<init> ()V
+    ATHROW
+   L4
+    LINENUMBER 870 L4
+   FRAME FULL [modbat/bes/arraylist/ArrayList$ListItr java/lang/Object] []
+    ALOAD 0
+    INVOKEVIRTUAL modbat/bes/arraylist/ArrayList$ListItr.checkForComodification ()V
+   L0
+    LINENUMBER 873 L0
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList$ListItr.this$0 : Lmodbat/bes/arraylist/ArrayList;
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList$ListItr.lastRet : I
+    ALOAD 1
+    INVOKEVIRTUAL modbat/bes/arraylist/ArrayList.set (ILjava/lang/Object;)Ljava/lang/Object;
+    POP
+   L1
+    LINENUMBER 876 L1
+    GOTO L6
+   L2
+    LINENUMBER 874 L2
+   FRAME FULL [modbat/bes/arraylist/ArrayList$ListItr java/lang/Object] [java/lang/IndexOutOfBoundsException]
+    ASTORE 2
+   L7
+    LINENUMBER 875 L7
+    NEW java/util/ConcurrentModificationException
+    DUP
+    INVOKESPECIAL java/util/ConcurrentModificationException.<init> ()V
+    ATHROW
+   L6
+    LINENUMBER 877 L6
+   FRAME FULL [modbat/bes/arraylist/ArrayList$ListItr java/lang/Object] []
+    RETURN
+   L8
+    LOCALVARIABLE ex Ljava/lang/IndexOutOfBoundsException; L7 L6 2
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList$ListItr; L3 L8 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>.ListItr;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>.ListItr
+    LOCALVARIABLE e Ljava/lang/Object; L3 L8 1
+    // signature TE;
+    // declaration: e extends E
+    MAXSTACK = 3
+    MAXLOCALS = 3
+
+  // access flags 0x1
+  // signature (TE;)V
+  // declaration: void add(E)
+  public add(Ljava/lang/Object;)V
+    TRYCATCHBLOCK L0 L1 L2 java/lang/IndexOutOfBoundsException
+   L3
+    LINENUMBER 880 L3
+    ALOAD 0
+    POP
+   L0
+    LINENUMBER 883 L0
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList$ListItr.cursor : I
+    ISTORE 2
+   L4
+    LINENUMBER 884 L4
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList$ListItr.this$0 : Lmodbat/bes/arraylist/ArrayList;
+    ILOAD 2
+    ALOAD 1
+    INVOKEVIRTUAL modbat/bes/arraylist/ArrayList.add (ILjava/lang/Object;)V
+   L5
+    LINENUMBER 885 L5
+    ALOAD 0
+    ILOAD 2
+    ICONST_1
+    IADD
+    PUTFIELD modbat/bes/arraylist/ArrayList$ListItr.cursor : I
+   L6
+    LINENUMBER 886 L6
+    ALOAD 0
+    ICONST_M1
+    PUTFIELD modbat/bes/arraylist/ArrayList$ListItr.lastRet : I
+   L7
+    LINENUMBER 887 L7
+    ALOAD 0
+    ALOAD 0
+    GETFIELD modbat/bes/arraylist/ArrayList$ListItr.this$0 : Lmodbat/bes/arraylist/ArrayList;
+    GETFIELD modbat/bes/arraylist/ArrayList.modCount : I
+    PUTFIELD modbat/bes/arraylist/ArrayList$ListItr.expectedModCount : I
+   L1
+    LINENUMBER 890 L1
+    GOTO L8
+   L2
+    LINENUMBER 888 L2
+   FRAME FULL [modbat/bes/arraylist/ArrayList$ListItr java/lang/Object] [java/lang/IndexOutOfBoundsException]
+    ASTORE 2
+   L9
+    LINENUMBER 889 L9
+    NEW java/util/ConcurrentModificationException
+    DUP
+    INVOKESPECIAL java/util/ConcurrentModificationException.<init> ()V
+    ATHROW
+   L8
+    LINENUMBER 891 L8
+   FRAME FULL [modbat/bes/arraylist/ArrayList$ListItr java/lang/Object I] []
+    RETURN
+   L10
+    LOCALVARIABLE i I L4 L1 2
+    LOCALVARIABLE ex Ljava/lang/IndexOutOfBoundsException; L9 L8 2
+    LOCALVARIABLE this Lmodbat/bes/arraylist/ArrayList$ListItr; L3 L10 0
+    // signature Lmodbat/bes/arraylist/ArrayList<TE;>.ListItr;
+    // declaration: this extends modbat.bes.arraylist.ArrayList<E>.ListItr
+    LOCALVARIABLE e Ljava/lang/Object; L3 L10 1
+    // signature TE;
+    // declaration: e extends E
+    MAXSTACK = 3
+    MAXLOCALS = 3
+}
+
