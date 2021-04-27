@@ -287,7 +287,7 @@ public final class Mutator {
     return fromStrings(MUTATORS.keySet());
   }
 
-  private static Collection<MethodMutatorFactory> stronger() {
+  public static Collection<MethodMutatorFactory> stronger() {
     return combine(
         newDefaults(),
         group(new RemoveConditionalMutator(Choice.EQUAL, false),

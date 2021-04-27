@@ -37,7 +37,8 @@ public class WriteToDisk {
     public WriteToDisk(String source, String target) throws MalformedURLException {
         this.classLoader = new URLClassLoader(new URL[]{new File(source).toURI().toURL()});
         this.source = new ClassloaderByteArraySource(classLoader);
-        final Collection<MethodMutatorFactory> mutators = Mutator.newDefaults();
+//        final Collection<MethodMutatorFactory> mutators = Mutator.newDefaults();
+        final Collection<MethodMutatorFactory> mutators = Mutator.stronger();
         this.mutator = new GregorMutater(this.source, m -> true, mutators);
         this.fileSystem = FileSystems.getDefault();
         this.testee = new MutantExportInterceptor(this.fileSystem, this.source, target);
@@ -77,7 +78,9 @@ public class WriteToDisk {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         WriteToDisk wtd = new WriteToDisk(args[0], args[1]);
-        wtd.mutateAllIn(args[3]);
+//        wtd.mutateAllIn(args[3]);  //todo george what is the 2nd parameter
+        wtd.mutateAllIn(args[2]);
+
 //        WriteToDisk wtd = new WriteToDisk("classes-to-mutate", "target-to-save-mutants");
 //        wtd.mutateAllIn("classes-to-mutate.txt");
     }

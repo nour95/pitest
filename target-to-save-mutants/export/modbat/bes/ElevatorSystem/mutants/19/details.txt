@@ -1,0 +1,1 @@
+MutationDetails [id=MutationIdentifier [location=Location [clazz=modbat.bes.ElevatorSystem, method=closeDoor, methodDesc=()V], indexes=[41], mutator=org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator], filename=ElevatorSystem.java, block=2, lineNumber=53, description=changed conditional boundary, testsInOrder=[], isInFinallyBlock=false, poison=NORMAL]
