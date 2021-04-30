@@ -132,7 +132,7 @@ public class modbat/bes/ElevatorSystem {
     ALOAD 0
     GETFIELD modbat/bes/ElevatorSystem.openWarningCounter : I
     ICONST_5
-    IF_ICMPGT L7
+    IF_ICMPLT L7
     ALOAD 0
     GETFIELD modbat/bes/ElevatorSystem.closeWarningCounter : I
     ICONST_5

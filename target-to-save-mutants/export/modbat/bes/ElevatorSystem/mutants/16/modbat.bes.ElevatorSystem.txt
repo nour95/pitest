@@ -176,7 +176,7 @@ public class modbat/bes/ElevatorSystem {
     ALOAD 0
     GETFIELD modbat/bes/ElevatorSystem.closeWarningCounter : I
     ICONST_5
-    IF_ICMPLE L4
+    IF_ICMPGE L4
    L5
     LINENUMBER 49 L5
     ALOAD 0

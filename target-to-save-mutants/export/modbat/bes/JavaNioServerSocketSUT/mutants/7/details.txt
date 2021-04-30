@@ -1,1 +1,0 @@
-MutationDetails [id=MutationIdentifier [location=Location [clazz=modbat.bes.JavaNioServerSocketSUT, method=cleanup, methodDesc=()V], indexes=[21], mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator], filename=JavaNioServerSocketSUT.java, block=3, lineNumber=58, description=negated conditional, testsInOrder=[], isInFinallyBlock=false, poison=NORMAL]

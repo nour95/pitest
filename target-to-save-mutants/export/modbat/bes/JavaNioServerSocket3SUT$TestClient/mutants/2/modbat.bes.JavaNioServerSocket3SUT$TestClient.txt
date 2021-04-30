@@ -1,0 +1,132 @@
+// class version 55.0 (55)
+// access flags 0x20
+class modbat/bes/JavaNioServerSocket3SUT$TestClient extends java/lang/Thread {
+
+  // compiled from: JavaNioServerSocket3SUT.java
+  NESTHOST modbat/bes/JavaNioServerSocket3SUT
+  // access flags 0x2
+  private INNERCLASS modbat/bes/JavaNioServerSocket3SUT$TestClient modbat/bes/JavaNioServerSocket3SUT TestClient
+
+  // access flags 0x1010
+  final synthetic Lmodbat/bes/JavaNioServerSocket3SUT; this$0
+
+  // access flags 0x2
+  private <init>(Lmodbat/bes/JavaNioServerSocket3SUT;)V
+   L0
+    LINENUMBER 19 L0
+    ALOAD 0
+    ALOAD 1
+    PUTFIELD modbat/bes/JavaNioServerSocket3SUT$TestClient.this$0 : Lmodbat/bes/JavaNioServerSocket3SUT;
+    ALOAD 0
+    INVOKESPECIAL java/lang/Thread.<init> ()V
+    RETURN
+   L1
+    LOCALVARIABLE this Lmodbat/bes/JavaNioServerSocket3SUT$TestClient; L0 L1 0
+    MAXSTACK = 2
+    MAXLOCALS = 2
+
+  // access flags 0x1
+  public run()V
+    TRYCATCHBLOCK L0 L1 L2 java/nio/channels/ClosedByInterruptException
+    TRYCATCHBLOCK L0 L3 L4 java/io/IOException
+   L0
+    LINENUMBER 26 L0
+    INVOKESTATIC java/nio/channels/SocketChannel.open ()Ljava/nio/channels/SocketChannel;
+    ASTORE 1
+   L5
+    LINENUMBER 27 L5
+    ALOAD 1
+    NEW java/net/InetSocketAddress
+    DUP
+    LDC "localhost"
+    ALOAD 0
+    GETFIELD modbat/bes/JavaNioServerSocket3SUT$TestClient.this$0 : Lmodbat/bes/JavaNioServerSocket3SUT;
+    GETFIELD modbat/bes/JavaNioServerSocket3SUT.port : I
+    INVOKESPECIAL java/net/InetSocketAddress.<init> (Ljava/lang/String;I)V
+    INVOKEVIRTUAL java/nio/channels/SocketChannel.connect (Ljava/net/SocketAddress;)Z
+    POP
+   L6
+    LINENUMBER 28 L6
+    ICONST_2
+    INVOKESTATIC java/nio/ByteBuffer.allocate (I)Ljava/nio/ByteBuffer;
+    ASTORE 2
+   L7
+    LINENUMBER 29 L7
+    ALOAD 2
+    BIPUSH 42
+    INVOKEVIRTUAL java/nio/ByteBuffer.put (B)Ljava/nio/ByteBuffer;
+    POP
+   L8
+    LINENUMBER 30 L8
+    ALOAD 2
+    BIPUSH -2
+    INVOKEVIRTUAL java/nio/ByteBuffer.put (B)Ljava/nio/ByteBuffer;
+    POP
+   L9
+    LINENUMBER 31 L9
+    ALOAD 2
+    INVOKEVIRTUAL java/nio/ByteBuffer.flip ()Ljava/nio/ByteBuffer;
+    POP
+   L10
+    LINENUMBER 32 L10
+    ALOAD 1
+    ALOAD 2
+    INVOKEVIRTUAL java/nio/channels/SocketChannel.write (Ljava/nio/ByteBuffer;)I
+    POP
+   L11
+    LINENUMBER 33 L11
+    ALOAD 1
+    INVOKEVIRTUAL java/nio/channels/SocketChannel.close ()V
+   L1
+    LINENUMBER 39 L1
+    GOTO L3
+   L2
+    LINENUMBER 35 L2
+   FRAME FULL [modbat/bes/JavaNioServerSocket3SUT$TestClient] [java/nio/channels/ClosedByInterruptException]
+    ASTORE 1
+   L12
+    LINENUMBER 36 L12
+    ALOAD 0
+    GETFIELD modbat/bes/JavaNioServerSocket3SUT$TestClient.this$0 : Lmodbat/bes/JavaNioServerSocket3SUT;
+    GETFIELD modbat/bes/JavaNioServerSocket3SUT.connection : Ljava/nio/channels/SocketChannel;
+    IFNONNULL L3
+   L13
+    LINENUMBER 37 L13
+    ALOAD 0
+    GETFIELD modbat/bes/JavaNioServerSocket3SUT$TestClient.this$0 : Lmodbat/bes/JavaNioServerSocket3SUT;
+    GETFIELD modbat/bes/JavaNioServerSocket3SUT.connection : Ljava/nio/channels/SocketChannel;
+    INVOKEVIRTUAL java/nio/channels/SocketChannel.socket ()Ljava/net/Socket;
+    INVOKEVIRTUAL java/net/Socket.close ()V
+   L3
+    LINENUMBER 45 L3
+   FRAME FULL [modbat/bes/JavaNioServerSocket3SUT$TestClient java/lang/Object] []
+    GOTO L14
+   L4
+    LINENUMBER 42 L4
+   FRAME FULL [modbat/bes/JavaNioServerSocket3SUT$TestClient] [java/io/IOException]
+    ASTORE 1
+   L15
+    LINENUMBER 43 L15
+    ALOAD 1
+    INVOKEVIRTUAL java/io/IOException.printStackTrace ()V
+   L16
+    LINENUMBER 44 L16
+    NEW java/lang/RuntimeException
+    DUP
+    ALOAD 1
+    INVOKESPECIAL java/lang/RuntimeException.<init> (Ljava/lang/Throwable;)V
+    ATHROW
+   L14
+    LINENUMBER 46 L14
+   FRAME FULL [modbat/bes/JavaNioServerSocket3SUT$TestClient java/lang/Object] []
+    RETURN
+   L17
+    LOCALVARIABLE connection Ljava/nio/channels/SocketChannel; L5 L1 1
+    LOCALVARIABLE buf Ljava/nio/ByteBuffer; L7 L1 2
+    LOCALVARIABLE e Ljava/nio/channels/ClosedByInterruptException; L12 L3 1
+    LOCALVARIABLE e Ljava/io/IOException; L15 L14 1
+    LOCALVARIABLE this Lmodbat/bes/JavaNioServerSocket3SUT$TestClient; L0 L17 0
+    MAXSTACK = 5
+    MAXLOCALS = 3
+}
+

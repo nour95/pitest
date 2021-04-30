@@ -1,6 +1,4 @@
 modbat.bes.ElevatorSystem
-modbat.bes.JavaNioServerSocket2SUT
 modbat.bes.JavaNioServerSocket3SUT
-modbat.bes.JavaNioServerSocketSUT
-modbat.bes.JavaNioSocketSUT
+modbat.bes.JavaNioServerSocket3SUT$TestClient
 modbat.bes.SimpleCounterBES
